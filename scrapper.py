@@ -411,14 +411,9 @@ class Scrapper:
             page.goto(self.base_url)
 
             if self.detect_captcha(page):
-                if self.headless:
-                    context.close()
-                    raise PageBlockedError(
-                        f"[{self.type}] CAPTCHA sur {self.base_url} : "
-                        "une intervention manuelle est impossible en mode headless."
-                    )
-                print(f"[{self.type}] Résolvez le CAPTCHA...")
-                input(f"[{self.type}] ---> Appuyez sur Entrée une fois la page affichée normalement...")
+                if not self.headless:
+                    print(f"[{self.type}] Résolvez le CAPTCHA...")
+                    input(f"[{self.type}] ---> Appuyez sur Entrée une fois la page affichée normalement...")
 
             context.storage_state(path=self.session_state_file)
             context.close()
