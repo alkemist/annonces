@@ -1,6 +1,8 @@
 import json
 import math
+import os
 import re
+import sys
 import unicodedata
 import urllib.parse
 from pathlib import Path
@@ -331,6 +333,11 @@ class Scrapper:
         self.annonce_types = list(self.parameters["annonce_type"][annonce_type])
         self.page_step = 100
         self.max_loyer = max_loyer
+        self.headless = (
+            sys.platform.startswith("linux")
+            and not os.environ.get("DISPLAY")
+            and not os.environ.get("WAYLAND_DISPLAY")
+        )
 
         path = Path(f"profiles/{self.type}").resolve()
         path.mkdir(parents=True, exist_ok=True)
@@ -377,6 +384,11 @@ class Scrapper:
     def ensure_page_ready(self, page):
         if self.detect_captcha(page):
             page.wait_for_timeout(5000)
+            if self.headless and self.detect_captcha(page):
+                raise PageBlockedError(
+                    f"[{self.type}] CAPTCHA sur {page.url} : "
+                    "une intervention manuelle est impossible en mode headless."
+                )
 
     def get_next_page_url(self, page) -> str | None:
         return None
@@ -387,7 +399,7 @@ class Scrapper:
             context = p.chromium.launch_persistent_context(
                 user_data_dir=self.profil_dir,
                 channel="chromium",
-                headless=False,
+                headless=self.headless,
                 no_viewport=True,
                 locale="fr-FR",
                 ignore_default_args=["--enable-automation"],
@@ -399,6 +411,12 @@ class Scrapper:
             page.goto(self.base_url)
 
             if self.detect_captcha(page):
+                if self.headless:
+                    context.close()
+                    raise PageBlockedError(
+                        f"[{self.type}] CAPTCHA sur {self.base_url} : "
+                        "une intervention manuelle est impossible en mode headless."
+                    )
                 print(f"[{self.type}] Résolvez le CAPTCHA...")
                 input(f"[{self.type}] ---> Appuyez sur Entrée une fois la page affichée normalement...")
 
@@ -408,7 +426,7 @@ class Scrapper:
             print(f"[{self.type}] ✓ Session enregistrée dans le profil.")
 
             browser = p.chromium.launch(
-                headless=False,
+                headless=self.headless,
                 args=["--disable-blink-features=AutomationControlled"]
             )
 

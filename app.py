@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from scrapper import bool_or_none
+from scrapper import PageBlockedError, bool_or_none
 from scrapper_leboncoin import ScrapperLeboncoin
 from scrapper_pap import ScrapperPap
 from scrapper_bienici import ScrapperBienici
@@ -73,12 +73,16 @@ def run_search(file_key: str, code_postal: str, max_loyer: int | None) -> Path:
 
 def main():
     subprocess.run(
-        [sys.executable, "-m", "playwright", "install"],
+        [sys.executable, "-m", "playwright", "install", "chromium"],
         check=True,
     )
 
-    for search in SEARCHES:
-        run_search(**search)
+    try:
+        for search in SEARCHES:
+            run_search(**search)
+    except PageBlockedError as error:
+        st.error(str(error))
+        st.stop()
 
     subprocess.run(
         [sys.executable, str(OUTPUT_DIR / "export_html.py")],
