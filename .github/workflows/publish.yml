@@ -1,4 +1,4 @@
-name: Collect and publish report
+name: Export and publish report
 
 on:
   push:
@@ -31,26 +31,14 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: |
-          python -m pip install -r requirements.txt
-          python -m playwright install --with-deps chromium
+        run: python -m pip install -r requirements.txt
 
-      - name: Collect listings and generate report
+      - name: Generate report from existing CSV files
         run: |
-          python collect.py
+          python export_html.py
           test -s index.html
           mkdir -p public
           cp index.html public/index.html
-
-      - name: Save collected CSV files
-        uses: actions/upload-artifact@v4
-        with:
-          name: collected-listings
-          path: |
-            annonces_tournus.csv
-            annonces_neuville.csv
-          if-no-files-found: error
-          retention-days: 7
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
