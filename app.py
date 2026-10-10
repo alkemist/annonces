@@ -72,8 +72,14 @@ def run_search(file_key: str, code_postal: str, max_loyer: int | None) -> Path:
 
 
 def main():
+    subprocess.run(
+        [sys.executable, "-m", "playwright", "install"],
+        check=True,
+    )
+
     for search in SEARCHES:
         run_search(**search)
+
     subprocess.run(
         [sys.executable, str(OUTPUT_DIR / "export_html.py")],
         cwd=OUTPUT_DIR,
