@@ -3,7 +3,7 @@ import urllib.parse
 from datetime import datetime
 
 from bs4 import BeautifulSoup
-from autres.scrapper import (
+from scrapper import (
     Scrapper, TIMEOUT_MAX, PageBlockedError, clean_str, clean_city, clean_int,
     clean_float, extract_property_type_info, filter_property_type, filter_keywords,
     extract_heating_info, extract_balcony_info, extract_parking_info,

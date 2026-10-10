@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 from playwright.sync_api import sync_playwright
 
-from autres.scrapper import Scrapper, ANNONCES_MAX, TIMEOUT_MAX, clean_int, clean_bool, clean_float, \
+from scrapper import Scrapper, ANNONCES_MAX, TIMEOUT_MAX, clean_int, clean_bool, clean_float, \
     extract_heating_info, filter_keywords, extract_balcony_info, extract_parking_info, extract_elevator_info, \
     extract_energy_class_info, clean_city, extract_surface_info, extract_rooms_info, extract_rental_amounts, \
     extract_property_type_info, filter_property_type, extract_heating_type

@@ -6,12 +6,12 @@ from pathlib import Path
 
 import pandas as pd
 
-from autres.scrapper import bool_or_none
-from autres.scrapper_leboncoin import ScrapperLeboncoin
-from autres.scrapper_pap import ScrapperPap
-from autres.scrapper_bienici import ScrapperBienici
-from autres.scrapper_seloger import ScrapperSeloger
-from autres.scrapper_paruvendu import ScrapperParuvendu
+from scrapper import bool_or_none
+from scrapper_leboncoin import ScrapperLeboncoin
+from scrapper_pap import ScrapperPap
+from scrapper_bienici import ScrapperBienici
+from scrapper_seloger import ScrapperSeloger
+from scrapper_paruvendu import ScrapperParuvendu
 
 OUTPUT_DIR = Path(__file__).resolve().parent
 SEARCHES = [

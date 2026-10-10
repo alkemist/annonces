@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 from playwright.sync_api import sync_playwright
 
-from autres.scrapper import Scrapper, clean_str, filter_keywords, extract_heating_info, clean_int, clean_float, \
+from scrapper import Scrapper, clean_str, filter_keywords, extract_heating_info, clean_int, clean_float, \
     extract_balcony_info, extract_parking_info, extract_elevator_info, extract_energy_class_info, clean_city, \
     extract_surface_info, extract_rooms_info, extract_rental_amounts, extract_property_type_info, filter_property_type, \
     TIMEOUT_MAX

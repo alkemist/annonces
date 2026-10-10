@@ -3,7 +3,7 @@ import os
 import urllib.parse
 from datetime import datetime
 
-from autres.scrapper import Scrapper, clean_float, clean_int, clean_str, filter_keywords, extract_heating_info, \
+from scrapper import Scrapper, clean_float, clean_int, clean_str, filter_keywords, extract_heating_info, \
     extract_heating_type, extract_balcony_info, extract_parking_info, extract_elevator_info, extract_energy_class_info, \
     clean_city, extract_surface_info, extract_rooms_info, extract_rental_amounts, \
     extract_property_type_info, filter_property_type
