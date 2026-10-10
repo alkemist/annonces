@@ -1,0 +1,36 @@
+image: python:3.14
+
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - when: never
+
+variables:
+  PYTHONUNBUFFERED: "1"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+publish-report:
+  timeout: 1h
+  resource_group: pages
+  cache:
+    key:
+      files:
+        - requirements.txt
+    paths:
+      - .cache/pip/
+  script:
+    - python -m pip install -r requirements.txt
+    - python -m playwright install --with-deps chromium
+    - python collect.py
+    - test -s index.html
+    - mkdir -p public
+    - cp index.html public/index.html
+  pages:
+    publish: public
+    expire_in: never
+  artifacts:
+    paths:
+      - public/
+      - annonces_tournus.csv
+      - annonces_neuville.csv
+    expire_in: 7 days

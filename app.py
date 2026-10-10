@@ -71,6 +71,16 @@ def run_search(file_key: str, code_postal: str, max_loyer: int | None) -> Path:
     return output_file
 
 
+def run_collection():
+    for search in SEARCHES:
+        run_search(**search)
+    subprocess.run(
+        [sys.executable, str(OUTPUT_DIR / "export_html.py")],
+        cwd=OUTPUT_DIR,
+        check=True,
+    )
+
+
 def main():
     subprocess.run(
         [sys.executable, "-m", "playwright", "install", "chromium"],
@@ -78,21 +88,14 @@ def main():
     )
 
     try:
-        for search in SEARCHES:
-            run_search(**search)
+        run_collection()
     except PageBlockedError as error:
         st.error(str(error))
         st.stop()
 
-    subprocess.run(
-        [sys.executable, str(OUTPUT_DIR / "export_html.py")],
-        cwd=OUTPUT_DIR,
-        check=True,
-    )
-
     st.title("Mon Tableau de Bord")
 
-    with open(html_file_path, "r", encoding="utf-8") as f:
+    with open(OUTPUT_DIR / "index.html", "r", encoding="utf-8") as f:
         st.components.v1.html(f.read(), scrolling=True)
 
 
