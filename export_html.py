@@ -687,6 +687,9 @@ if __name__ == "__main__":
                     "pieces": "> 1",
                 },
                 "default_columns_hidden": ['caracteristiques', 'description'],
+                "columns_number": ["surface", "pieces", "loyer", "charges", "loyer_total", "depot", "frais_agence", "etage", "chambres", "salles_de_bain", "étages_total", "année"],
+                "columns_select": ["ville", "ascenseur", "balcon", "chauffage_type", "chauffage_mod", "parking", "classe", "site", "meuble", "type"],
+                "columns_nowrap": ["url", "titre"],
             },
         },
     }
