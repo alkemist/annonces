@@ -691,6 +691,6 @@ if __name__ == "__main__":
         },
     }
 
-    report_title = _title_from_file_mtime(BASE_DIR.parent / "annonces_tournus.csv")
+    report_title = _title_from_file_mtime("annonces_tournus.csv")
     result = export_table_html(config_data, "index.html", title=report_title)
     print(f"Rapport HTML généré : {result}")
