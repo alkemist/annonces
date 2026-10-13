@@ -20,36 +20,37 @@ SEARCHES = [
 ]
 
 
-def build_configs(code_postal: str, max_loyer: int | None) -> list[dict]:
+def build_configs(code_postal: str) -> list[dict]:
     pap_codes = {"71700": "71700-g5104", "01400": "01400-g521"}
     paruvendu_codes = {"71700": "71543", "01400": "01272"}
     return [
-        {"scrapper": ScrapperLeboncoin("location", max_loyer), "code_postaux": {code_postal: code_postal}},
-        {"scrapper": ScrapperPap("location", max_loyer), "code_postaux": {code_postal: pap_codes[code_postal]}},
-        {"scrapper": ScrapperBienici("location", max_loyer), "code_postaux": {code_postal: code_postal}},
-        {"scrapper": ScrapperSeloger("location", max_loyer), "code_postaux": {code_postal: code_postal}},
-        {"scrapper": ScrapperParuvendu("location", max_loyer), "code_postaux": {code_postal: paruvendu_codes[code_postal]}},
+        {"scrapper": ScrapperLeboncoin("location"), "code_postaux": {code_postal: code_postal}},
+        {"scrapper": ScrapperPap("location"), "code_postaux": {code_postal: pap_codes[code_postal]}},
+        {"scrapper": ScrapperBienici("location"), "code_postaux": {code_postal: code_postal}},
+        {"scrapper": ScrapperSeloger("location"), "code_postaux": {code_postal: code_postal}},
+        {"scrapper": ScrapperParuvendu("location"), "code_postaux": {code_postal: paruvendu_codes[code_postal]}},
     ]
 
 TARGET_COLUMNS = [
     "site", "titre", "ville", "meuble", "type", "surface", "pieces", "loyer",
     "charges", "loyer_total", "depot", "frais_agence", "étage", "ascenseur",
     "chambres", "salles_de_bain", "balcon", "chauffage_type", "chauffage_mode",
-    "parking", "classe", "étages_total", "année", "caracteristiques", "description", "url",
+    "parking", "classe", "étages_total", "année", "caracteristiques", "description",
+    "annonceur", "type_annonceur", "url",
     "date_annonce", "date_update"
 ]
 
 INTEGER_COLUMNS = ("pieces", "étage", "chambres", "salles_de_bain", "étages_total", "année", "surface", "loyer", "charges", "loyer_total", "depot", "frais_agence")
 BOOLEAN_COLUMNS = ("ascenseur", "balcon", "parking")
 
-def run_search(file_key: str, code_postal: str, max_loyer: int | None) -> Path:
+def run_search(file_key: str, code_postal: str) -> Path:
     output_file = OUTPUT_DIR / f"annonces_{file_key}.csv"
     if output_file.exists():
         df_existant = pd.read_csv(output_file)
     else:
         df_existant = pd.DataFrame(columns=TARGET_COLUMNS)
 
-    for config in build_configs(code_postal, max_loyer):
+    for config in build_configs(code_postal):
         annonces = config["scrapper"].start(dict(config["code_postaux"]))
         df_nouveau = pd.DataFrame(annonces, columns=TARGET_COLUMNS)
         df_existant = pd.concat([df_existant, df_nouveau], ignore_index=True)
@@ -67,6 +68,7 @@ def run_search(file_key: str, code_postal: str, max_loyer: int | None) -> Path:
             lambda value: int(value) if pd.notna(value) else pd.NA
         ).astype("Int64")
 
+    df_existant = df_existant.reindex(columns=TARGET_COLUMNS)
     df_existant.to_csv(output_file, index=False)
     return output_file
 

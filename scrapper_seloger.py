@@ -6,11 +6,11 @@ from playwright.sync_api import sync_playwright
 from scrapper import Scrapper, clean_str, filter_keywords, extract_heating_info, clean_int, clean_float, \
     extract_balcony_info, extract_parking_info, extract_elevator_info, extract_energy_class_info, clean_city, \
     extract_surface_info, extract_rooms_info, extract_rental_amounts, extract_property_type_info, filter_property_type, \
-    TIMEOUT_MAX
+    TIMEOUT_MAX, detect_advertiser_type, extract_advertiser_from_text, extract_furnished_info
 
 
 class ScrapperSeloger(Scrapper):
-    def __init__(self, annonce_type: str, max_loyer: int = None ):
+    def __init__(self, annonce_type: str):
         super().__init__(
             "seloger",
             base_url="https://www.seloger.com/",
@@ -22,7 +22,6 @@ class ScrapperSeloger(Scrapper):
                 }
             },
             annonce_type=annonce_type,
-            max_loyer=max_loyer,
         )
 
     def get_parameters(self, p, code_postal: str) -> dict:
@@ -66,10 +65,13 @@ class ScrapperSeloger(Scrapper):
                 desc_elem = annonce.query_selector('[data-testid="cardmfe-description-text-test-id"]')
                 desc = desc_elem.inner_text() if desc_elem is not None else None
 
-                if url:
-                    cards.append((url, price, classe_dpe, desc))
+                agency_elem = annonce.query_selector('[data-testid*="agency"], [data-testid*="pro"], [class*="Agency"], [class*="agency"]')
+                card_agency = clean_str(agency_elem.inner_text()) if agency_elem else None
 
-        for url, price, classe_dpe, desc in cards:
+                if url:
+                    cards.append((url, price, classe_dpe, desc, card_agency))
+
+        for url, price, classe_dpe, desc, card_agency in cards:
             page.wait_for_timeout(1000)
             page.goto(url, wait_until="domcontentloaded", timeout=TIMEOUT_MAX)
             now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -82,6 +84,7 @@ class ScrapperSeloger(Scrapper):
                 "date_update": now_str,
             }
 
+            agency_name = card_agency
             json_ld_scripts = page.query_selector_all('script[type="application/ld+json"]')
             surface_value = None
             rooms_value = None
@@ -90,21 +93,44 @@ class ScrapperSeloger(Scrapper):
 
             for script in json_ld_scripts:
                 content = script.inner_text()
-                ld_data = json.loads(content)
+                try:
+                    ld_data = json.loads(content)
+                except Exception:
+                    continue
 
-                if ld_data.get('@type') == 'RealEstateListing':
-                    data['date_annonce'] = ld_data.get('datePosted')
-                    data['description'] = ld_data.get('description')
-                    listing_description = ld_data.get('description')
-                    data['titre'] = ld_data.get('name')
+                if isinstance(ld_data, dict):
+                    if ld_data.get('@type') in ('RealEstateAgent', 'Organization', 'RealEstateAgency', 'LocalBusiness') and ld_data.get('name'):
+                        agency_name = clean_str(ld_data.get('name'))
 
-                    item = ld_data.get('itemOffered', {})
-                    data['type'] = extract_property_type_info(item.get('@type'))
-                    rooms_value = item.get('numberOfRooms')
-                    surface_value = item.get('floorSize', {}).get('value')
+                    if ld_data.get('@type') == 'RealEstateListing':
+                        data['date_annonce'] = ld_data.get('datePosted')
+                        data['description'] = ld_data.get('description')
+                        listing_description = ld_data.get('description')
+                        data['titre'] = ld_data.get('name')
 
-                    offers = ld_data.get('offers', {})
-                    total_value = offers.get('price')
+                        item = ld_data.get('itemOffered', {})
+                        data['type'] = extract_property_type_info(item.get('@type'))
+                        rooms_value = item.get('numberOfRooms')
+                        surface_value = item.get('floorSize', {}).get('value')
+
+                        offers = ld_data.get('offers', {})
+                        total_value = offers.get('price')
+
+                        for key in ['provider', 'author', 'broker', 'seller', 'offeredBy']:
+                            val = ld_data.get(key)
+                            if isinstance(val, dict) and val.get('name'):
+                                agency_name = clean_str(val.get('name'))
+                                break
+                            elif isinstance(val, str) and val:
+                                agency_name = clean_str(val)
+                                break
+
+                        if isinstance(offers, dict):
+                            for key in ['seller', 'offeredBy', 'broker']:
+                                val = offers.get(key)
+                                if isinstance(val, dict) and val.get('name'):
+                                    agency_name = clean_str(val.get('name'))
+                                    break
 
             if (
                 'titre' in data
@@ -182,6 +208,28 @@ class ScrapperSeloger(Scrapper):
                     if data.get("chauffage_type") is None:
                         data["chauffage_type"] = extract_heating.get("type")
 
+                if not agency_name:
+                    for selector in [
+                        '[data-testid="cdp-agency-heading"]',
+                        '[data-testid="cdp-agency-name"]',
+                        '[data-testid="agency-name"]',
+                        '[data-testid="contact-agency-name"]',
+                        '[data-testid="cardmfe-agency-name-testid"]',
+                        'a[href*="/agence-immobiliere/"]',
+                        'a[href*="/professionnels/"]',
+                        '.agency-name',
+                        '.c-agency-name',
+                    ]:
+                        elem = page.query_selector(selector)
+                        if elem:
+                            text = clean_str(elem.inner_text())
+                            if text and len(text) > 2:
+                                agency_name = text
+                                break
+
+                if not agency_name and desc_text:
+                    agency_name = extract_advertiser_from_text(desc_text)
+
                 data["caracteristiques"] = feature_texts
                 data["description"] = desc_text
                 amenity_values = feature_texts + [desc_text, data.get("description"), data["titre"]]
@@ -198,9 +246,21 @@ class ScrapperSeloger(Scrapper):
                     [total_value, price] + numeric_values,
                 ))
 
+                type_annonceur = detect_advertiser_type(
+                    frais_agence=data.get("frais_agence"),
+                    advertiser_name=agency_name,
+                )
+                if not type_annonceur:
+                    if agency_name or data.get("frais_agence") or page.query_selector('a[href*="/agence-immobiliere/"]'):
+                        type_annonceur = "Professionnel"
+                    elif desc_text and re.search(r"\bparticulier\b", desc_text, re.IGNORECASE):
+                        type_annonceur = "Particulier"
+                    else:
+                        type_annonceur = "Professionnel"
 
-                if self.max_loyer is not None and data["loyer_total"] is not None and (int(data["loyer_total"]) > self.max_loyer):
-                    continue
+                data["annonceur"] = agency_name
+                data["type_annonceur"] = type_annonceur
+                data["meuble"] = extract_furnished_info([data.get("meuble"), data.get("titre"), desc_text] + feature_texts)
 
                 annonces.append(data)
 

@@ -8,12 +8,13 @@ from scrapper import (
     clean_float, extract_property_type_info, filter_property_type, filter_keywords,
     extract_heating_info, extract_balcony_info, extract_parking_info,
     extract_elevator_info, extract_energy_class_info, extract_surface_info,
-    extract_rooms_info, extract_rental_amounts,
+    extract_rooms_info, extract_rental_amounts, detect_advertiser_type,
+    extract_advertiser_from_text, extract_furnished_info,
 )
 
 
 class ScrapperParuvendu(Scrapper):
-    def __init__(self, annonce_type: str, max_loyer: int = None ):
+    def __init__(self, annonce_type: str):
         super().__init__(
             "paruvendu",
             base_url="https://www.paruvendu.fr/",
@@ -25,17 +26,18 @@ class ScrapperParuvendu(Scrapper):
                 }
             },
             annonce_type=annonce_type,
-            max_loyer=max_loyer,
         )
 
     def detect_captcha(self, page) -> bool:
-        soup = BeautifulSoup(page.content(), "html.parser")
+        content = page.content()
+        soup = BeautifulSoup(content, "html.parser")
         return (
             soup.select_one("#challenge-form, #challenge-running, iframe[src*='captcha']") is not None
             or bool(re.search(
                 r"just a moment|attention required",
                 soup.title.get_text() if soup.title else "", re.IGNORECASE,
             ))
+            or ("trafic inhabituel" in content)
         )
 
     def ensure_page_ready(self, page):
@@ -134,16 +136,46 @@ class ScrapperParuvendu(Scrapper):
             ] + values),
             "étages_total": integer_field(r"\b(?:sur|nombre\s+d['’]étages\s*:?)\s*(\d+)\s*étages?\b"),
             "année": integer_field(r"\b(?:construction|construit\s+en)\s*:?\s*(\d{4})"),
-            "caracteristiques": characteristics, "description": description, "url": url,
+            "caracteristiques": characteristics, "description": description,
+            "annonceur": None, "type_annonceur": None,
+            "url": url,
             "date_annonce": date_match.group(1) if date_match else None,
             "date_update": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         }
-        if re.search(r"\bnon\s+meublé", " ".join(value for value in values if value), re.IGNORECASE):
-            data["meuble"] = "Non meublé"
-        elif re.search(r"\bmeublé", " ".join(value for value in values if value), re.IGNORECASE):
-            data["meuble"] = "Meublé"
-        if self.max_loyer is not None and data["loyer_total"] is not None and data["loyer_total"] > self.max_loyer:
-            return None
+
+        annonceur = None
+        pro_el = soup.select_one(".infos_annonceur p, #detail_infosvendeur .infos_annonceur p")
+        if pro_el:
+            annonceur = clean_str(pro_el.get_text(" ", strip=True))
+        if not annonceur:
+            part_el = soup.select_one(".txtpresentation-vendeur strong, #detail_infosvendeur strong")
+            if part_el:
+                annonceur = clean_str(part_el.get_text(" ", strip=True))
+        if not annonceur:
+            logo_img = soup.select_one("#detail_infosvendeur img[alt]")
+            if logo_img and logo_img.get("alt"):
+                annonceur = clean_str(logo_img["alt"])
+        if not annonceur and description:
+            annonceur = extract_advertiser_from_text(description)
+
+        type_hint = None
+        if soup.select_one("a[href*='/immobilier/pro/']") or soup.select_one(".auto12_logopro, .fcbx_contactAnnonceur_Pro, .infos_annonceur"):
+            type_hint = "Professionnel"
+        elif soup.select_one(".txtpresentation-vendeur") or "utilisateurparticulier" in str(soup.select_one("#detail_infosvendeur")) or "particulier" in url:
+            type_hint = "Particulier"
+
+        type_annonceur = detect_advertiser_type(
+            advertiser_type=type_hint,
+            frais_agence=data.get("frais_agence"),
+            advertiser_name=annonceur,
+        )
+        if not type_annonceur:
+            type_annonceur = type_hint or ("Professionnel" if data.get("frais_agence") else "Particulier")
+
+        data["annonceur"] = annonceur
+        data["type_annonceur"] = type_annonceur
+        data["meuble"] = extract_furnished_info(values)
+
         return data
 
     def scrap(self, page):

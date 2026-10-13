@@ -283,6 +283,71 @@ def extract_energy_class_info(values: list[str | None]) -> str | None:
 
     return None
 
+def extract_furnished_info(values: list[str | None]) -> str | None:
+    def normalize(val: str | None) -> str:
+        text = unicodedata.normalize("NFKD", clean_str(val) or "").casefold()
+        return "".join(char for char in text if not unicodedata.combining(char))
+
+    for val in values:
+        if not val:
+            continue
+        val_norm = normalize(val).strip()
+        if val_norm in {"non meuble", "unfurnished", "false", "non"}:
+            return "Non meublé"
+        if val_norm in {"meuble", "furnished", "true", "oui"}:
+            return "Meublé"
+
+    full_text = " ".join(clean_str(v) for v in values if v)
+    if not full_text:
+        return None
+
+    norm_text = normalize(full_text)
+
+    # 1. Non meublé / vide
+    non_meuble_pattern = (
+        r"\b(?:non[\s-]meubl(?:e|es|ee|ees)?|pas\s+meubl(?:e|es|ee|ees)?|"
+        r"(?:bail|location|appartement|logement|maison)\s+vide|lou(?:e|es|ee|ees)?\s+vide)\b"
+    )
+    if re.search(non_meuble_pattern, norm_text):
+        return "Non meublé"
+
+    # 2. Supprimer les mentions relatives uniquement au mobilier de cuisine / salle de bain
+    cleaned_norm_text = re.sub(
+        r"\bcuisine\s+(?:entierement\s+|completement\s+)?(?:equipee\s+(?:et\s+)?|amenagee\s+(?:et\s+)?)?meubl(?:e|ee|es|ees)?\b",
+        "", norm_text
+    )
+    cleaned_norm_text = re.sub(
+        r"\bcuisine\s+meubl(?:e|ee|es|ees)?\s+(?:et\s+)?(?:equipee?|amenagee?)\b",
+        "", cleaned_norm_text
+    )
+    cleaned_norm_text = re.sub(
+        r"\b(?:avec\s+)?meubles?\s+hauts?\s+et\s+bas\b",
+        "", cleaned_norm_text
+    )
+    cleaned_norm_text = re.sub(
+        r"\bcuisine\s+amenagee\s*\([^)]*meubles?[^)]*\)",
+        "", cleaned_norm_text
+    )
+    cleaned_norm_text = re.sub(
+        r"\bcuisine\s+meubl(?:e|ee)?\b",
+        "", cleaned_norm_text
+    )
+    cleaned_norm_text = re.sub(
+        r"\bmeubles?\s+de\s+(?:cuisine|salle\s+d['\s]?eau|salle\s+de\s+bains?)\b",
+        "", cleaned_norm_text
+    )
+
+    # 3. Meublé
+    meuble_pattern = (
+        r"\b(?:entierement\s+|tout\s+|pleinement\s+)?meubl(?:e|es|ee|ees)?\b|"
+        r"\b(?:bail|location)\s+meubl(?:e|es|ee|ees)?\b|"
+        r"\blou(?:e|es|ee|ees)?\s+meubl(?:e|es|ee|ees)?\b"
+    )
+    if re.search(meuble_pattern, cleaned_norm_text):
+        return "Meublé"
+
+    return None
+
 def _extract_amenity_info(
     values: list[str | int | float | None], terms: str, label: str,
 ) -> bool | None:
@@ -322,17 +387,61 @@ def _extract_amenity_info(
 
     return False if absence_found else None
 
+def extract_advertiser_from_text(text: str | None) -> str | None:
+    if not text:
+        return None
+    patterns = [
+        r"(?:contactez|contacter)\s+(?:votre\s+)?(?:agence\s+)?([A-ZÀ-ÖØ-ß][A-Za-zÀ-ÖØ-öø-ÿ0-9\s'-]{2,35}?(?:Immobilier|Immo|Conseil|Habitat|Transactions?|Gestion))",
+        r"\b([A-ZÀ-ÖØ-ß][A-Za-zÀ-ÖØ-öø-ÿ0-9\s'-]{2,35}?\s+Immobilier)\b",
+        r"\b(Agence\s+[A-ZÀ-ÖØ-ß][A-Za-zÀ-ÖØ-öø-ÿ0-9\s'-]{2,35})\b",
+        r"\b(Cabinet\s+[A-ZÀ-ÖØ-ß][A-Za-zÀ-ÖØ-öø-ÿ0-9\s'-]{2,35})\b",
+    ]
+    for pattern in patterns:
+        m = re.search(pattern, text)
+        if m:
+            candidate = clean_str(m.group(1))
+            if candidate and len(candidate) > 3:
+                cand_lower = candidate.lower()
+                if cand_lower not in {
+                    "ce bien immobilier", "un bien immobilier", "le bien immobilier",
+                    "tout bien immobilier", "projet immobilier", "secteur immobilier",
+                    "marché immobilier", "complexe immobilier", "ensemble immobilier"
+                }:
+                    return candidate
+    return None
+
+def detect_advertiser_type(
+    advertiser_type: str | None = None,
+    frais_agence: int | float | None = None,
+    advertiser_name: str | None = None,
+) -> str | None:
+    if advertiser_type:
+        norm = str(advertiser_type).strip().lower()
+        if norm in {"pro", "professionnel", "agency", "agence", "societe", "société", "company"}:
+            return "Professionnel"
+        if norm in {"private", "particulier", "particular", "part", "proprietaire", "propriétaire"}:
+            return "Particulier"
+
+    if frais_agence is not None and not pd.isna(frais_agence) and float(frais_agence) > 0:
+        return "Professionnel"
+
+    if advertiser_name:
+        name_lower = advertiser_name.lower()
+        if any(term in name_lower for term in ["immo", "agence", "cabinet", "notaire", "gestion", "sarl", "sas", "sci"]):
+            return "Professionnel"
+
+    return None
+
 class Scrapper:
     uses_link_pagination = False
 
-    def __init__(self, type: str, base_url: str, url_template: str, parameters: dict, annonce_type: str, max_loyer: int = None):
+    def __init__(self, type: str, base_url: str, url_template: str, parameters: dict, annonce_type: str):
         self.type = type
         self.base_url = base_url
         self.url_template = url_template
         self.parameters = parameters
         self.annonce_types = list(self.parameters["annonce_type"][annonce_type])
         self.page_step = 100
-        self.max_loyer = max_loyer
         self.headless = (
             sys.platform.startswith("linux")
             and not os.environ.get("DISPLAY")
@@ -384,11 +493,15 @@ class Scrapper:
     def ensure_page_ready(self, page):
         if self.detect_captcha(page):
             page.wait_for_timeout(5000)
-            if self.headless and self.detect_captcha(page):
+            if self.headless:
                 raise PageBlockedError(
                     f"[{self.type}] CAPTCHA sur {page.url} : "
                     "une intervention manuelle est impossible en mode headless."
                 )
+            else:
+                print(f"[{self.type}] Résolvez le CAPTCHA...")
+                input(f"[{self.type}] ---> Appuyez sur Entrée une fois la page affichée normalement...")
+
 
     def get_next_page_url(self, page) -> str | None:
         return None

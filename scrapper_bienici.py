@@ -6,11 +6,12 @@ from datetime import datetime
 from scrapper import Scrapper, clean_float, clean_int, clean_str, filter_keywords, extract_heating_info, \
     extract_heating_type, extract_balcony_info, extract_parking_info, extract_elevator_info, extract_energy_class_info, \
     clean_city, extract_surface_info, extract_rooms_info, extract_rental_amounts, \
-    extract_property_type_info, filter_property_type
+    extract_property_type_info, filter_property_type, detect_advertiser_type, extract_advertiser_from_text, \
+    extract_furnished_info
 
 
 class ScrapperBienici(Scrapper):
-    def __init__(self, annonce_type: str, max_loyer: int = None ):
+    def __init__(self, annonce_type: str):
         json_template = (
             '{"size":__PAGE_STEP__,"from":__PAGE_FROM__,"filterType":"__ANNONCE_TYPE__",'
             '"propertyType":["house","flat","loft","castle","townhouse"],"page":__PAGE_NUM__,'
@@ -51,7 +52,6 @@ class ScrapperBienici(Scrapper):
                 },
             },
             annonce_type=annonce_type,
-            max_loyer=max_loyer,
         )
 
     def get_parameters(self, p, code_postal: str) -> dict:
@@ -98,7 +98,9 @@ class ScrapperBienici(Scrapper):
                 filter_property_type(bien_type)
                 and filter_keywords(titre, annonce.get("description"))
             ):
-                meuble = "Meublé" if annonce.get("isFurnished") else "Non meublé" if annonce.get("isFurnished") is not None else None
+                meuble_flag = "Meublé" if annonce.get("isFurnished") is True else ("Non meublé" if annonce.get("isFurnished") is False else None)
+                description = annonce.get('description')
+                meuble = extract_furnished_info([meuble_flag, titre, description])
                 city = annonce.get("city")
                 cp = annonce.get("postalCode")
                 heating = clean_str(annonce.get("heating", "").lower())
@@ -107,7 +109,6 @@ class ScrapperBienici(Scrapper):
                 chauffage_type = extract_heating.get("type") if extract_heating.get("type") else None
                 chauffage_mode = extract_heating.get("mode")
 
-                description = annonce.get('description')
                 numeric_values = [description, titre]
                 rental_amounts = extract_rental_amounts(
                     [annonce.get("price")] + numeric_values,
@@ -147,10 +148,30 @@ class ScrapperBienici(Scrapper):
                     "étages_total": None,
                     "année": None,
                     "description": description,
+                    "annonceur": None,
+                    "type_annonceur": None,
                     "url": f"https://www.bienici.com/annonce/{annonce.get('id')}",
                     "date_annonce": annonce.get("modificationDate"),
                     "date_update": now_str,
                 }
+
+                annonceur = clean_str(annonce.get("accountDisplayName"))
+                if not annonceur and description:
+                    annonceur = extract_advertiser_from_text(description)
+
+                ad_by_pro = annonce.get("adCreatedByPro")
+                account_type = annonce.get("accountType")
+                type_hint = "Professionnel" if ad_by_pro is True else ("Particulier" if ad_by_pro is False else account_type)
+                type_annonceur = detect_advertiser_type(
+                    advertiser_type=type_hint,
+                    frais_agence=data.get("frais_agence"),
+                    advertiser_name=annonceur,
+                )
+                if not type_annonceur:
+                    type_annonceur = "Professionnel" if (ad_by_pro or annonceur) else None
+
+                data["annonceur"] = annonceur
+                data["type_annonceur"] = type_annonceur
 
                 if "description" in data and data["description"] is not None:
                     extract_heating = extract_heating_info(data['description'])
@@ -158,9 +179,6 @@ class ScrapperBienici(Scrapper):
                         data["chauffage_mode"] = extract_heating.get("mode")
                     if data.get("chauffage_type") is None:
                         data["chauffage_type"] = extract_heating.get("type")
-
-                if self.max_loyer is not None and data["loyer_total"] is not None and (int(data["loyer_total"]) > self.max_loyer):
-                    continue
 
                 annonces.append(data)
 

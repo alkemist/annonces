@@ -2,14 +2,15 @@ import json
 from datetime import datetime
 from playwright.sync_api import sync_playwright
 
-from scrapper import Scrapper, ANNONCES_MAX, TIMEOUT_MAX, clean_int, clean_bool, clean_float, \
+from scrapper import Scrapper, ANNONCES_MAX, TIMEOUT_MAX, clean_int, clean_bool, clean_float, clean_str, \
     extract_heating_info, filter_keywords, extract_balcony_info, extract_parking_info, extract_elevator_info, \
     extract_energy_class_info, clean_city, extract_surface_info, extract_rooms_info, extract_rental_amounts, \
-    extract_property_type_info, filter_property_type, extract_heating_type
+    extract_property_type_info, filter_property_type, extract_heating_type, detect_advertiser_type, \
+    extract_advertiser_from_text, extract_furnished_info
 
 
 class ScrapperLeboncoin(Scrapper):
-    def __init__(self, annonce_type: str, max_loyer: int = None):
+    def __init__(self, annonce_type: str):
         super().__init__(
             "leboncoin",
             base_url="https://www.leboncoin.fr/",
@@ -24,7 +25,6 @@ class ScrapperLeboncoin(Scrapper):
                 }
             },
             annonce_type=annonce_type,
-            max_loyer=max_loyer,
         )
 
     def detect_captcha(self, page) -> bool:
@@ -59,12 +59,12 @@ class ScrapperLeboncoin(Scrapper):
                             and filter_property_type(bien_type)
                             and filter_keywords(titre, annonce.get("body"))
                         ):
-                            now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                            meuble = next((attr.get("value_label") for attr in attributes if attr.get("key") == "furnished"), None)
-
                             location = dict(annonce.get("location"))
 
                             caracteristiques = next((attr.get("values_label") for attr in attributes if attr.get("key") == "specificities"), []) or []
+                            now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                            meuble_attr = next((attr.get("value_label") for attr in attributes if attr.get("key") == "furnished"), None)
+                            meuble = extract_furnished_info([meuble_attr, titre, annonce.get("body")] + caracteristiques)
                             numeric_values = caracteristiques + [annonce.get("body"), titre]
                             price = annonce.get("price")
                             price_values = price if isinstance(price, list) else [price]
@@ -113,10 +113,35 @@ class ScrapperLeboncoin(Scrapper):
                                     next((attr.get("value") for attr in attributes if attr.get("key") == "building_year"), None)
                                 ),
                                 "caracteristiques": caracteristiques,
+                                "description": clean_str(annonce.get("body")),
+                                "annonceur": None,
+                                "type_annonceur": None,
                                 "url": annonce.get("url"),
                                 "date_annonce": annonce.get("index_date"),
                                 "date_update": now_str,
                             }
+
+                            owner = annonce.get("owner") or {}
+                            if not isinstance(owner, dict):
+                                owner = {}
+                            annonceur = clean_str(owner.get("name"))
+                            if not annonceur and data["description"]:
+                                annonceur = extract_advertiser_from_text(data["description"])
+
+                            owner_type = owner.get("type") or annonce.get("sellerType")
+                            type_annonceur = detect_advertiser_type(
+                                advertiser_type=owner_type,
+                                frais_agence=data.get("frais_agence"),
+                                advertiser_name=annonceur,
+                            )
+                            if not type_annonceur:
+                                if owner.get("siren") or (data.get("frais_agence") and data["frais_agence"] > 0):
+                                    type_annonceur = "Professionnel"
+                                elif owner_type in ("private", "particulier"):
+                                    type_annonceur = "Particulier"
+
+                            data["annonceur"] = annonceur
+                            data["type_annonceur"] = type_annonceur
 
                             chauffage_type = next((attr.get("value_label") for attr in attributes if attr.get("key") == "heating_mode"), None)
                             if chauffage_type == 'Autre':
@@ -149,9 +174,6 @@ class ScrapperLeboncoin(Scrapper):
                                     data["chauffage_mode"] = extract_heating.get("mode")
                                 if data.get("chauffage_type") is None:
                                     data["chauffage_type"] = extract_heating.get("type")
-
-                            if self.max_loyer is not None and data["loyer_total"] is not None and (int(data["loyer_total"]) > self.max_loyer):
-                                continue
 
                             annonces.append(data)
 

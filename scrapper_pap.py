@@ -8,14 +8,14 @@ from scrapper import (
     extract_property_type_info, filter_property_type, filter_keywords,
     extract_heating_info, extract_balcony_info, extract_parking_info,
     extract_elevator_info, extract_energy_class_info, extract_surface_info,
-    extract_rooms_info, extract_rental_amounts,
+    extract_rooms_info, extract_rental_amounts, extract_furnished_info,
 )
 
 
 class ScrapperPap(Scrapper):
     uses_link_pagination = True
 
-    def __init__(self, annonce_type: str, max_loyer: int = None ):
+    def __init__(self, annonce_type: str):
         super().__init__(
             "pap",
             base_url="https://www.pap.fr/",
@@ -27,7 +27,6 @@ class ScrapperPap(Scrapper):
                 }
             },
             annonce_type=annonce_type,
-            max_loyer=max_loyer,
         )
 
     def detect_captcha(self, page) -> bool:
@@ -139,11 +138,16 @@ class ScrapperPap(Scrapper):
                 dpe_el = soup.find("span", class_=re.compile(r"dpe-grade-"))
                 dpe_value = dpe_el.get_text(" ", strip=True) if dpe_el else None
 
+                contact_nom_el = soup.select_one(".contact-nom, .item-contact-name, .contact-name, .owner-name, [class*='contact'] strong")
+                annonceur = clean_str(contact_nom_el.get_text(" ", strip=True)) if contact_nom_el else "Particulier"
+                type_annonceur = "Particulier"
+
                 data = {
                     "site": self.type,
                     "titre": titre,
                     "ville": ville,
                     "type": bien_type,
+                    "meuble": extract_furnished_info([titre, description] + caracteristiques),
                     "surface": extract_surface_info(values),
                     "pieces": extract_rooms_info(values),
                     **rental_amounts,
@@ -162,6 +166,8 @@ class ScrapperPap(Scrapper):
                     "année": None,
                     "description": description,
                     "caracteristiques": caracteristiques,
+                    "annonceur": annonceur,
+                    "type_annonceur": type_annonceur,
                     "url": url,
                     "date_annonce": None,
                     "date_update": now_str,
@@ -198,9 +204,6 @@ class ScrapperPap(Scrapper):
                 )
                 if etage_match:
                     data["étage"] = clean_int(etage_match.group(1))
-
-                if self.max_loyer is not None and data["loyer_total"] is not None and data["loyer_total"] > self.max_loyer:
-                    continue
 
                 annonces.append(data)
             except PageBlockedError:
