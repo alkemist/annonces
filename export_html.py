@@ -673,6 +673,7 @@ if __name__ == "__main__":
                 "default_filters": {
                     "loyer_total": "< 650",
                     "pieces": "> 1",
+                    "type_annonceur": "Particulier",
                 },
                 "default_columns_hidden": ['caracteristiques', 'description'],
                 "columns_number": ["surface", "pieces", "loyer", "charges", "loyer_total", "depot", "frais_agence", "etage", "chambres", "salles_de_bain", "étages_total", "année"],
@@ -681,7 +682,7 @@ if __name__ == "__main__":
             },
             "Neuville": {
                 "path": "annonces_neuville.csv",
-                "groups": ["ville", "meuble", "type"],
+                "groups": ["ville"],
                 "highlight_error_columns": [],
                 "default_filters": {
                     "pieces": "> 1",
