@@ -664,33 +664,33 @@ def export_table_html(config: dict, output_path: str, title: str = "Rapport") ->
 
 
 if __name__ == "__main__":
+    config_shared = {
+        "highlight_error_columns": [],
+        "default_columns_hidden": ['caracteristiques', 'description'],
+        "columns_number": ["surface", "pieces", "loyer", "charges", "loyer_total", "depot", "frais_agence", "etage", "chambres", "salles_de_bain", "étages_total", "année"],
+        "columns_select": ["ville", "ascenseur", "balcon", "chauffage_type", "chauffage_mod", "parking", "classe", "site", "meuble", "type", "type_annonceur"],
+        "columns_nowrap": ["url", "titre", "annonceur"],
+    }
+
     config_data = {
         "Annonces": {
             "Tournus": {
                 "path": "annonces_tournus.csv",
-                "groups": ["meuble", "type"],
-                "highlight_error_columns": [],
+                "groups": ["ville"],
                 "default_filters": {
                     "loyer_total": "< 650",
                     "pieces": "> 1",
                     "type_annonceur": "Particulier",
                 },
-                "default_columns_hidden": ['caracteristiques', 'description'],
-                "columns_number": ["surface", "pieces", "loyer", "charges", "loyer_total", "depot", "frais_agence", "etage", "chambres", "salles_de_bain", "étages_total", "année"],
-                "columns_select": ["ville", "ascenseur", "balcon", "chauffage_type", "chauffage_mod", "parking", "classe", "site", "meuble", "type", "type_annonceur"],
-                "columns_nowrap": ["url", "titre", "annonceur"],
+                **config_shared,
             },
             "Neuville": {
                 "path": "annonces_neuville.csv",
                 "groups": ["ville"],
-                "highlight_error_columns": [],
                 "default_filters": {
                     "pieces": "> 1",
                 },
-                "default_columns_hidden": ['caracteristiques', 'description'],
-                "columns_number": ["surface", "pieces", "loyer", "charges", "loyer_total", "depot", "frais_agence", "etage", "chambres", "salles_de_bain", "étages_total", "année"],
-                "columns_select": ["ville", "ascenseur", "balcon", "chauffage_type", "chauffage_mod", "parking", "classe", "site", "meuble", "type", "type_annonceur"],
-                "columns_nowrap": ["url", "titre", "annonceur"],
+                **config_shared,
             },
         },
     }
