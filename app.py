@@ -15,8 +15,8 @@ from scrapper_paruvendu import ScrapperParuvendu
 
 OUTPUT_DIR = Path(__file__).resolve().parent
 SEARCHES = [
-    {"file_key": "tournus", "code_postal": "71700", "max_loyer": 650},
-    {"file_key": "neuville", "code_postal": "01400", "max_loyer": None},
+    {"file_key": "tournus", "code_postal": "71700"},
+    {"file_key": "neuville", "code_postal": "01400"},
 ]
 
 

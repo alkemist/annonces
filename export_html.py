@@ -37,9 +37,23 @@ Utilisation :
 import csv
 import html
 import json
+from datetime import datetime
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
+
+
+def _title_from_file_mtime(path, prefix: str = "Rapport au") -> str:
+    """Construit un titre de type "Rapport au 13/10 à 01:00" à partir de la date de
+    dernière modification du fichier indiqué.
+
+    :param path: chemin du fichier dont on lit la date de modification.
+    :param prefix: préfixe du titre généré.
+    :return: le titre formaté.
+    """
+    file_path = Path(path)
+    mtime = datetime.fromtimestamp(file_path.stat().st_mtime)
+    return f"{prefix} {mtime.strftime('%d/%m')} à {mtime.strftime('%H:%M')}"
 
 TABULATOR_VERSION = "6.5.0"
 TABULATOR_CSS = f"https://unpkg.com/tabulator-tables@{TABULATOR_VERSION}/dist/css/tabulator_modern.min.css"
@@ -656,7 +670,10 @@ if __name__ == "__main__":
                 "path": "annonces_tournus.csv",
                 "groups": ["meuble", "type"],
                 "highlight_error_columns": [],
-                "default_filters": {},
+                "default_filters": {
+                    "loyer_total": "< 650",
+                    "pieces": "> 1",
+                },
                 "default_columns_hidden": ['caracteristiques', 'description'],
                 "columns_number": ["surface", "pieces", "loyer", "charges", "loyer_total", "depot", "frais_agence", "etage", "chambres", "salles_de_bain", "étages_total", "année"],
                 "columns_select": ["ville", "ascenseur", "balcon", "chauffage_type", "chauffage_mod", "parking", "classe", "site", "meuble", "type"],
@@ -664,13 +681,16 @@ if __name__ == "__main__":
             },
             "Neuville": {
                 "path": "annonces_neuville.csv",
-                "groups": ["meuble", "type"],
+                "groups": ["ville", "meuble", "type"],
                 "highlight_error_columns": [],
-                "default_filters": {},
+                "default_filters": {
+                    "pieces": "> 1",
+                },
                 "default_columns_hidden": ['caracteristiques', 'description'],
             },
         },
     }
 
-    result = export_table_html(config_data, "index.html", title="Rapport au 15/08 à 10h00")
+    report_title = _title_from_file_mtime(BASE_DIR.parent / "annonces_tournus.csv")
+    result = export_table_html(config_data, "index.html", title=report_title)
     print(f"Rapport HTML généré : {result}")
