@@ -1,0 +1,5 @@
+conversation_id,sender,content,order,type,subjects
+76a60efa-8dac-4db4-a42c-abf2cc0c5950,me,"Bonjour, est ce que vous pouvez me confirmer que c'est gratuit ? Devons nous signer un certificat d'engagement ? Merci d'avance pour votre retour",1,question,"[""free"", ""certificat""]"
+97b8ce59-871b-4a85-9282-cdc0785b9d41,me,"Bonjour, est-ce c'est bien un don gratuit ? et est-ce que vous fournissez un certificat d'engagement ?
+Merci",1,question,"[""free"", ""certificat""]"
+97b8ce59-871b-4a85-9282-cdc0785b9d41,author,"Bonjour, non il n’est pas gratuit car on ne peut pas marquer payant et non je n’ai pas de certificat d’engagement",2,answer,"[""free"", ""certificat""]"

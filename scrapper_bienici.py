@@ -3,11 +3,13 @@ import os
 import urllib.parse
 from datetime import datetime
 
-from scrapper import Scrapper, clean_float, clean_int, clean_str, filter_keywords, extract_heating_info, \
-    extract_heating_type, extract_balcony_info, extract_parking_info, extract_elevator_info, extract_energy_class_info, \
-    clean_city, extract_surface_info, extract_rooms_info, extract_rental_amounts, \
-    extract_property_type_info, filter_property_type, detect_advertiser_type, extract_advertiser_from_text, \
-    extract_furnished_info
+from utils import clean_int, clean_bool, clean_float, clean_str, \
+    extract_heating_info, filter_keywords, extract_balcony_info, extract_parking_info, extract_elevator_info, \
+    extract_energy_class_info, clean_city, extract_surface_info, extract_rooms_info, extract_rental_amounts, \
+    extract_property_type_info, filter_property_type, extract_heating_type, detect_advertiser_type, \
+    extract_advertiser_from_text, extract_furnished_info
+
+from scrapper import PageBlockedError, Scrapper
 
 
 class ScrapperBienici(Scrapper):
@@ -54,13 +56,13 @@ class ScrapperBienici(Scrapper):
             annonce_type=annonce_type,
         )
 
-    def get_parameters(self, p, code_postal: str) -> dict:
+    def get_parameters(self, p, code_postal: str, text: str) -> dict:
         url = f"https://res.bienici.com/suggest.json?q={code_postal}++(toutes+les+villes)&type=city%2Cdelegated-city%2Cdepartment%2CpostalCode%2Cregion"
 
         print(f"[{self.type}] Récupération des paramètres pour le code postal '{code_postal}' via l'API : {url}...")
 
         p.wait_for_timeout(1000)
-        response = p.goto(url)
+        response = self.navigate(p, url)
         data = response.json()
 
         if not data or not isinstance(data, list) or len(data) == 0:
@@ -80,13 +82,13 @@ class ScrapperBienici(Scrapper):
             ),
         }
 
-    def detect_captcha(self, page) -> bool:
+    def detect_captcha(self) -> bool:
         return False
 
-    def scrap(self, page):
+    def scrap(self, el):
         annonces = []
 
-        list_annonces = page.get("realEstateAds", [])
+        list_annonces = el.get("realEstateAds", [])
 
         for annonce in list_annonces:
             now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")

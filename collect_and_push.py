@@ -2,7 +2,7 @@ import subprocess
 import sys
 from datetime import datetime
 
-from app import OUTPUT_DIR, SEARCHES, run_collection
+from collect import OUTPUT_DIR, SEARCHES, run_collection
 
 
 def git(*args: str) -> str:
@@ -23,7 +23,7 @@ def main():
     if remote == "." or not target.startswith("refs/heads/"):
         raise RuntimeError("La branche doit suivre une branche distante pour publier les annonces.")
 
-    files = [f"annonces_{search['file_key']}.csv" for search in SEARCHES]
+    files = [f"output/annonces_{search['file_key']}.csv" for search in SEARCHES]
     files.append("index.html")
     if git("status", "--porcelain", "--", *files):
         raise RuntimeError(

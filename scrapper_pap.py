@@ -3,14 +3,13 @@ import urllib.parse
 from datetime import datetime
 
 from bs4 import BeautifulSoup
-from scrapper import (
-    Scrapper, TIMEOUT_MAX, PageBlockedError, clean_str, clean_city, clean_int, clean_float,
-    extract_property_type_info, filter_property_type, filter_keywords,
-    extract_heating_info, extract_balcony_info, extract_parking_info,
-    extract_elevator_info, extract_energy_class_info, extract_surface_info,
-    extract_rooms_info, extract_rental_amounts, extract_furnished_info,
-)
+from utils import clean_int, clean_bool, clean_float, clean_str, \
+    extract_heating_info, filter_keywords, extract_balcony_info, extract_parking_info, extract_elevator_info, \
+    extract_energy_class_info, clean_city, extract_surface_info, extract_rooms_info, extract_rental_amounts, \
+    extract_property_type_info, filter_property_type, extract_heating_type, detect_advertiser_type, \
+    extract_advertiser_from_text, extract_furnished_info, TIMEOUT_MAX
 
+from scrapper import PageBlockedError, Scrapper
 
 class ScrapperPap(Scrapper):
     uses_link_pagination = True
@@ -29,22 +28,34 @@ class ScrapperPap(Scrapper):
             annonce_type=annonce_type,
         )
 
-    def detect_captcha(self, page) -> bool:
-        soup = BeautifulSoup(page.content(), "html.parser")
-        return (
-            soup.select_one("#challenge-running, #challenge-form, .g-recaptcha, iframe[src*='captcha']") is not None
-            or bool(re.search(
-                r"just a moment|attention required|vérification de sécurité",
-                soup.title.get_text() if soup.title else "", re.IGNORECASE,
-            ))
+    def detect_captcha(self) -> bool:
+        soup = BeautifulSoup(self.page.content(), "html.parser")
+        element = soup.select_one("#challenge-running, #challenge-form")
+        if element is not None:
+            self.print_log(
+                f"CAPTCHA détecté sur {self.page.url} : "
+                f"balise <{element.name}>, id={element.get('id')!r}, src={element.get('src')!r}"
+            )
+            return True
+        title = soup.title.get_text() if soup.title else ""
+        match = re.search(
+            r"just a moment|attention required|vérification de sécurité",
+            title, re.IGNORECASE,
         )
+        if match:
+            self.print_log(
+                f"CAPTCHA détecté sur {self.page.url} : "
+                f"motif {match.group()!r} dans le titre {title!r}"
+            )
+            return True
+        return False
 
-    def get_next_page_url(self, page) -> str | None:
-        soup = BeautifulSoup(page.content(), "html.parser")
-        current_match = re.search(r"-(\d+)$", urllib.parse.urlsplit(page.url).path)
+    def get_next_page_url(self) -> str | None:
+        soup = BeautifulSoup(self.page.content(), "html.parser")
+        current_match = re.search(r"-(\d+)$", urllib.parse.urlsplit(self.page.url).path)
         current_page = int(current_match.group(1)) if current_match else 1
         for link in soup.find_all("a", href=True):
-            href = urllib.parse.urljoin(page.url, link["href"])
+            href = urllib.parse.urljoin(self.page.url, link["href"])
             parsed = urllib.parse.urlsplit(href)
             if parsed.netloc != urllib.parse.urlsplit(self.base_url).netloc:
                 continue
@@ -59,10 +70,10 @@ class ScrapperPap(Scrapper):
                 return href
         return None
 
-    def scrap(self, page):
+    def scrap(self, el):
         annonces = []
 
-        html = page.content()
+        html = el.content()
         soup = BeautifulSoup(html, "html.parser")
 
         links = []
@@ -77,11 +88,11 @@ class ScrapperPap(Scrapper):
             now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             try:
-                page.wait_for_timeout(1000)
-                page.goto(url, wait_until="domcontentloaded", timeout=TIMEOUT_MAX)
-                self.ensure_page_ready(page)
+                el.wait_for_timeout(1000)
+                self.navigate(el, url, wait_until="domcontentloaded", timeout=TIMEOUT_MAX)
+                self.ensure_page_ready()
 
-                html = page.content()
+                html = el.content()
                 soup = BeautifulSoup(html, "html.parser")
 
                 title_el = soup.find("h1", class_="item-title")
@@ -108,7 +119,7 @@ class ScrapperPap(Scrapper):
                     continue
 
                 city_match = re.search(
-                    r"([^,]*?)\s*\((\d{5})\)\s*$", titre or "",
+                    r"(.*?)\s*\((\d{5})\)", titre or "",
                 )
                 ville = None
                 if city_match:
@@ -122,6 +133,8 @@ class ScrapperPap(Scrapper):
                             "", city_text, flags=re.IGNORECASE,
                         )
                     ville = clean_city(f"{city_text} ({city_match.group(2)})")
+                if not ville:
+                    self.print_log(f"Ville introuvable pour l'annonce : {url}")
 
                 price_el = soup.find("span", class_="item-price")
                 price_text = clean_str(price_el.get_text(" ", strip=True)) if price_el else None

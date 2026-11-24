@@ -1,39 +1,3 @@
-"""Génère un rapport HTML autonome (sans serveur) avec des onglets contenant soit une image,
-soit un tableau Tabulator.
-
-La configuration est un dictionnaire dont les clés sont les noms d'onglets. Un onglet "feuille"
-est un dictionnaire contenant au moins "path" :
-
-  {
-    "Déploiements": {
-      "path": "output/versions_deployed_by_server.csv",
-      "groups": ["server", "env"],
-      "highlight_error_columns": ["error_front", "error_back"],
-      "default_filters": {"server": "build_1"},
-      "default_columns_hidden": ["url"],
-      "columns_select": ["server", "env", "module"],
-      "columns_number": ["version_major"],
-      "columns_nowrap": ["version_front"],
-    },
-    "Schéma": {
-      "type": "image",
-      "path": "output/schema_deploiement.png",
-    },
-    "Tickets": {
-      "Par version": {"path": "output/tickets_by_version.csv"},
-      "Par module": {"path": "output/versions_published_by_module.csv"},
-    },
-  }
-
-Une valeur non feuille (un dictionnaire dont les valeurs sont elles-mêmes des dictionnaires sans
-"path") crée un groupe d'onglets imbriqué : chaque clé devient un sous-onglet, à n'importe quelle
-profondeur.
-
-Utilisation :
-    from export_table import export_table_html
-    export_table_html(config, "output/rapport.html", title="Rapport Synapse")
-"""
-
 import csv
 import html
 import json
@@ -456,7 +420,7 @@ def _is_leaf_config(node) -> bool:
 
 
 def _build_table_panel(tab_id: str, cfg: dict, base_dir: Path) -> str:
-    csv_path = Path(cfg["path"])
+    csv_path = Path(f"output/{cfg["path"]}")
     if not csv_path.is_absolute():
         csv_path = (base_dir / csv_path).resolve()
 
@@ -497,6 +461,8 @@ def _build_table_panel(tab_id: str, cfg: dict, base_dir: Path) -> str:
             }
             list_filter_fields.append({"field": column, "multiselect": is_multiselect})
         elif column in columns_number:
+            column_def["sorter"] = "number"
+            column_def["sorterParams"] = {"alignEmptyValues": "bottom"}
             column_def["headerFilter"] = "input"
             column_def["headerFilterFunc"] = "__NUMBER_FILTER__"
             column_def["headerFilterPlaceholder"] = "=, <, > valeur"
@@ -523,6 +489,7 @@ def _build_table_panel(tab_id: str, cfg: dict, base_dir: Path) -> str:
         "columns": column_defs,
         "groupBy": groups,
         "initialHeaderFilter": initial_header_filter,
+        "initialSort": cfg.get("initial_sort", []),
         "rowFormatter": "__ROW_FORMATTER__",
         "data": rows,
     }
@@ -667,13 +634,22 @@ if __name__ == "__main__":
     config_shared = {
         "highlight_error_columns": [],
         "default_columns_hidden": ['caracteristiques', 'description'],
-        "columns_number": ["surface", "pieces", "loyer", "charges", "loyer_total", "depot", "frais_agence", "etage", "chambres", "salles_de_bain", "étages_total", "année"],
+        "columns_number": ["distance", "surface", "pieces", "loyer", "charges", "loyer_total", "depot", "frais_agence", "etage", "chambres", "salles_de_bain", "étages_total", "année"],
         "columns_select": ["ville", "ascenseur", "balcon", "chauffage_type", "chauffage_mod", "parking", "classe", "site", "meuble", "type", "type_annonceur"],
         "columns_nowrap": ["url", "titre", "annonceur"],
+        "initial_sort": [{"column": "distance", "dir": "asc"}],
     }
 
     config_data = {
         "Annonces": {
+            "Neuville": {
+                "path": "annonces_neuville.csv",
+                "groups": ["ville"],
+                "default_filters": {
+                    "pieces": "> 1",
+                },
+                **config_shared,
+            },
             "Tournus": {
                 "path": "annonces_tournus.csv",
                 "groups": ["ville"],
@@ -684,17 +660,9 @@ if __name__ == "__main__":
                 },
                 **config_shared,
             },
-            "Neuville": {
-                "path": "annonces_neuville.csv",
-                "groups": ["ville"],
-                "default_filters": {
-                    "pieces": "> 1",
-                },
-                **config_shared,
-            },
         },
     }
 
-    report_title = _title_from_file_mtime("annonces_tournus.csv")
+    report_title = _title_from_file_mtime("output/annonces_tournus.csv")
     result = export_table_html(config_data, "index.html", title=report_title)
     print(f"Rapport HTML généré : {result}")

@@ -3,22 +3,20 @@ import urllib.parse
 from datetime import datetime
 
 from bs4 import BeautifulSoup
-from scrapper import (
-    Scrapper, TIMEOUT_MAX, PageBlockedError, clean_str, clean_city, clean_int,
-    clean_float, extract_property_type_info, filter_property_type, filter_keywords,
-    extract_heating_info, extract_balcony_info, extract_parking_info,
-    extract_elevator_info, extract_energy_class_info, extract_surface_info,
-    extract_rooms_info, extract_rental_amounts, detect_advertiser_type,
-    extract_advertiser_from_text, extract_furnished_info,
-)
+from utils import clean_int, clean_bool, clean_float, clean_str, \
+    extract_heating_info, filter_keywords, extract_balcony_info, extract_parking_info, extract_elevator_info, \
+    extract_energy_class_info, clean_city, extract_surface_info, extract_rooms_info, extract_rental_amounts, \
+    extract_property_type_info, filter_property_type, extract_heating_type, detect_advertiser_type, \
+    extract_advertiser_from_text, extract_furnished_info, TIMEOUT_MAX
 
+from scrapper import PageBlockedError, Scrapper
 
 class ScrapperParuvendu(Scrapper):
     def __init__(self, annonce_type: str):
         super().__init__(
             "paruvendu",
             base_url="https://www.paruvendu.fr/",
-            url_template="immobilier/{annonce_type}/test-test/?codeINSEE={code_postal},&p={page_num}&rechpv=1&tt=5&tbApp=1&tbDup=1&tbChb=1&tbLof=1&tbAtl=1&tbPla=1&tbMai=1&tbVil=1&tbCha=1&tbPro=1&tbHot=1&tbMou=1&ddlFiltres=nofilter&prestige=0",
+            url_template="immobilier/{annonce_type}/test-test/?codeINSEE={code_postal},&p={page_num}&lol=15&rechpv=1&tt=5&tbApp=1&tbDup=1&tbChb=1&tbLof=1&tbAtl=1&tbPla=1&tbMai=1&tbVil=1&tbCha=1&tbPro=1&tbHot=1&tbMou=1&ddlFiltres=nofilter&prestige=0",
             parameters={
                 "annonce_type": {
                     "location": ['recherche/location/appartement'],
@@ -28,8 +26,8 @@ class ScrapperParuvendu(Scrapper):
             annonce_type=annonce_type,
         )
 
-    def detect_captcha(self, page) -> bool:
-        content = page.content()
+    def detect_captcha(self) -> bool:
+        content = self.page.content()
         soup = BeautifulSoup(content, "html.parser")
         return (
             soup.select_one("#challenge-form, #challenge-running, iframe[src*='captcha']") is not None
@@ -40,10 +38,10 @@ class ScrapperParuvendu(Scrapper):
             or ("trafic inhabituel" in content)
         )
 
-    def ensure_page_ready(self, page):
-        super().ensure_page_ready(page)
-        if self.detect_captcha(page):
-            raise PageBlockedError(f"[{self.type}] Page bloquée : {page.url}")
+    def ensure_page_ready(self):
+        super().ensure_page_ready()
+        if self.detect_captcha():
+            raise PageBlockedError(f"[{self.type}] Page bloquée : {self.page.url}")
 
     def _extract_annonce(self, soup, url: str) -> dict | None:
         title_el = soup.select_one("#detail_h1")
@@ -178,10 +176,10 @@ class ScrapperParuvendu(Scrapper):
 
         return data
 
-    def scrap(self, page):
+    def scrap(self, el):
         annonces = []
 
-        html = page.content()
+        html = el.content()
         soup = BeautifulSoup(html, "html.parser")
 
         links = list(dict.fromkeys(
@@ -189,15 +187,15 @@ class ScrapperParuvendu(Scrapper):
             for link in soup.select("div.blocAnnonce > div.flex > a[href*='/immobilier/']")
         ))
 
-        print(f"[{self.type}] {len(links)} annonces trouvées sur la page {page.url}")
+        print(f"[{self.type}] {len(links)} annonces trouvées sur la page {el.url}")
 
         for url in links:
             try:
-                page.wait_for_timeout(1000)
-                page.goto(url, wait_until="domcontentloaded", timeout=TIMEOUT_MAX)
-                self.ensure_page_ready(page)
+                el.wait_for_timeout(1000)
+                self.navigate(el, url, wait_until="domcontentloaded", timeout=TIMEOUT_MAX)
+                self.ensure_page_ready()
 
-                html = page.content()
+                html = el.content()
                 soup = BeautifulSoup(html, "html.parser")
                 data = self._extract_annonce(soup, url)
                 if data is not None:

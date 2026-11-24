@@ -3,11 +3,13 @@ import re
 from datetime import datetime
 from playwright.sync_api import sync_playwright
 
-from scrapper import Scrapper, clean_str, filter_keywords, extract_heating_info, clean_int, clean_float, \
-    extract_balcony_info, extract_parking_info, extract_elevator_info, extract_energy_class_info, clean_city, \
-    extract_surface_info, extract_rooms_info, extract_rental_amounts, extract_property_type_info, filter_property_type, \
-    TIMEOUT_MAX, detect_advertiser_type, extract_advertiser_from_text, extract_furnished_info
+from utils import clean_int, clean_bool, clean_float, clean_str, \
+    extract_heating_info, filter_keywords, extract_balcony_info, extract_parking_info, extract_elevator_info, \
+    extract_energy_class_info, clean_city, extract_surface_info, extract_rooms_info, extract_rental_amounts, \
+    extract_property_type_info, filter_property_type, extract_heating_type, detect_advertiser_type, \
+    extract_advertiser_from_text, extract_furnished_info, TIMEOUT_MAX
 
+from scrapper import PageBlockedError, Scrapper
 
 class ScrapperSeloger(Scrapper):
     def __init__(self, annonce_type: str):
@@ -24,13 +26,13 @@ class ScrapperSeloger(Scrapper):
             annonce_type=annonce_type,
         )
 
-    def get_parameters(self, p, code_postal: str) -> dict:
+    def get_parameters(self, p, code_postal: str, text: str) -> dict:
         url = f"https://www.seloger.com/search-mfe-bff/autocomplete/suggestion?query={code_postal}&limit=5&distributionType=Buy"
 
         print(f"[{self.type}] Récupération des paramètres pour le code postal '{code_postal}' via l'API : {url}...")
 
         p.wait_for_timeout(1000)
-        response = p.goto(url)
+        response = self.navigate(p, url)
         data = response.json()
 
         if not data or "items" not in data or not data['items']:
@@ -40,14 +42,14 @@ class ScrapperSeloger(Scrapper):
             'locations': data['items'][0]['criteria']['location']['placeIds'][0]
         }
 
-    def detect_captcha(self, page) -> bool:
+    def detect_captcha(self) -> bool:
         print(f"[{self.type}] Vérification de la présence d'un CAPTCHA...")
-        return page.title() == "seloger.com"
+        return self.page.title() == "seloger.com"
 
-    def scrap(self, page):
+    def scrap(self, el):
         annonces = []
 
-        list_annonces = page.query_selector_all('[data-testid="serp-core-classified-card-testid"]')
+        list_annonces = el.query_selector_all('[data-testid="serp-core-classified-card-testid"]')
 
         cards = []
         for annonce in list_annonces:
@@ -72,8 +74,8 @@ class ScrapperSeloger(Scrapper):
                     cards.append((url, price, classe_dpe, desc, card_agency))
 
         for url, price, classe_dpe, desc, card_agency in cards:
-            page.wait_for_timeout(1000)
-            page.goto(url, wait_until="domcontentloaded", timeout=TIMEOUT_MAX)
+            self.page.wait_for_timeout(1000)
+            self.navigate(self.page, url, wait_until="domcontentloaded", timeout=TIMEOUT_MAX)
             now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             data = {
@@ -85,7 +87,7 @@ class ScrapperSeloger(Scrapper):
             }
 
             agency_name = card_agency
-            json_ld_scripts = page.query_selector_all('script[type="application/ld+json"]')
+            json_ld_scripts = self.page.query_selector_all('script[type="application/ld+json"]')
             surface_value = None
             rooms_value = None
             total_value = None
@@ -137,30 +139,30 @@ class ScrapperSeloger(Scrapper):
                 and filter_property_type(data.get("type"))
                 and filter_keywords(data['titre'], listing_description, desc)
             ):
-                address_elem = page.query_selector('[data-testid="cdp-location-address"]')
+                address_elem = self.page.query_selector('[data-testid="cdp-location-address"]')
                 if address_elem:
                     data["ville"] = clean_city(address_elem.inner_text())
 
-                charges_elem = page.locator('text="Charges forfaitaires"').locator('..').locator('..')
+                charges_elem = self.page.locator('text="Charges forfaitaires"').locator('..').locator('..')
                 charges_text = None
                 if charges_elem.count() > 0:
                     charges_text = charges_elem.first.inner_text()
 
-                depot_elem = page.locator('text="Dépôt de garantie"').locator('..').locator('..')
+                depot_elem = self.page.locator('text="Dépôt de garantie"').locator('..').locator('..')
                 if depot_elem.count() > 0:
                     depot_text = depot_elem.first.inner_text()
                     match = re.search(r'([\d\s]+)\s*€', depot_text)
                     if match:
                         data["depot"] = float(match.group(1).replace(' ', ''))
 
-                frais_elem = page.locator('text="Honoraires"').locator('..').locator('..')
+                frais_elem = self.page.locator('text="Honoraires"').locator('..').locator('..')
                 if frais_elem.count() > 0:
                     frais_text = frais_elem.first.inner_text()
                     match = re.search(r'([\d\s]+)\s*€', frais_text)
                     if match:
                         data["frais_agence"] = float(match.group(1).replace(' ', ''))
 
-                features = page.query_selector_all('ul.FeaturesPreview li span.css-qjxbdv')
+                features = self.page.query_selector_all('ul.FeaturesPreview li span.css-qjxbdv')
                 feature_texts = []
                 for feat in features:
                     text = feat.inner_text().strip()
@@ -176,7 +178,7 @@ class ScrapperSeloger(Scrapper):
                     if chambre_match:
                         data["chambres"] = int(chambre_match.group(1))
 
-                description_elem = page.query_selector('[data-testid="cdp-main-description-expandable-text"]')
+                description_elem = self.page.query_selector('[data-testid="cdp-main-description-expandable-text"]')
                 desc_text = ''
 
                 if description_elem:
@@ -220,7 +222,7 @@ class ScrapperSeloger(Scrapper):
                         '.agency-name',
                         '.c-agency-name',
                     ]:
-                        elem = page.query_selector(selector)
+                        elem = self.page.query_selector(selector)
                         if elem:
                             text = clean_str(elem.inner_text())
                             if text and len(text) > 2:
@@ -251,7 +253,7 @@ class ScrapperSeloger(Scrapper):
                     advertiser_name=agency_name,
                 )
                 if not type_annonceur:
-                    if agency_name or data.get("frais_agence") or page.query_selector('a[href*="/agence-immobiliere/"]'):
+                    if agency_name or data.get("frais_agence") or self.page.query_selector('a[href*="/agence-immobiliere/"]'):
                         type_annonceur = "Professionnel"
                     elif desc_text and re.search(r"\bparticulier\b", desc_text, re.IGNORECASE):
                         type_annonceur = "Particulier"
