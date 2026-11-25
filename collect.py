@@ -22,7 +22,7 @@ from utils import bool_or_none, clean_city, normalize_municipality, validate_bas
 
 OUTPUT_DIR = Path(__file__).resolve().parent
 SEARCHES = [
-    # {"file_key": "neuville", "code_postal": "01400", "max_distance": 20, "base_location": (46.1546351,5.0019543)},
+    {"file_key": "neuville", "code_postal": "01400", "max_distance": 20, "base_location": (46.1546351,5.0019543)},
     {"file_key": "tournus", "code_postal": "71700", "max_distance": 20, "base_location": (46.5679604,4.8612031)},
 ]
 
