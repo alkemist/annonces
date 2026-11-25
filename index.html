@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rapport au 25/11 à 08:02</title>
+  <title>Rapport au 25/11 à 14:53</title>
   <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.5.0/dist/css/tabulator_modern.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" crossorigin="anonymous"/>
   <style>
@@ -328,6 +328,20 @@
       "headerFilterFunc": numberHeaderFilterFunc
     },
     {
+      "title": "loyer_total",
+      "field": "loyer_total",
+      "headerFilterPlaceholder": "=, <, > valeur",
+      "formatter": cellFormatter,
+      "visible": true,
+      "headerMenu": headerMenu,
+      "sorter": "number",
+      "sorterParams": {
+        "alignEmptyValues": "bottom"
+      },
+      "headerFilter": "input",
+      "headerFilterFunc": numberHeaderFilterFunc
+    },
+    {
       "title": "loyer",
       "field": "loyer",
       "headerFilterPlaceholder": "=, <, > valeur",
@@ -344,20 +358,6 @@
     {
       "title": "charges",
       "field": "charges",
-      "headerFilterPlaceholder": "=, <, > valeur",
-      "formatter": cellFormatter,
-      "visible": true,
-      "headerMenu": headerMenu,
-      "sorter": "number",
-      "sorterParams": {
-        "alignEmptyValues": "bottom"
-      },
-      "headerFilter": "input",
-      "headerFilterFunc": numberHeaderFilterFunc
-    },
-    {
-      "title": "loyer_total",
-      "field": "loyer_total",
       "headerFilterPlaceholder": "=, <, > valeur",
       "formatter": cellFormatter,
       "visible": true,
@@ -642,9 +642,9 @@
       "type": "Appartement",
       "surface": "54",
       "pieces": "3",
+      "loyer_total": "700",
       "loyer": "665",
       "charges": "35",
-      "loyer_total": "700",
       "depot": "700",
       "frais_agence": "665",
       "étage": "1",
@@ -663,8 +663,8 @@
       "annonceur": "MYSTONE",
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3313150250",
-      "date_annonce": "2026-11-20 04:34:51",
-      "date_update": "2026-11-24 21:20:24"
+      "date_annonce": "2026-11-25 11:44:34",
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "seloger",
@@ -675,9 +675,9 @@
       "type": "Appartement",
       "surface": "53",
       "pieces": "3",
+      "loyer_total": "700",
       "loyer": "700",
       "charges": "",
-      "loyer_total": "700",
       "depot": "700",
       "frais_agence": "",
       "étage": "1",
@@ -691,13 +691,13 @@
       "classe": "B",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['1er Étage', 'Cuisine intégrée', \"Pas d'ascenseur\", 'Parking', '2 WCs', 'Calme', '2 Chambres', '1 Salle de douche']",
+      "caracteristiques": "['1er Étage', 'Cuisine équipée, Cuisine ouverte, Cuisine intégrée', \"Pas d'ascenseur\", 'Parking', '2 WCs', 'Calme', '2 Chambres', '1 Salle de douche']",
       "description": "NEUVILLE LES DAMES- A LOUER Appartement T3 en duplex au calme et à 5 minutes de Chatillon (tous commerces, commodités et marché), neuf, situé au 1er et dernier étage d'un petit immeuble , 2 chambres - 53.62m², 1 place de stationnement dans cour commune.\nIl comprend : un espace cuisine équipée - salon - séjour, WC au rez-de-chaussée, à l'étage 2 chambres sous pente, une salle d'eau et un WC.\nAtouts complémentaires : appartement entièrement refait à neuf, système de climatisation pompe à chaleur et radiateur électrique.\nLoyer 700 €.\nDisponible à partir du 16/02/2027. A visiter sans plus attendre !\nContactez nous",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/neuville-les-dames-01400/26YU183I4LQ7",
       "date_annonce": "2026-11-16T16:12:00.000Z",
-      "date_update": "2026-11-24 21:21:07"
+      "date_update": "2026-11-25 14:41:11"
     },
     {
       "site": "leboncoin",
@@ -708,9 +708,9 @@
       "type": "Appartement",
       "surface": "74",
       "pieces": "4",
+      "loyer_total": "790",
       "loyer": "750",
       "charges": "40",
-      "loyer_total": "790",
       "depot": "750",
       "frais_agence": "750",
       "étage": "1",
@@ -730,7 +730,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3312029044",
       "date_annonce": "2026-11-18 12:14:24",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "seloger",
@@ -741,9 +741,9 @@
       "type": "Appartement",
       "surface": "74",
       "pieces": "4",
+      "loyer_total": "790",
       "loyer": "750",
       "charges": "",
-      "loyer_total": "790",
       "depot": "1500",
       "frais_agence": "",
       "étage": "1",
@@ -763,7 +763,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/neuville-les-dames-01400/266JMLFLPLRD",
       "date_annonce": "2026-08-26T09:33:00.000Z",
-      "date_update": "2026-11-24 21:21:18"
+      "date_update": "2026-11-25 14:41:21"
     },
     {
       "site": "bienici",
@@ -774,9 +774,9 @@
       "type": "Appartement",
       "surface": "74",
       "pieces": "4",
+      "loyer_total": "830",
       "loyer": "790",
       "charges": "40",
-      "loyer_total": "830",
       "depot": "1500",
       "frais_agence": "800",
       "étage": "1",
@@ -796,7 +796,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/immo-facile-61435091",
       "date_annonce": "2026-11-03T21:32:35.950Z",
-      "date_update": "2026-11-24 21:20:55"
+      "date_update": "2026-11-25 14:40:59"
     },
     {
       "site": "leboncoin",
@@ -807,9 +807,9 @@
       "type": "Appartement",
       "surface": "124",
       "pieces": "4",
+      "loyer_total": "850",
       "loyer": "850",
       "charges": "0",
-      "loyer_total": "850",
       "depot": "",
       "frais_agence": "850",
       "étage": "",
@@ -829,7 +829,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3308142802",
       "date_annonce": "2026-11-23 18:33:22",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
@@ -840,9 +840,9 @@
       "type": "Maison",
       "surface": "77",
       "pieces": "4",
+      "loyer_total": "985",
       "loyer": "930",
       "charges": "55",
-      "loyer_total": "985",
       "depot": "930",
       "frais_agence": "861",
       "étage": "",
@@ -862,7 +862,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3287565517",
       "date_annonce": "2026-10-13 11:37:31",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "paruvendu",
@@ -873,9 +873,9 @@
       "type": "Maison",
       "surface": "77",
       "pieces": "4",
+      "loyer_total": "985",
       "loyer": "930",
       "charges": "55",
-      "loyer_total": "985",
       "depot": "930",
       "frais_agence": "862",
       "étage": "",
@@ -895,7 +895,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1295809861A1KILHMN000",
       "date_annonce": "24/11/2026 à 09:12",
-      "date_update": "2026-11-24 21:23:15"
+      "date_update": "2026-11-25 14:43:20"
     },
     {
       "site": "seloger",
@@ -906,9 +906,9 @@
       "type": "Maison",
       "surface": "77",
       "pieces": "4",
+      "loyer_total": "985",
       "loyer": "930",
       "charges": "55",
-      "loyer_total": "985",
       "depot": "930",
       "frais_agence": "",
       "étage": "",
@@ -922,13 +922,13 @@
       "classe": "D",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Cuisine intégrée', 'Pas de cave', '2 Parkings', 'Pas de balcon', 'Terrasse', 'Calme', 'Sans vis-à-vis', '2 Chambres']",
+      "caracteristiques": "['Cuisine équipée, Cuisine ouverte, Cuisine intégrée', 'Pas de cave', '2 Parkings', 'Pas de balcon', 'Terrasse', 'Calme', 'Sans vis-à-vis', '2 Chambres']",
       "description": "Maison 4 pièces de 77 m² rénovation récente et qualitative - Maison 4 pièces en duplex, avec grande terrasse privée couverte et espaces verts sans entretien, résidence calme et sécurisante.\nVue sur la nature environnante pas de vis à vis.\nSur la commune de Romans (01400),\nà moins de 10 minutes de Chatillon,\nà 15 minutes de Villars Les Dombes.\nL'école de Romans se situe à moins de 2 minutes.\nAccès facile aux villes environnantes :\nA moins de 10 minutes de la gare TER de Marlieux et de Saint Paul de Varax (ligne Lyon-Bourg en Bresse)\nPlusieurs places de parkings et une cave privative à disposition\nÉquipé de chauffage au sol et d'une isolation performante.\nDPE : D\nGES : B\nLogement nu, 3 pièces + de 77 m² : loyer 930 € + 55 € de charges (entretien des espaces verts inclus)\nAu rez de chaussée : cuisine incorporée, avec plaque de cuisson et hotte, ouverte sur le séjour, 1 cellier/buanderie, 1 WC séparé.\nTerrasse couverte.\nA l'étage : 2 chambres avec espace de rangement intégré + 1 pièce supplémentaire pouvant servir de bureau ou salle de jeu, 1 salle de bain baignoire avec meuble sous vasque et toilette.\nMaison lumineuse, fibre disponible, recharge de voiture électrique possible.\n\nDisponibilité : immédiate.\n\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques:\nLoyer de 985,00 euros par mois charges comprises dont 55,00 euros par mois de provision pour charges (soumis à la régularisation annuelle).\nLes honoraires charge locataire sont de 861,58 euros ( soit 11,10 euros/m² ) dont 235,19 euros pour état des lieux ( soit 3,03 euros/m² ).\nMontant estimé des dépenses annuelles d'énergie pour un usage standard : entre 1 080 et 1 500 euros. Prix moyens des énergies indexés en 2021.",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/romans-01400/26KMQBSDHF1Q",
       "date_annonce": "2026-09-29T11:21:00.000Z",
-      "date_update": "2026-11-24 21:21:32"
+      "date_update": "2026-11-25 14:41:33"
     },
     {
       "site": "paruvendu",
@@ -939,9 +939,9 @@
       "type": "Maison",
       "surface": "82",
       "pieces": "4",
+      "loyer_total": "1005",
       "loyer": "950",
       "charges": "55",
-      "loyer_total": "1005",
       "depot": "950",
       "frais_agence": "919",
       "étage": "",
@@ -961,7 +961,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1295809862A1KILHMN000",
       "date_annonce": "24/11/2026 à 09:12",
-      "date_update": "2026-11-24 21:23:13"
+      "date_update": "2026-11-25 14:43:18"
     },
     {
       "site": "seloger",
@@ -972,9 +972,9 @@
       "type": "Maison",
       "surface": "82",
       "pieces": "4",
+      "loyer_total": "1005",
       "loyer": "950",
       "charges": "55",
-      "loyer_total": "1005",
       "depot": "950",
       "frais_agence": "",
       "étage": "",
@@ -988,13 +988,13 @@
       "classe": "C",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Cuisine intégrée', 'Pas de cave', '2 Parkings', 'Pas de balcon', 'Terrasse', 'Calme', 'Sans vis-à-vis', '2 Chambres']",
+      "caracteristiques": "['Cuisine équipée, Cuisine ouverte, Cuisine intégrée', 'Pas de cave', '2 Parkings', 'Pas de balcon', 'Terrasse', 'Calme', 'Sans vis-à-vis', '2 Chambres']",
       "description": "Maison 4 pièces 83 m² avec terrasse couverte - Maison 4 pièces en duplex, avec grande terrasse privée couverte et espaces verts sans entretien, résidence calme et sécurisante.\n\nVue sur la nature environnante pas de vis à vis.\n\nSur la commune de Romans (01400),\nà moins de 10 minutes de Chatillon,\nà 15 minutes de Villars Les Dombes.\n\nL'école de Romans se situe à moins de 2 minutes.\n\nAccès facile aux villes environnantes :\nA moins de 10 minutes de la gare TER de Marlieux et de Saint Paul de Varax (ligne Lyon-Bourg en Bresse)\n\nPlusieurs places de parkings et une cave privative à disposition\nÉquipé de chauffage au sol et d'une isolation performante.\n\nDPE : C\nGES : B\n\nLogement nu, 4 pièces 83 m² : loyer 950 + 55 € charges (entretien des espaces verts inclus)\n\nAu rez de chaussée : cuisine incorporée, avec plaque de cuisson et hotte, ouverte sur le séjour, 1 cellier/buanderie, 1 pièce supplémentaire pouvant servir de chambre ou de bureau, 1 WC séparé.\nTerrasse couverte.\n\nA l'étage : 2 chambres avec espace de rangement intégré, 1 salle de bain baignoire avec toilette.\n\nMaison lumineuse, fibre disponible, recharge de voiture électrique possible.\n\nDisponibilité : 10/11/2026.\n\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques:\nLoyer de 1 005,00 euros par mois charges comprises dont 55,00 euros par mois de provision pour charges (soumis à la régularisation annuelle).\nLes honoraires charge locataire sont de 919,19 euros ( soit 11,10 euros/m² ) dont 250,91 euros pour état des lieux ( soit 3,03 euros/m² ).\nMontant estimé des dépenses annuelles d'énergie pour un usage standard : entre 1 340 et 1 870 euros. Prix moyens des énergies indexés en 2023.",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/romans-01400/26HI6ID46G7M",
       "date_annonce": "2026-09-29T11:21:00.000Z",
-      "date_update": "2026-11-24 21:21:34"
+      "date_update": "2026-11-25 14:41:35"
     },
     {
       "site": "leboncoin",
@@ -1005,9 +1005,9 @@
       "type": "Appartement",
       "surface": "15",
       "pieces": "1",
+      "loyer_total": "252",
       "loyer": "240",
       "charges": "12",
-      "loyer_total": "252",
       "depot": "240",
       "frais_agence": "174",
       "étage": "",
@@ -1027,7 +1027,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3265143825",
       "date_annonce": "2026-11-24 11:55:00",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
@@ -1038,9 +1038,9 @@
       "type": "Appartement",
       "surface": "27",
       "pieces": "1",
+      "loyer_total": "360",
       "loyer": "360",
       "charges": "0",
-      "loyer_total": "360",
       "depot": "360",
       "frais_agence": "300",
       "étage": "1",
@@ -1060,20 +1060,20 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3301197028",
       "date_annonce": "2026-11-20 17:53:00",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "seloger",
       "titre": "Appartement à louer studios et studettes 27 m² 360 € Châtillon-sur-Chalaronne (01400)",
       "ville": "Châtillon-sur-Chalaronne 01400",
       "distance": "5.7",
-      "meuble": "",
+      "meuble": "Non meublé",
       "type": "Appartement",
       "surface": "27",
       "pieces": "1",
+      "loyer_total": "360",
       "loyer": "",
       "charges": "",
-      "loyer_total": "360",
       "depot": "360",
       "frais_agence": "",
       "étage": "1",
@@ -1087,13 +1087,13 @@
       "classe": "D",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Disponible à partir du 03/02/2027', 'Dernier étage, Étage 1er / 1', 'Cuisine ouverte', \"Pas d'ascenseur\", 'Pas de cave', 'WC dans la salle de bains', 'Pas de balcon', 'Calme']",
+      "caracteristiques": "['Disponible à partir du 03/02/2027', 'Dernier étage, Étage 1er / 1', 'Cuisine ouverte', \"Pas d'ascenseur\", 'Pas de cave', 'Pas de balcon', 'Calme', 'Non meublé']",
       "description": "Chatillon centre au calme Studio de 27 m² environ au 1er étage sans ascenseur composé d'un couloir d'entrée, un séjour lumineux avec coin cuisine meublé, une salle d'eau avec cabine de douche et wc séparé Chauffage individuel avec radiateur électrique Facilité de stationnement au pied de l'immeuble.\nLibre de suite\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : georisques. gouv. fr",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26AB23KV11TQ",
       "date_annonce": "2026-11-02T19:23:00.000Z",
-      "date_update": "2026-11-24 21:21:37"
+      "date_update": "2026-11-25 14:41:37"
     },
     {
       "site": "leboncoin",
@@ -1104,9 +1104,9 @@
       "type": "Appartement",
       "surface": "29",
       "pieces": "2",
+      "loyer_total": "481",
       "loyer": "465",
       "charges": "16",
-      "loyer_total": "481",
       "depot": "465",
       "frais_agence": "293",
       "étage": "1",
@@ -1126,40 +1126,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3287439980",
       "date_annonce": "2026-11-20 14:53:23",
-      "date_update": "2026-11-24 21:20:24"
-    },
-    {
-      "site": "seloger",
-      "titre": "Appartement à louer T2/F2 29.32 m² 481 € Châtillon-sur-Chalaronne (01400)",
-      "ville": "Châtillon-sur-Chalaronne 01400",
-      "distance": "5.7",
-      "meuble": "",
-      "type": "Appartement",
-      "surface": "29",
-      "pieces": "2",
-      "loyer": "",
-      "charges": "",
-      "loyer_total": "481",
-      "depot": "465",
-      "frais_agence": "",
-      "étage": "1",
-      "ascenseur": "False",
-      "chambres": "1",
-      "salles_de_bain": "1",
-      "balcon": "",
-      "chauffage_type": "",
-      "chauffage_mode": "",
-      "parking": "True",
-      "classe": "E",
-      "étages_total": "",
-      "année": "",
-      "caracteristiques": "['Étage 1er / 2', 'Cuisine équipée', \"Pas d'ascenseur\", 'Garage', 'Calme', '1 Chambre', '1 Salle de douche', 'Interphone']",
-      "description": "Chatillon sur Chalaronne : à quelques pas de toutes commodités (commerces, maison médicale, écoles).\nVenez découvrir cet appartement situé au 1er étage d'un immeuble entièrement rénové, de 29.32m² habitables m situé à quelques pas du coeur du centre-ville.\nIl dispose d'une belle pièce de vie de près de 15m² avec un placard, une cuisine à aménagée , d'une chambre de 9.55m², d'une salle d'eau avec WC.\nATOUT SUPPLEMENTAIRE : le bien dispose d'un garage.\nDisponible à partir du 30/12/2026\nN'hésitez pas à nous contactez au : pour venir le visiter !",
-      "annonceur": "SeLoger",
-      "type_annonceur": "Professionnel",
-      "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26SIG4QXIZBX",
-      "date_annonce": "2026-10-05T10:51:00.000Z",
-      "date_update": "2026-11-24 21:21:26"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
@@ -1170,9 +1137,9 @@
       "type": "Appartement",
       "surface": "55",
       "pieces": "2",
+      "loyer_total": "497",
       "loyer": "419",
       "charges": "78",
-      "loyer_total": "497",
       "depot": "420",
       "frais_agence": "498",
       "étage": "",
@@ -1192,7 +1159,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3265143829",
       "date_annonce": "2026-11-24 19:13:11",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
@@ -1203,9 +1170,9 @@
       "type": "Appartement",
       "surface": "45",
       "pieces": "1",
+      "loyer_total": "510",
       "loyer": "510",
       "charges": "0",
-      "loyer_total": "510",
       "depot": "510",
       "frais_agence": "450",
       "étage": "1",
@@ -1225,7 +1192,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3276705848",
       "date_annonce": "2026-11-20 21:41:35",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "seloger",
@@ -1236,9 +1203,9 @@
       "type": "Appartement",
       "surface": "45",
       "pieces": "1",
+      "loyer_total": "510",
       "loyer": "",
       "charges": "",
-      "loyer_total": "510",
       "depot": "510",
       "frais_agence": "",
       "étage": "1",
@@ -1258,7 +1225,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26Q84L2EB415",
       "date_annonce": "2026-09-25T15:35:00.000Z",
-      "date_update": "2026-11-24 21:21:28"
+      "date_update": "2026-11-25 14:41:28"
     },
     {
       "site": "seloger",
@@ -1269,9 +1236,9 @@
       "type": "Appartement",
       "surface": "41",
       "pieces": "2",
+      "loyer_total": "600",
       "loyer": "565",
       "charges": "35",
-      "loyer_total": "600",
       "depot": "",
       "frais_agence": "",
       "étage": "1",
@@ -1291,7 +1258,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26M45B1Y62WR",
       "date_annonce": "2026-10-12T12:41:00.000Z",
-      "date_update": "2026-11-24 21:21:38"
+      "date_update": "2026-11-25 14:41:39"
     },
     {
       "site": "leboncoin",
@@ -1302,9 +1269,9 @@
       "type": "Appartement",
       "surface": "48",
       "pieces": "2",
+      "loyer_total": "620",
       "loyer": "620",
       "charges": "0",
-      "loyer_total": "620",
       "depot": "620",
       "frais_agence": "601",
       "étage": "0",
@@ -1324,7 +1291,40 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3291328223",
       "date_annonce": "2026-10-30 14:01:19",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
+    },
+    {
+      "site": "leboncoin",
+      "titre": "T2 a louer",
+      "ville": "Châtillon-sur-Chalaronne 01400",
+      "distance": "5.7",
+      "meuble": "Non meublé",
+      "type": "Appartement",
+      "surface": "62",
+      "pieces": "2",
+      "loyer_total": "685",
+      "loyer": "650",
+      "charges": "35",
+      "depot": "650",
+      "frais_agence": "",
+      "étage": "1",
+      "ascenseur": "False",
+      "chambres": "1",
+      "salles_de_bain": "1",
+      "balcon": "",
+      "chauffage_type": "Électrique",
+      "chauffage_mode": "Individuel",
+      "parking": "",
+      "classe": "",
+      "étages_total": "2",
+      "année": "1940",
+      "caracteristiques": "['Cuisine équipée']",
+      "description": "",
+      "annonceur": "Pierre et Céline",
+      "type_annonceur": "Particulier",
+      "url": "https://www.leboncoin.fr/ad/locations/3317250886",
+      "date_annonce": "2026-11-24 22:01:01",
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
@@ -1335,9 +1335,9 @@
       "type": "Appartement",
       "surface": "62",
       "pieces": "3",
+      "loyer_total": "750",
       "loyer": "750",
       "charges": "0",
-      "loyer_total": "750",
       "depot": "",
       "frais_agence": "",
       "étage": "1",
@@ -1357,40 +1357,40 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3263397447",
       "date_annonce": "2026-11-04 10:58:47",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
-      "titre": "Appartement 3 pièces 57 m²",
+      "titre": "T3 duplex a louer",
       "ville": "Châtillon-sur-Chalaronne 01400",
       "distance": "5.7",
-      "meuble": "",
+      "meuble": "Non meublé",
       "type": "Appartement",
-      "surface": "57",
+      "surface": "60",
       "pieces": "3",
-      "loyer": "750",
-      "charges": "10",
-      "loyer_total": "760",
-      "depot": "750",
-      "frais_agence": "500",
-      "étage": "",
-      "ascenseur": "",
+      "loyer_total": "755",
+      "loyer": "720",
+      "charges": "35",
+      "depot": "720",
+      "frais_agence": "",
+      "étage": "1",
+      "ascenseur": "False",
       "chambres": "2",
-      "salles_de_bain": "",
+      "salles_de_bain": "1",
       "balcon": "",
-      "chauffage_type": "",
-      "chauffage_mode": "",
-      "parking": "False",
-      "classe": "C",
-      "étages_total": "",
-      "année": "",
-      "caracteristiques": "[]",
+      "chauffage_type": "Électrique",
+      "chauffage_mode": "Individuel",
+      "parking": "True",
+      "classe": "",
+      "étages_total": "2",
+      "année": "1940",
+      "caracteristiques": "['Avec garage ou place de parking', 'Cuisine équipée']",
       "description": "",
-      "annonceur": "FRANCOIS MATHIEU IMMOBILIER",
-      "type_annonceur": "Professionnel",
-      "url": "https://www.leboncoin.fr/ad/locations/3310850258",
-      "date_annonce": "2026-11-16 16:12:03",
-      "date_update": "2026-11-24 21:20:24"
+      "annonceur": "Pierre et Céline",
+      "type_annonceur": "Particulier",
+      "url": "https://www.leboncoin.fr/ad/locations/3317247485",
+      "date_annonce": "2026-11-24 21:52:41",
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "seloger",
@@ -1401,9 +1401,9 @@
       "type": "Appartement",
       "surface": "57",
       "pieces": "3",
+      "loyer_total": "760",
       "loyer": "10",
       "charges": "750",
-      "loyer_total": "760",
       "depot": "750",
       "frais_agence": "",
       "étage": "1",
@@ -1417,13 +1417,13 @@
       "classe": "C",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Étage 1er / 2', 'Cuisine équipée, Cuisine ouverte', 'WC dans la salle de bains', 'Pas de balcon', 'Exposition: sud, ouest', '2 Chambres', '1 Salle de douche', 'Entrée séparée']",
+      "caracteristiques": "['Étage 1er / 2', 'Cuisine équipée, Cuisine ouverte', 'Pas de balcon', 'Exposition: sud, ouest', '2 Chambres', '1 Salle de douche', 'Entrée séparée']",
       "description": "CHÂTILLON-SUR-CHALARONNE CENTRE-VILLE T3 RÉNOVÉ DE 58 M²\nÀ deux pas des célèbres Halles de Châtillon-sur-Chalaronne, venez découvrir ce charmant appartement T3 d'environ 58 m², idéalement situé au 1er étage d'un petit immeuble de deux étages.\nEntièrement rénové et bénéficiant d'une exposition Sud-Ouest, cet appartement séduit par sa luminosité, son agencement fonctionnel et sa situation privilégiée à proximité immédiate des commerces et commodités.\nIl se compose d'une entrée desservant une agréable pièce de vie avec salon/séjour et cuisine ouverte, entièrement meublée et équipée (réfrigérateur, plaques de cuisson, hotte, four et lave-vaisselle).\nL'espace nuit comprend deux chambres ainsi qu'une salle d'eau avec WC et un emplacement prévu pour une machine à laver.\nCONDITIONS FINANCIÈRES\n\nLoyer mensuel hors charges : 750 €\n\nProvision mensuelle sur charges : 10 €, comprenant l'électricité et l'entretien des parties communes (avec régularisation annuelle).\n\nLoyer mensuel charges comprises : 760 €\n\nDépôt de garantie : 750 €\n\nHonoraires à la charge du locataire : 500 € TTC, comprenant :\n\nVisite, constitution du dossier et rédaction du bail : 329 € TTC.\n\nÉtat des lieux d'entrée : 171 € TTC.\n\nDIAGNOSTICS ET PERFORMANCE ÉNERGÉTIQUE\nDiagnostic de performance énergétique (DPE) :\n\nClasse énergie : C 125 kWh/m²/an.\n\nClasse climat (GES) : A 4 kg CO2/m²/an.\n\nMontant estimé des dépenses annuelles d'énergie pour un usage standard : entre 570 € et 830 € par an (année de référence des prix de l'énergie : à compléter selon le DPE initial).\nDPE établi le 20/01/2022, avec attestation de nouvelle étiquette applicable au 1er janvier 2026.\nInformations sur les risques :\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques :\nPour tout renseignement complémentaire ou pour organiser une visite, contactez votre agence FRANÇOIS MATHIEU IMMOBILIER.",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/263BDK24T2PB",
       "date_annonce": "2026-11-16T21:06:00.000Z",
-      "date_update": "2026-11-24 21:21:20"
+      "date_update": "2026-11-25 14:41:23"
     },
     {
       "site": "leboncoin",
@@ -1434,9 +1434,9 @@
       "type": "Appartement",
       "surface": "65",
       "pieces": "3",
+      "loyer_total": "775",
       "loyer": "680",
       "charges": "95",
-      "loyer_total": "775",
       "depot": "680",
       "frais_agence": "720",
       "étage": "1",
@@ -1456,20 +1456,20 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3308138791",
       "date_annonce": "2026-11-23 15:03:01",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "seloger",
       "titre": "Appartement à louer T3/F3 65 m² 775 € Châtillon-sur-Chalaronne (01400)",
       "ville": "Châtillon-sur-Chalaronne 01400",
       "distance": "5.7",
-      "meuble": "",
+      "meuble": "Non meublé",
       "type": "Appartement",
       "surface": "65",
       "pieces": "3",
+      "loyer_total": "775",
       "loyer": "",
       "charges": "",
-      "loyer_total": "775",
       "depot": "680",
       "frais_agence": "",
       "étage": "1",
@@ -1483,13 +1483,13 @@
       "classe": "D",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Disponible à partir du 02/12/2026', '1er Étage', 'Cuisine ouverte', \"Pas d'ascenseur\", 'Pas de cave', 'Box de stationnement', 'WC dans la salle de bains', '2 Balcons']",
+      "caracteristiques": "['Disponible à partir du 02/12/2026', '1er Étage', 'Cuisine ouverte', \"Pas d'ascenseur\", 'Pas de cave', 'Box de stationnement', '2 Balcons', 'Non meublé']",
       "description": "Au 1er étage d'une petite résidence sécurisée au centre de Chatillon, beau T3 rénové d'environ 69 m² , comprenant entrée avec placard mural, cuisine aménagée, séjour spacieux, deux chambres, une salle de bains et un wc. Deux petits balcons et un garage. Chaudière individuelle au gaz.\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : georisques. gouv. fr",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26MHVQ34SCYI",
       "date_annonce": "2026-11-12T19:09:00.000Z",
-      "date_update": "2026-11-24 21:21:24"
+      "date_update": "2026-11-25 14:41:26"
     },
     {
       "site": "seloger",
@@ -1500,9 +1500,9 @@
       "type": "Appartement",
       "surface": "49",
       "pieces": "2",
+      "loyer_total": "785",
       "loyer": "10",
       "charges": "775",
-      "loyer_total": "785",
       "depot": "1550",
       "frais_agence": "",
       "étage": "2",
@@ -1516,13 +1516,13 @@
       "classe": "C",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['2ème Étage', 'Cuisine ouverte, Cuisine intégrée', 'Cave', 'WC dans la salle de bains', 'Pas de balcon', 'Meublé', '1 Chambre', '1 Salle de douche']",
+      "caracteristiques": "['2ème Étage', 'Cuisine ouverte, Cuisine intégrée', 'Cave', 'Pas de balcon', 'Meublé', '1 Chambre', '1 Salle de douche', 'Entrée séparée']",
       "description": "Au cœur de Châtillon-sur-Chalaronne, découvrez ce superbe appartement T2 meublé.\nSitué au 2 € étage d'un immeuble ancien, cet appartement séduit immédiatement par sa luminosité, ses poutres apparentes et la qualité de ses prestations.\nIl se compose d'une belle pièce de vie chaleureuse et lumineuse, comprenant un espace salon et une superbe cuisine ouverte, entièrement aménagée et équipée, avec îlot central et espace repas.\nL'espace nuit offre une chambre spacieuse et agréable, disposant de rangements et d'un coin bureau, ainsi qu'une salle d'eau équipée d'une douche, d'un meuble vasque et d'un WC.\nUn espace de stockage complète ce bien!\nUn appartement coup de cœur, idéal pour une personne seule ou un couple souhaitant profiter du charme et de la vie du centre-ville, à proximité immédiate des commerces et commodités.\nCONDITIONS DE LOCATION\nLoyer mensuel hors charges : 775 €\nProvisions pour charges : 10 € / mois\nLoyer mensuel charges comprises : 785 €\nDépôt de garantie : 1 550 € (deux mois de loyer hors charges)\nHonoraires à la charge du locataire : 543,12 € TTC, dont 148,26 € TTC pour l'état des lieux d'entrée\nLocation meublée Bail d'habitation d'un an\nPERFORMANCE ÉNERGÉTIQUE\nDPE : C 152 kWh/m²/an\nGES : A 4 kg CO2/m²/an\nMontant estimé des dépenses annuelles d'énergie pour un usage standard : entre 640 € et 910 € par an, prix moyens des énergies indexés sur les années 2021, 2022 et 2023 (abonnements compris).\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques :",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26JT9MKZ6B1E",
       "date_annonce": "2026-11-19T21:15:00.000Z",
-      "date_update": "2026-11-24 21:21:10"
+      "date_update": "2026-11-25 14:41:13"
     },
     {
       "site": "leboncoin",
@@ -1533,9 +1533,9 @@
       "type": "Appartement",
       "surface": "100",
       "pieces": "4",
+      "loyer_total": "890",
       "loyer": "870",
       "charges": "20",
-      "loyer_total": "890",
       "depot": "",
       "frais_agence": "1200",
       "étage": "2",
@@ -1555,7 +1555,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3287784170",
       "date_annonce": "2026-11-23 11:33:06",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "seloger",
@@ -1566,9 +1566,9 @@
       "type": "Appartement",
       "surface": "99",
       "pieces": "4",
+      "loyer_total": "890",
       "loyer": "",
       "charges": "",
-      "loyer_total": "890",
       "depot": "",
       "frais_agence": "",
       "étage": "",
@@ -1582,13 +1582,13 @@
       "classe": "",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Dernier étage, Étage 2ème / 2', 'Cuisine équipée', 'Cave (Total 8 m²)', '1 WC', 'Pas de balcon', 'Calme', 'Exposition: ouest', 'Non meublé']",
+      "caracteristiques": "['Dernier étage, Étage 2ème / 2', 'Cuisine équipée', '8m² surface totale', '1 WC', 'Pas de balcon', 'Calme', 'Exposition: ouest', 'Non meublé']",
       "description": "Découvrez ce spacieux appartement de 99,58 m² situé au cœur de Châtillon-sur-Chalaronne, offrant un cadre de vie confortable et moderne. Ce bien rare dispose de trois grandes chambres et d'un vaste séjour, idéal pour accueillir famille et amis dans un environnement lumineux et chaleureux. Les fenêtres en PVC à double vitrage assurent une excellente isolation phonique et thermique, tout en apportant une touche contemporaine à l'ensemble.\nL'appartement est parfaitement équipé pour votre confort quotidien avec une cuisine fonctionnelle dotée d'un four et de plaques de cuisson. L'accès à la fibre optique et à internet haut débit vous permettra de rester connecté, tandis que le digicode garantit une sécurité optimale pour vous et vos proches. Les aménagements ont été pensés pour combiner praticité et modernité.\nSitué dans un quartier calme avec toutes les commodités à proximité, cet appartement est une opportunité idéale pour les familles ou les professionnels. Profitez d'un cadre de vie agréable et dynamique, à quelques minutes des commerces, écoles et transports. N'attendez plus pour visiter ce bien d'exception à Châtillon-sur-Chalaronne.\nFanny BLANCHARD O6.82.26.12.5O. (Gérante)\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques :",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26E5SHKRW21D",
       "date_annonce": "2026-10-13T15:31:00.000Z",
-      "date_update": "2026-11-24 21:21:22"
+      "date_update": "2026-11-25 14:41:25"
     },
     {
       "site": "leboncoin",
@@ -1599,9 +1599,9 @@
       "type": "Appartement",
       "surface": "95",
       "pieces": "4",
+      "loyer_total": "925",
       "loyer": "900",
       "charges": "25",
-      "loyer_total": "925",
       "depot": "900",
       "frais_agence": "990",
       "étage": "0",
@@ -1621,7 +1621,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3289390289",
       "date_annonce": "2026-10-27 15:11:16",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
@@ -1632,9 +1632,9 @@
       "type": "Appartement",
       "surface": "96",
       "pieces": "4",
+      "loyer_total": "950",
       "loyer": "950",
       "charges": "0",
-      "loyer_total": "950",
       "depot": "950",
       "frais_agence": "990",
       "étage": "1",
@@ -1654,7 +1654,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3278342952",
       "date_annonce": "2026-11-23 04:22:16",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
@@ -1665,9 +1665,9 @@
       "type": "Maison",
       "surface": "80",
       "pieces": "4",
+      "loyer_total": "1001",
       "loyer": "1000",
       "charges": "1",
-      "loyer_total": "1001",
       "depot": "1000",
       "frais_agence": "",
       "étage": "",
@@ -1687,7 +1687,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3280992308",
       "date_annonce": "2026-10-02 23:06:04",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
@@ -1698,9 +1698,9 @@
       "type": "Maison",
       "surface": "120",
       "pieces": "4",
+      "loyer_total": "1015",
       "loyer": "985",
       "charges": "30",
-      "loyer_total": "1015",
       "depot": "",
       "frais_agence": "",
       "étage": "",
@@ -1720,7 +1720,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3287236654",
       "date_annonce": "2026-11-16 17:21:00",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "seloger",
@@ -1731,9 +1731,9 @@
       "type": "Maison",
       "surface": "120",
       "pieces": "4",
+      "loyer_total": "1015",
       "loyer": "985",
       "charges": "30",
-      "loyer_total": "1015",
       "depot": "",
       "frais_agence": "",
       "étage": "1",
@@ -1753,7 +1753,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26IYKWKNQRJS",
       "date_annonce": "2026-10-13T00:40:00.000Z",
-      "date_update": "2026-11-24 21:21:30"
+      "date_update": "2026-11-25 14:41:30"
     },
     {
       "site": "paruvendu",
@@ -1764,9 +1764,9 @@
       "type": "Maison",
       "surface": "98",
       "pieces": "4",
+      "loyer_total": "1130",
       "loyer": "1110",
       "charges": "20",
-      "loyer_total": "1130",
       "depot": "1110",
       "frais_agence": "1094",
       "étage": "",
@@ -1786,7 +1786,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1297586851A1KILHMN000",
       "date_annonce": "24/11/2026 à 09:12",
-      "date_update": "2026-11-24 21:22:24"
+      "date_update": "2026-11-25 14:42:19"
     },
     {
       "site": "seloger",
@@ -1797,9 +1797,9 @@
       "type": "Maison",
       "surface": "98",
       "pieces": "4",
+      "loyer_total": "1130",
       "loyer": "1110",
       "charges": "20",
-      "loyer_total": "1130",
       "depot": "1110",
       "frais_agence": "",
       "étage": "1",
@@ -1813,13 +1813,13 @@
       "classe": "D",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Disponible à partir du 07/02/2027', 'Cuisine intégrée', 'Pas de cave', 'Garage, Box de stationnement', 'Pas de balcon', 'Jardin', '3 Chambres', '2 Salles de douches']",
+      "caracteristiques": "['Disponible à partir du 07/02/2027', 'Cuisine équipée, Cuisine intégrée', 'Pas de cave', 'Garage, Box de stationnement', 'Pas de balcon', 'Jardin', '3 Chambres', '2 Salles de douches']",
       "description": "MAISON INDIVIDUELLE - 4 PIECES - 98.58 m² envrion - CHATILLON SUR CHALARONNE Centre-ville\n\nIdéalement située en centre-ville, à proximité du Clos Janin, avec vaste terrain entièrement clos et arboré, maison individuelle de type 4 d'une surface totale d'environ 98.58 m² comprenant :\n- au 1er étage : entrée sur véranda, cuisine équipée meublée, séjour-salon, deux chambres, wc, salle d'eau,\n- au rez-de-chaussée : une suite parentale avec salle d'eau et dressing, une pièce annexe pouvant servir de salle de jeux, une buanderie, deux celliers, un garage.\n\nChauffage et eau chaude par chaudière gaz + poêle à bois dans séjour-salon. Contrats d'entretien chaudière et ramonage cheminée poêle prévus dans les charges.\n\nVaste terrain entourant la maison, entièrement clos et arboré, avec portail électrique.\n\nDisponible le 07/02/2027.\n\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques:\nLoyer de 1 130,00 euros par mois charges comprises dont 20,00 euros par mois de provision pour charges (soumis à la régularisation annuelle).\nLes honoraires charge locataire sont de 1 094,24 euros ( soit 11,17 euros/m² ) dont 298,70 euros pour état des lieux ( soit 3,05 euros/m² ).\nMontant estimé des dépenses annuelles d'énergie pour un usage standard : entre 1 000 et 1 410 euros. Prix moyens des énergies indexés en 2021.",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26VXRUZFWMQP",
       "date_annonce": "2026-11-17T13:15:00.000Z",
-      "date_update": "2026-11-24 21:21:16"
+      "date_update": "2026-11-25 14:41:19"
     },
     {
       "site": "leboncoin",
@@ -1830,9 +1830,9 @@
       "type": "Maison",
       "surface": "111",
       "pieces": "5",
+      "loyer_total": "1150",
       "loyer": "1150",
       "charges": "0",
-      "loyer_total": "1150",
       "depot": "1150",
       "frais_agence": "1076",
       "étage": "",
@@ -1852,7 +1852,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3311340992",
       "date_annonce": "2026-11-17 11:46:04",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "leboncoin",
@@ -1863,9 +1863,9 @@
       "type": "Maison",
       "surface": "96",
       "pieces": "4",
+      "loyer_total": "1150",
       "loyer": "1150",
       "charges": "0",
-      "loyer_total": "1150",
       "depot": "1150",
       "frais_agence": "",
       "étage": "",
@@ -1885,7 +1885,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3306304028",
       "date_annonce": "2026-11-10 14:36:42",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "paruvendu",
@@ -1896,9 +1896,9 @@
       "type": "Maison",
       "surface": "111",
       "pieces": "5",
+      "loyer_total": "1150",
       "loyer": "",
       "charges": "",
-      "loyer_total": "1150",
       "depot": "1150",
       "frais_agence": "1076",
       "étage": "",
@@ -1918,7 +1918,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1297343000A1KILHMN000",
       "date_annonce": "24/11/2026 à 09:12",
-      "date_update": "2026-11-24 21:22:38"
+      "date_update": "2026-11-25 14:42:25"
     },
     {
       "site": "seloger",
@@ -1929,9 +1929,9 @@
       "type": "Maison",
       "surface": "111",
       "pieces": "5",
+      "loyer_total": "1150",
       "loyer": "",
       "charges": "",
-      "loyer_total": "1150",
       "depot": "1150",
       "frais_agence": "",
       "étage": "",
@@ -1945,13 +1945,79 @@
       "classe": "C",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Cuisine intégrée', 'Pas de cave', 'Pas de balcon', 'Jardin', '4 Chambres', '3 Salles de douches', 'Entrée séparée']",
+      "caracteristiques": "['Cuisine équipée, Cuisine intégrée', 'Pas de cave', 'Pas de balcon', 'Jardin', '4 Chambres', '3 Salles de douches', 'Entrée séparée']",
       "description": "CHATILLON SUR CHALARONNE - Maison T5 d'environ 110 m² avec jardin - Idéalement située à proximité du centre ville et des commodités, grande maison T5 d'environ 110 m² avec beaucoup de charme, mitoyenne d'un côté, comprenant :\n- au rez-de-chaussée : entrée, cuisine équipée meublée, séjour-salon, buanderie et wc,\n- au premier étage : deux chambres bénéficiant chacune d'une salle d'eau et d'un wc,\n- au deuxième étage : deux chambres, une salle d'eau et un wc.\nUn jardin privatif.\nChauffage individuel par chaudière gaz. Eau chaude individuelle par cumulus électrique.\nEau froide individuelle.\n\nDisponibilité : immédiate.\n\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques:\nLoyer de 1 150,00 euros par mois charges comprises Les honoraires charge locataire sont de 1 076,40 euros ( soit 9,67 euros/m² ) dont 337,45 euros pour état des lieux ( soit 3,03 euros/m² ).\nMontant estimé des dépenses annuelles d'énergie pour un usage standard : entre 1 400 et 1 940 euros. Prix moyens des énergies indexés en 2021.",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/chatillon-sur-chalaronne-01400/26ZKEEQ6HVIH",
       "date_annonce": "2026-11-11T02:56:00.000Z",
-      "date_update": "2026-11-24 21:21:13"
+      "date_update": "2026-11-25 14:41:17"
+    },
+    {
+      "site": "dynacite",
+      "titre": "Appartement - 5 pièces - 85 m2",
+      "ville": "Vonnas 01540",
+      "distance": "7.4",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "85",
+      "pieces": "5",
+      "loyer_total": "870",
+      "loyer": "650",
+      "charges": "219",
+      "depot": "",
+      "frais_agence": "",
+      "étage": "2",
+      "ascenseur": "False",
+      "chambres": "4",
+      "salles_de_bain": "",
+      "balcon": "True",
+      "chauffage_type": "Gaz",
+      "chauffage_mode": "Collectif",
+      "parking": "True",
+      "classe": "D",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Mode de chauffage : collectif gaz radiateur', 'Cave : oui', 'Garage / Parking : oui', 'Charges : 219.93€', 'Balcon : oui', 'Terrasse : non', 'Ascenseur : non', 'T5', '85m²', '2e étage']",
+      "description": "Rue Marie Claude Guigue à Vonnas, au deuxième étage sans ascenseur, appartement T5 d’environ 85 m2 composé d’une cuisine indépendante, un séjour donnant sur loggia, 4 chambres, salle de bains, wc, cellier et cave. Chauffage collectif gaz. Loyer : 650,07 euros (comprenant chauffage, charges des parties communes, taxe d’ordures ménagères). Sans frais d’agence ni frais de dossier. Loyer payable en fin de mois. DPE en cours d’actualisation. Contact Mme LARUE Agence Dynacité Bourg-en-Bresse",
+      "annonceur": "Dynacité",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.dynacite.fr/les-offres/appartement-5-pieces-85-m2/",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:43:31"
+    },
+    {
+      "site": "paruvendu",
+      "titre": "Location Appartement 5 pièces 85 m² Vonnas (01540)",
+      "ville": "Vonnas 01540",
+      "distance": "7.4",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "85",
+      "pieces": "5",
+      "loyer_total": "870",
+      "loyer": "650",
+      "charges": "220",
+      "depot": "430",
+      "frais_agence": "",
+      "étage": "2",
+      "ascenseur": "False",
+      "chambres": "4",
+      "salles_de_bain": "1",
+      "balcon": "True",
+      "chauffage_type": "Gaz",
+      "chauffage_mode": "Collectif",
+      "parking": "True",
+      "classe": "D",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Nombre de pièces 5 pièces', 'Surface 85m2 environ', 'Nombre de chambres 4 chambres', 'Parking / Garage Balcon / Terrasse', 'Agencement 1 salle de bain 1 toilettes séparées', 'Général Etage : 2', 'Annexes Parking', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t22_CL_144-01-01-21-1582', 'Mise à jour 24/11/2026 à 23:17']",
+      "description": "Découvrez cet appartement T5 spacieux de 85 m2 à Vonnas, offrant 4 chambres et un séjour lumineux avec loggia. Idéal pour une famille, avec cave incluse et chauffage collectif au gaz. Un cadre de vie agréable vous attend. Rue Marie Claude Guigue à Vonnas, au deuxième étage sans ascenseur, appartement T5 d'environ 85 m2 composé d'une cuisine indépendante, un séjour donnant sur loggia, 4 chambres, salle de bains, wc, cellier et cave. Chauffage collectif gaz. Loyer : 650,07 € (comprenant chauffage, charges des parties communes, taxe d'ordures ménagères). Sans frais d'agence ni frais de dossier. Loyer payable en fin de mois. DPE en cours d'actualisation. Contact Mme LARUE Agence Dynacité Bourg-en-Bresse Détails : Nombre de chambre(s) : 4 Nombre de pièces : 5 Nb de salle de bains : 1 Cuisine : Separee Mode de chauffage : RADIATEUR Type de chauffage : GAZ Format de chauffage : COLLECTIF Balcon : 1 Nombre de wc : 1 Cave : 1 Nombre de parking : 1 Part Honoraires Etat des lieux : 0 € Type de charge : prévisionnelles mensuelles Charges : 219.93 €/moisCharges complémentaires : Chauffage, charges de parties communes, taxe d'ordures ménagères Nom du négociateur : AGENCE BOURG EN BRESSE Lieu : Ain (01)",
+      "annonceur": "DYNACITE",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.paruvendu.fr/immobilier/location/appartement/1297856495A1KILHAP000",
+      "date_annonce": "24/11/2026 à 23:17",
+      "date_update": "2026-11-25 14:41:57"
     },
     {
       "site": "semcoda",
@@ -1962,9 +2028,9 @@
       "type": "Appartement",
       "surface": "89",
       "pieces": "4",
+      "loyer_total": "1065",
       "loyer": "865",
       "charges": "200",
-      "loyer_total": "1065",
       "depot": "",
       "frais_agence": "0",
       "étage": "1",
@@ -1984,7 +2050,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.semcoda.com/etablissement-vonnas-9678-0001-0010-0011.html",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:25:21"
+      "date_update": "2026-11-25 14:44:59"
     },
     {
       "site": "alfa3a",
@@ -1995,9 +2061,9 @@
       "type": "Résidence",
       "surface": "",
       "pieces": "",
+      "loyer_total": "",
       "loyer": "",
       "charges": "",
-      "loyer_total": "",
       "depot": "",
       "frais_agence": "",
       "étage": "",
@@ -2017,20 +2083,20 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.alfa3a.org/se-loger/#:~:text=R%C3%A9sidence%20sociale%20Pierre%20Chanel",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:25:52"
+      "date_update": "2026-11-25 14:45:47"
     },
     {
       "site": "paruvendu",
       "titre": "Location Maison 5 pièces 96 m² St julien sur veyle (01540)",
-      "ville": "St Julien sur Veyle 01540",
+      "ville": "Saint Julien sur Veyle 01540",
       "distance": "7.9",
       "meuble": "",
       "type": "Maison",
       "surface": "96",
       "pieces": "5",
+      "loyer_total": "940",
       "loyer": "",
       "charges": "",
-      "loyer_total": "940",
       "depot": "940",
       "frais_agence": "677",
       "étage": "",
@@ -2050,7 +2116,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1297292522A1KILHMN000",
       "date_annonce": "20/11/2026 à 01:39",
-      "date_update": "2026-11-24 21:22:14"
+      "date_update": "2026-11-25 14:42:13"
     },
     {
       "site": "paruvendu",
@@ -2061,9 +2127,9 @@
       "type": "Maison",
       "surface": "99",
       "pieces": "5",
+      "loyer_total": "1076",
       "loyer": "1000",
       "charges": "76",
-      "loyer_total": "1076",
       "depot": "1000",
       "frais_agence": "1098",
       "étage": "",
@@ -2083,7 +2149,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/villa/1294741649A1KILHVI000",
       "date_annonce": "20/11/2026 à 11:49",
-      "date_update": "2026-11-24 21:21:58"
+      "date_update": "2026-11-25 14:42:01"
     },
     {
       "site": "leboncoin",
@@ -2094,9 +2160,9 @@
       "type": "Appartement",
       "surface": "52",
       "pieces": "2",
+      "loyer_total": "633",
       "loyer": "633",
       "charges": "0",
-      "loyer_total": "633",
       "depot": "633",
       "frais_agence": "",
       "étage": "1",
@@ -2116,7 +2182,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3303613645",
       "date_annonce": "2026-11-17 20:13:45",
-      "date_update": "2026-11-24 21:20:24"
+      "date_update": "2026-11-25 14:40:34"
     },
     {
       "site": "seloger",
@@ -2127,9 +2193,9 @@
       "type": "Appartement",
       "surface": "52",
       "pieces": "2",
+      "loyer_total": "633",
       "loyer": "633",
       "charges": "",
-      "loyer_total": "633",
       "depot": "633",
       "frais_agence": "",
       "étage": "1",
@@ -2143,13 +2209,13 @@
       "classe": "D",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['1er Étage', 'Cuisine intégrée', \"Pas d'ascenseur\", '2 Parkings, Box de stationnement', '1 WC', 'Calme', '1 Chambre', '1 Salle de douche']",
+      "caracteristiques": "['1er Étage', 'Cuisine équipée, Cuisine ouverte, Cuisine intégrée', \"Pas d'ascenseur\", '2 Parkings, Box de stationnement', '1 WC', 'Calme', '1 Chambre', '1 Salle de douche']",
       "description": "DOMPIERRE SUR CHALARONNE - A LOUER Appartement T2 au 1er étage composé d'une cuisine aménagée ouverte sur séjour, d'une chambre avec placard , d'une salle d'eau, et d'un WC séparé.\nAu calme et à 5 minutes de Chatillon (tous commerces, commodités et marché).\n2 places de stationnement dans la cour fermée de l'immeuble ainsi que d'un garage fermé.\nLoyer 633 € réparti comme suit : 575 € de loyer + 58 € de loyer garage\nDisponible à partir du 02/02/2026\nA visiter sans plus attendre ! Contactez nous !",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/auvergne-rhone-alpes/ain-01/dompierre-sur-chalaronne-01400/26CQWHEVJCC2",
       "date_annonce": "2026-11-06T17:07:00.000Z",
-      "date_update": "2026-11-24 21:21:12"
+      "date_update": "2026-11-25 14:41:15"
     },
     {
       "site": "dynacite",
@@ -2160,9 +2226,9 @@
       "type": "Appartement",
       "surface": "87",
       "pieces": "4",
+      "loyer_total": "857",
       "loyer": "503",
       "charges": "353",
-      "loyer_total": "857",
       "depot": "",
       "frais_agence": "",
       "étage": "3",
@@ -2182,20 +2248,53 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.dynacite.fr/les-offres/appartement-t4-87-m2/",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:23:44"
+      "date_update": "2026-11-25 14:43:33"
+    },
+    {
+      "site": "paruvendu",
+      "titre": "Location Appartement 4 pièces 87 m² Mezeriat (01660)",
+      "ville": "Mézériat 01660",
+      "distance": "12.3",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "87",
+      "pieces": "4",
+      "loyer_total": "857",
+      "loyer": "504",
+      "charges": "353",
+      "depot": "503",
+      "frais_agence": "",
+      "étage": "3",
+      "ascenseur": "False",
+      "chambres": "3",
+      "salles_de_bain": "1",
+      "balcon": "True",
+      "chauffage_type": "",
+      "chauffage_mode": "",
+      "parking": "True",
+      "classe": "E",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Nombre de pièces 4 pièces', 'Surface 87m2 environ', 'Nombre de chambres 3 chambres', 'Parking / Garage Balcon / Terrasse', 'Agencement 1 salle de bain 1 toilettes séparées', \"Général Etage : 3 Nombre d'étage(s) dans l'immeuble : 4\", 'Annexes Cave Parking', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t22_CL_209-01-02-31-3654', 'Mise à jour 24/11/2026 à 22:36']",
+      "description": "Bel appartement T4 au 3ème étage, offrant un séjour lumineux avec balcon et 3 chambres. Profitez d'un espace de vie confortable à Mezeriat, avec cave et parking à proximité. Au 3ème étage sans ascenseur. Appartement T4 d'envrion 87 m2 composé d'une cuisine, un séjour donnant sur balcon, 3 chambres, salle de bains, wc, cellier, cave. Parking aux pieds de l'immeuble. DPE = D. Loyer CC : 857,30€ comprennant chauffage, eau chaude, contrat d'entretien, charges parties communes et TOM. Possibilité de garage en plus : 33€/mois. Loyer payable en fin de mois et ouvrant droit aux APL. Contact C. LARUE O Détails : Nombre de chambre(s) : 3 Nombre de pièces : 4 Nb de salle de bains : 1 Cuisine : Separee Mode de chauffage : RADIATEUR Type de chauffage : GAZ Format de chauffage : COLLECTIF Balcon : 1 Nombre de wc : 1 Cave : 1 Type de charge : prévisionnelles mensuelles Charges : 353.34 €/moisCharges complémentaires : comprennant chauffage, eau chaude, contrat d'entretien, charges parties communes et TOM Nom du négociateur : AGENCE BOURG EN BRESSE Lieu : Ain (01)",
+      "annonceur": "DYNACITE",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.paruvendu.fr/immobilier/location/appartement/1292840205A1KILHAP000",
+      "date_annonce": "24/11/2026 à 22:36",
+      "date_update": "2026-11-25 14:42:45"
     },
     {
       "site": "paruvendu",
       "titre": "Location Appartement 3 pièces 83 m² St andre sur vieux jonc (01960)",
-      "ville": "St Andre sur Vieux Jonc 01960",
+      "ville": "Saint-André-sur-Vieux-Jonc 01960",
       "distance": "13.2",
       "meuble": "Meublé",
       "type": "Appartement",
       "surface": "83",
       "pieces": "3",
+      "loyer_total": "750",
       "loyer": "",
       "charges": "",
-      "loyer_total": "750",
       "depot": "750",
       "frais_agence": "916",
       "étage": "1",
@@ -2215,7 +2314,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296025589A1KILHAP000",
       "date_annonce": "24/11/2026 à 08:52",
-      "date_update": "2026-11-24 21:22:05"
+      "date_update": "2026-11-25 14:42:07"
     },
     {
       "site": "dynacite",
@@ -2226,9 +2325,9 @@
       "type": "Appartement",
       "surface": "69",
       "pieces": "3",
+      "loyer_total": "863",
       "loyer": "650",
       "charges": "213",
-      "loyer_total": "863",
       "depot": "",
       "frais_agence": "",
       "étage": "3",
@@ -2248,7 +2347,40 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.dynacite.fr/les-offres/appartement-t3-69-m2/",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:23:47"
+      "date_update": "2026-11-25 14:43:34"
+    },
+    {
+      "site": "paruvendu",
+      "titre": "Location Appartement 3 pièces 69 m² St andre sur vieux jonc (01960)",
+      "ville": "Saint-André-sur-Vieux-Jonc 01960",
+      "distance": "13.2",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "69",
+      "pieces": "3",
+      "loyer_total": "863",
+      "loyer": "650",
+      "charges": "213",
+      "depot": "436",
+      "frais_agence": "",
+      "étage": "3",
+      "ascenseur": "False",
+      "chambres": "2",
+      "salles_de_bain": "1",
+      "balcon": "True",
+      "chauffage_type": "Gaz",
+      "chauffage_mode": "Collectif",
+      "parking": "",
+      "classe": "C",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Nombre de pièces 3 pièces', 'Surface 69m2 environ', 'Nombre de chambres 2 chambres', 'Balcon / Terrasse', 'Agencement 1 salle de bain 1 toilettes séparées', \"Général Etage : 3 (dernier étage) Nombre d'étage(s) dans l'immeuble : 3\", 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t22_CL_238-01-02-31-3661', 'Mise à jour 24/11/2026 à 22:36']",
+      "description": "T3 lumineux avec balcon à St andre sur vieux jonc, comprenant 2 chambres, une cuisine séparée et un séjour accueillant. Profitez du chauffage collectif gaz et d'un espace de rangement avec une cave et un cellier. Au 3ème étage sans ascenseur, T3 d'environ 69 m2 composé d'une cuisine, un séjour donnant sur balcon, 2 chambres, salle de bains, WC, cellier, cave. Chauffage collectif gaz. Loyer : 650.15€ (comprennant chauffage, eau chaude, contrat d'entretien, TOM). Loyer payable en fin de mois et ouvrant droit aux APL. Contact C. LARUE O Détails : Nombre de chambre(s) : 2 Nombre de pièces : 3 Nb de salle de bains : 1 Cuisine : Separee Mode de chauffage : RADIATEUR Type de chauffage : GAZ Format de chauffage : COLLECTIF Balcon : 1 Nombre de wc : 1 Cave : 1 Type de charge : prévisionnelles mensuelles Charges : 213 €/moisCharges complémentaires : comprennent chauffage, eau chaude, contrat d'entretien, TOM Nom du négociateur : AGENCE BOURG EN BRESSE Lieu : Ain (01)",
+      "annonceur": "DYNACITE",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.paruvendu.fr/immobilier/location/appartement/1295986018A1KILHAP000",
+      "date_annonce": "24/11/2026 à 22:36",
+      "date_update": "2026-11-25 14:42:53"
     },
     {
       "site": "semcoda",
@@ -2259,9 +2391,9 @@
       "type": "Appartement",
       "surface": "70",
       "pieces": "3",
+      "loyer_total": "769",
       "loyer": "664",
       "charges": "105",
-      "loyer_total": "769",
       "depot": "",
       "frais_agence": "0",
       "étage": "2",
@@ -2281,7 +2413,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.semcoda.com/etablissement-saint-paul-de-varax-0602-0001-0001-0021.html",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:25:14"
+      "date_update": "2026-11-25 14:44:51"
     },
     {
       "site": "dynacite",
@@ -2292,9 +2424,9 @@
       "type": "Appartement",
       "surface": "87",
       "pieces": "5",
+      "loyer_total": "891",
       "loyer": "492",
       "charges": "399",
-      "loyer_total": "891",
       "depot": "",
       "frais_agence": "",
       "étage": "3",
@@ -2314,7 +2446,40 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.dynacite.fr/les-offres/appartement-3-pieces-64m2/",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:23:48"
+      "date_update": "2026-11-25 14:43:36"
+    },
+    {
+      "site": "paruvendu",
+      "titre": "Location Appartement 5 pièces 87 m² St trivier sur moignans (01990)",
+      "ville": "Saint-Trivier-sur-Moignans 01990",
+      "distance": "14.6",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "87",
+      "pieces": "5",
+      "loyer_total": "892",
+      "loyer": "492",
+      "charges": "400",
+      "depot": "492",
+      "frais_agence": "",
+      "étage": "3",
+      "ascenseur": "False",
+      "chambres": "4",
+      "salles_de_bain": "1",
+      "balcon": "True",
+      "chauffage_type": "",
+      "chauffage_mode": "",
+      "parking": "",
+      "classe": "D",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Nombre de pièces 5 pièces', 'Surface 87m2 environ', 'Nombre de chambres 4 chambres', 'Balcon / Terrasse', 'Agencement 1 salle de bain 1 toilettes séparées', \"Général Etage : 3 (dernier étage) Nombre d'étage(s) dans l'immeuble : 3\", 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t22_CR_221-01-01-31-3712', 'Mise à jour 24/11/2026 à 22:36']",
+      "description": "Profitez d'un spacieux appartement de 87 m2 avec trois chambres et un balcon, situé au 3ème étage sans ascenseur. Charges incluant chauffage et eau. Candidature en ligne facile. Dynacité vous propose à la location un appartement de type 5 d'une superficie de 87 m2, situé au 426 route de Chaneins à Saint-Trivier-sur-Moignans (01990). Situé au 3 étage sans ascenseur, ce logement comprend trois chambres et une salle de bains. Loyer mensuel : 492,16 € Provision pour charges : 389,78 € Montant total mensuel : 881,94 € Dépôt de garantie : 492,16 € Le chauffage, l'eau chaude et l'eau froide sont inclus dans les charges. Les avantages : aucun frais d'agence ; loyer payable en fin de mois ; possibilité de bénéficier de l'APL, sous réserve des conditions fixées par la CAF. Logement soumis aux plafonds de ressources PLAI. Pour candidater, déposez directement votre demande en ligne en précisant votre numéro unique de demande de logement social. 2.16.1.2 2.16.1.2 Détails : Nombre de chambre(s) : 4 Nombre de pièces : 5 Nb de salle de bains : 1 Mode de chauffage : AUTRE Type de chauffage : AUTRE Format de chauffage : COLLECTIF Balcon : 1 Nombre de wc : 1 Part Honoraires Etat des lieux : 0 € Type de charge : prévisionnelles mensuelles Charges : 399.78 €/mois Nom du négociateur : AGENCE BOURG EN BRESSE Lieu : Ain (01)",
+      "annonceur": "DYNACITE",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.paruvendu.fr/immobilier/location/appartement/1295238419A1KILHAP000",
+      "date_annonce": "24/11/2026 à 22:36",
+      "date_update": "2026-11-25 14:42:31"
     },
     {
       "site": "semcoda",
@@ -2325,9 +2490,9 @@
       "type": "Appartement",
       "surface": "68",
       "pieces": "3",
+      "loyer_total": "1130",
       "loyer": "850",
       "charges": "280",
-      "loyer_total": "1130",
       "depot": "",
       "frais_agence": "0",
       "étage": "2",
@@ -2347,7 +2512,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.semcoda.com/etablissement-saint-trivier-sur-moignans-2905-0001-0005-0025.html",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:25:15"
+      "date_update": "2026-11-25 14:44:52"
     },
     {
       "site": "semcoda",
@@ -2358,9 +2523,9 @@
       "type": "Appartement",
       "surface": "87",
       "pieces": "4",
+      "loyer_total": "1264",
       "loyer": "931",
       "charges": "333",
-      "loyer_total": "1264",
       "depot": "",
       "frais_agence": "0",
       "étage": "2",
@@ -2380,40 +2545,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.semcoda.com/etablissement-saint-trivier-sur-moignans-4749-0003-0004-0021.html",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:25:17"
-    },
-    {
-      "site": "paruvendu",
-      "titre": "Location Appartement 3 pièces 67 m² Marlieux (01240)",
-      "ville": "Marlieux 01240",
-      "distance": "14.8",
-      "meuble": "Non meublé",
-      "type": "Appartement",
-      "surface": "67",
-      "pieces": "3",
-      "loyer": "650",
-      "charges": "30",
-      "loyer_total": "680",
-      "depot": "650",
-      "frais_agence": "340",
-      "étage": "2",
-      "ascenseur": "",
-      "chambres": "2",
-      "salles_de_bain": "",
-      "balcon": "",
-      "chauffage_type": "Électrique",
-      "chauffage_mode": "",
-      "parking": "True",
-      "classe": "C",
-      "étages_total": "",
-      "année": "",
-      "caracteristiques": "['Nombre de pièces 3 pièces', 'Surface 67m2 environ', 'Nombre de chambres 2 chambres', \"Agencement 1 salle d'eau\", 'Général Etage : 2', 'Annexes Box Parking', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t61671029_887', 'Mise à jour 11/11/2026 à 07:49']",
-      "description": "Découvrez cet appartement de type 3 à MARLIEUX offrant une cuisine aménagée et équipée ainsi qu'une place de stationnement privative. Profitez d'un confort optimal avec ses prestations de qualité. Disponible dès le 23/11/2026. PERLE RARE - MARLIEUX - Venez découvrir cet d'appartement de type 3, non meublé mais comprenant une cuisine aménagée et équipée. Un appartement situé au second et dernier étage d'une surface de 67.09m², comprenant un confortable séjour avec cuisine ouverte (plaques vitrocéramiques, four, hotte, réfrigérateur/congélateur, arrivée d'eau pour lave-vaisselle et rangements), deux chambres, une salle d'eau avec arrivée d'eau lave-linge et WC indépendant. Vous y trouverez des prestations de qualité pour un confort optimal : convecteurs électriques dernière génération, isolation par l'extérieur, double vitrage. Le + : une place de stationnement privative. Charges comprenant l'entretien des parties communes et les ordures ménagères. Chauffage et eau chaude électrique. Eau froide et électricité non compris dans les charges (charges individuelles). Disponible dès le 23/11/2026 ! Etat général : Excellent Année de construction : 2023 Chauffage : Individuel Chauffage (mécanisme) : Convecteurs Chauffage (mode) : Electrique Fenêtre : PVC Double Vitrage Cuisine : Ouverte Aménagée Equipée Charges : 30 Provision sur Charges : 30 euros Honoraires Etat des lieux Locataires : 201 Lieu : Ain (01)",
-      "annonceur": "HOMEOS",
-      "type_annonceur": "Professionnel",
-      "url": "https://www.paruvendu.fr/immobilier/location/appartement/1297297261A1KILHAP000",
-      "date_annonce": "11/11/2026 à 07:49",
-      "date_update": "2026-11-24 21:22:44"
+      "date_update": "2026-11-25 14:44:54"
     },
     {
       "site": "semcoda",
@@ -2424,9 +2556,9 @@
       "type": "Appartement",
       "surface": "72",
       "pieces": "3",
+      "loyer_total": "830",
       "loyer": "668",
       "charges": "162",
-      "loyer_total": "830",
       "depot": "",
       "frais_agence": "0",
       "étage": "2",
@@ -2446,7 +2578,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.semcoda.com/etablissement-saint-didier-sur-chalaronne-0223-0001-0001-0025.html",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:25:12"
+      "date_update": "2026-11-25 14:44:49"
     },
     {
       "site": "paruvendu",
@@ -2457,9 +2589,9 @@
       "type": "Appartement",
       "surface": "55",
       "pieces": "2",
+      "loyer_total": "573",
       "loyer": "540",
       "charges": "33",
-      "loyer_total": "573",
       "depot": "540",
       "frais_agence": "612",
       "étage": "1",
@@ -2473,26 +2605,26 @@
       "classe": "D",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Nombre de pièces 2 pièces', 'Surface 55m2 environ', 'Nombre de chambres 1 chambre', 'Agencement 1 salle de bain', 'Général Etage : 1', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\tGES53500002-206', 'Mise à jour 15/11/2026 à 12:40']",
-      "description": "Découvrez cet appartement T2 en duplex situé au c?ur de Pont-de-Veyle, avec un accès facile aux commerces et services. Idéal pour une personne seule ou un couple, il offre confort et fonctionnalité. À LOUER : Découvrez cet appartement T2 en duplex de 55 m² avec climatisation réversible, situé au 1er étage d'un immeuble, au cœur de Pont-de-Veyle. L'appartement se compose d'une pièce de vie avec coin cuisine, d'une chambre ainsi que d'une salle de bains fonctionnelle. Le chauffage est individuel au gaz. Une climatisation réversible va être installée. L'emplacement est un véritable atout : situé au cœur de Pont-de-Veyle, vous bénéficierez d'un accès rapide aux commerces et services de proximité. La Grande Rue regroupe notamment plusieurs commerces, dont des boulangeries, une pharmacie, des commerces de bouche et différents services. Un appartement fonctionnel et agréable, idéal pour une personne seule ou un couple à la recherche d'un logement au cœur de la commune. Venez découvrir ce bien lors d'une visite !. Loyer de 573,00 euros par mois charges comprises dont 33,00 euros par mois de provision pour charges (soumis à la régularisation annuelle). Soit avec Assurance Habitation et Assistance* ( 22.42 euros ) : 595,42 euros. Les honoraires charge locataire sont de 612,39 euros ( soit 11,10 euros/m² ) dont 167,16 euros pour état des lieux ( soit 3,03 euros/m² ). Vous pouvez consulter les barèmes d'honoraires à l'adresse suivante : #bareme-location Montant estimé des dépenses annuelles d'énergie pour un usage standard : entre 930 et 1 300 euros. Prix moyens des énergies indexés en 2023. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : https://www.georisques.gouv.fr . *Service facultatif. Contribution annuelle \"attentats\" non comprise. Voir conditions en agence. Lieu : Ain (01)",
+      "caracteristiques": "['Nombre de pièces 2 pièces', 'Surface 55m2 environ', 'Nombre de chambres 1 chambre', 'Agencement 1 salle de bain', 'Général Etage : 1', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\tGES53500002-206', 'Mise à jour 25/11/2026 à 11:50']",
+      "description": "Découvrez cet appartement T2 en duplex situé au c?ur de Pont-de-Veyle, avec un accès facile aux commerces et services. Idéal pour une personne seule ou un couple, il offre confort et fonctionnalité. À LOUER : Découvrez cet appartement T2 en duplex de 55 m² avec climatisation réversible, situé au 1er étage d'un immeuble, au cœur de Pont-de-Veyle. L'appartement se compose d'une pièce de vie avec coin cuisine, d'une chambre ainsi que d'une salle de bains fonctionnelle. Le chauffage est individuel au gaz. Une climatisation réversible va être installée. L'emplacement est un véritable atout : situé au cœur de Pont-de-Veyle, vous bénéficierez d'un accès rapide aux commerces et services de proximité. La Grande Rue regroupe notamment plusieurs commerces, dont des boulangeries, une pharmacie, des commerces de bouche et différents services. Un appartement fonctionnel et agréable, idéal pour une personne seule ou un couple à la recherche d'un logement au cœur de la commune. Venez découvrir ce bien lors d'une visite !. Loyer de 573,00 € par mois charges comprises dont 33,00 € par mois de provision pour charges (soumis à la régularisation annuelle). Soit avec Assurance Habitation et Assistance* ( 22.42 € ) : 595,42 €. Les honoraires charge locataire sont de 612,39 € ( soit 11,10 €/m² ) dont 167,16 € pour état des lieux ( soit 3,03 €/m² ). Vous pouvez consulter les barèmes d'honoraires à l'adresse suivante : #bareme-location Montant estimé des dépenses annuelles d'énergie pour un usage standard : entre 930 et 1 300 €. Prix moyens des énergies indexés en 2023. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : https://www.georisques.gouv.fr . *Service facultatif. Contribution annuelle \"attentats\" non comprise. Voir conditions en agence. Lieu : Ain (01)",
       "annonceur": "Citya Lamartine",
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1292228076A1KILHAP000",
-      "date_annonce": "15/11/2026 à 12:40",
-      "date_update": "2026-11-24 21:22:11"
+      "date_annonce": "25/11/2026 à 11:50",
+      "date_update": "2026-11-25 14:42:11"
     },
     {
       "site": "paruvendu",
       "titre": "Location Appartement 3 pièces 55 m² Saint denis les bourg (01000)",
-      "ville": "Saint Denis les Bourg 01000",
+      "ville": "Saint-Denis-Lès-Bourg 01000",
       "distance": "16.7",
       "meuble": "Non meublé",
       "type": "Appartement",
       "surface": "55",
       "pieces": "3",
+      "loyer_total": "620",
       "loyer": "",
       "charges": "",
-      "loyer_total": "620",
       "depot": "620",
       "frais_agence": "611",
       "étage": "",
@@ -2512,20 +2644,20 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1297678165A1KILHAP000",
       "date_annonce": "24/11/2026 à 11:47",
-      "date_update": "2026-11-24 21:22:08"
+      "date_update": "2026-11-25 14:42:09"
     },
     {
       "site": "paruvendu",
       "titre": "Location Appartement 2 pièces 56 m² Saint denis les bourg (01000)",
-      "ville": "Saint Denis les Bourg 01000",
+      "ville": "Saint-Denis-Lès-Bourg 01000",
       "distance": "16.7",
       "meuble": "",
       "type": "Appartement",
       "surface": "56",
       "pieces": "2",
+      "loyer_total": "680",
       "loyer": "640",
       "charges": "40",
-      "loyer_total": "680",
       "depot": "640",
       "frais_agence": "621",
       "étage": "1",
@@ -2545,7 +2677,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1297712677A1KILHAP000",
       "date_annonce": "21/11/2026 à 11:19",
-      "date_update": "2026-11-24 21:22:00"
+      "date_update": "2026-11-25 14:42:03"
     },
     {
       "site": "paruvendu",
@@ -2556,9 +2688,9 @@
       "type": "Appartement",
       "surface": "64",
       "pieces": "4",
+      "loyer_total": "830",
       "loyer": "620",
       "charges": "210",
-      "loyer_total": "830",
       "depot": "",
       "frais_agence": "",
       "étage": "",
@@ -2578,7 +2710,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296669480A1KILHAP000",
       "date_annonce": "01/11/2026 à 13:39",
-      "date_update": "2026-11-24 21:23:01"
+      "date_update": "2026-11-25 14:42:39"
     },
     {
       "site": "dynacite",
@@ -2589,9 +2721,9 @@
       "type": "Maison",
       "surface": "90",
       "pieces": "4",
+      "loyer_total": "1064",
       "loyer": "806",
       "charges": "257",
-      "loyer_total": "1064",
       "depot": "",
       "frais_agence": "",
       "étage": "2",
@@ -2611,7 +2743,40 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.dynacite.fr/les-offres/pavillon-4-pieces-90m2/",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:23:52"
+      "date_update": "2026-11-25 14:43:39"
+    },
+    {
+      "site": "paruvendu",
+      "titre": "Location Appartement 4 pièces 90 m² Thoissey (01140)",
+      "ville": "Thoissey 01140",
+      "distance": "17.0",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "90",
+      "pieces": "4",
+      "loyer_total": "1064",
+      "loyer": "806",
+      "charges": "258",
+      "depot": "549",
+      "frais_agence": "",
+      "étage": "2",
+      "ascenseur": "False",
+      "chambres": "3",
+      "salles_de_bain": "1",
+      "balcon": "",
+      "chauffage_type": "Gaz",
+      "chauffage_mode": "Collectif",
+      "parking": "",
+      "classe": "D",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Nombre de pièces 4 pièces', 'Surface 90m2 environ', 'Nombre de chambres 3 chambres', 'Agencement 1 salle de bain 1 toilettes séparées', \"Général Etage : 2 Nombre d'étage(s) dans l'immeuble : 3\", 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t20_SD_936-01-01-022-3776', 'Mise à jour 24/11/2026 à 22:36']",
+      "description": "Emménagez dans cet appartement spacieux de 4 pièces à Thoissey, au 2ème étage. Profitez de 3 chambres, d'une cuisine américaine et d'un chauffage collectif au gaz, le tout à proximité des commodités. A LOUER sur la commune de THOISSEY - Appartement 4 pièces de 90m2 au 2ème étage sans ascenseur à proximité du centre ville et de ses commodités. Loyer 806.77€ avec le chauffage collectif GAZ de compris. Dépôt de Garantie : 549.03€ +154.92 Chauffage + 102.82€ Charges diverses. Ouvre droit aux APL - Loyer payable fin de mois - Pas de frais d'Agence ni de dossier - DPE : D Soumis aux plafonds de ressources. Disponible prochainement. Contactez nous pour plus d'informations : oou Détails : Nombre de chambre(s) : 3 Nombre de pièces : 4 Nb de salle de bains : 1 Cuisine : Americaine Mode de chauffage : RADIATEUR Type de chauffage : GAZ Format de chauffage : COLLECTIF Nombre de wc : 1 Type de charge : prévisionnelles mensuelles Charges : 257.74 €/moisCharges complémentaires : Le chauffage est collectif GAZ : provisions de 154.92€ + 102.82€ de charges diverses. Nom du négociateur : AGENCE BOURG EN BRESSE Lieu : Ain (01)",
+      "annonceur": "DYNACITE",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296709173A1KILHAP000",
+      "date_annonce": "24/11/2026 à 22:36",
+      "date_update": "2026-11-25 14:42:47"
     },
     {
       "site": "paruvendu",
@@ -2622,9 +2787,9 @@
       "type": "Appartement",
       "surface": "100",
       "pieces": "4",
+      "loyer_total": "662",
       "loyer": "635",
       "charges": "27",
-      "loyer_total": "662",
       "depot": "635",
       "frais_agence": "304",
       "étage": "1",
@@ -2638,13 +2803,13 @@
       "classe": "D",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Nombre de pièces 4 pièces', 'Surface 100m2 environ', 'Nombre de chambres 3 chambres', 'Balcon / Terrasse', 'Agencement 1 salle de bain', 'Général Etage : 1', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\tGES35560002-218', 'Mise à jour 24/10/2026 à 12:45']",
-      "description": "Profitez d'un appartement T4 spacieux de 100 m² avec deux chambres et un bureau, offrant un cadre de vie agréable. Cuisine aménagée et balcon, idéal pour votre confort au quotidien. À louer : Appartement T4 situé à Polliat, dans le département de l'Ain, offrant un cadre de vie agréable et fonctionnel. Ce bien dispose d'une superficie généreuse de 100 m². L'appartement se compose de quatre pièces, dont deux chambres spacieuses, ainsi qu'un bureau. La salle de bain est bien agencée, avec une douche. La cuisine est entièrement aménagée, avec des plaques de cuisson. Le chauffage est individuel, fonctionnant au gaz, avec des radiateurs. L'appartement est situé au premier étage. Un petit balcon vient compléter ce bien. N'hésitez pas à nous contacter pour plus d'informations ou pour organiser une visite. Loyer de 662,00 euros par mois charges comprises dont 27,00 euros par mois de provision pour charges (soumis à la régularisation annuelle). Soit avec Assurance Habitation et Assistance* ( 28.67 euros ) : 690,67 euros. Les honoraires charge locataire sont de 304,21 euros ( soit 3,03 euros/m² ) dont 304,21 euros pour état des lieux ( soit 3,03 euros/m² ). Vous pouvez consulter les barèmes d'honoraires à l'adresse suivante : #bareme-location Montant estimé des dépenses annuelles d'énergie pour un usage standard : entre 1 700 et 2 340 euros. Prix moyens des énergies indexés en 2026. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : https://www.georisques.gouv.fr . *Service facultatif. Contribution annuelle \"attentats\" non comprise. Voir conditions en agence. Lieu : Ain (01)",
+      "caracteristiques": "['Nombre de pièces 4 pièces', 'Surface 100m2 environ', 'Nombre de chambres 3 chambres', 'Balcon / Terrasse', 'Agencement 1 salle de bain', 'Général Etage : 1', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\tGES35560002-218', 'Mise à jour 25/11/2026 à 12:41']",
+      "description": "Découvrez cet appartement T4 de 100 m² à Polliat, offrant un espace fonctionnel et agréable, avec deux chambres spacieuses et un bureau. Profitez d'une cuisine aménagée et d'un petit balcon au premier étage. À louer : Appartement T4 situé à Polliat, dans le département de l'Ain, offrant un cadre de vie agréable et fonctionnel. Ce bien dispose d'une superficie généreuse de 100 m². L'appartement se compose de quatre pièces, dont deux chambres spacieuses, ainsi qu'un bureau. La salle de bain est bien agencée, avec une douche. La cuisine est entièrement aménagée, avec des plaques de cuisson. Le chauffage est individuel, fonctionnant au gaz, avec des radiateurs. L'appartement est situé au premier étage. Un petit balcon vient compléter ce bien. N'hésitez pas à nous contacter pour plus d'informations ou pour organiser une visite. Loyer de 662,00 euros par mois charges comprises dont 27,00 euros par mois de provision pour charges (soumis à la régularisation annuelle). Soit avec Assurance Habitation et Assistance* ( 28.67 euros ) : 690,67 euros. Les honoraires charge locataire sont de 304,21 euros ( soit 3,03 euros/m² ) dont 304,21 euros pour état des lieux ( soit 3,03 euros/m² ). Vous pouvez consulter les barèmes d'honoraires à l'adresse suivante : #bareme-location Montant estimé des dépenses annuelles d'énergie pour un usage standard : entre 1 700 et 2 340 euros. Prix moyens des énergies indexés en 2026. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : https://www.georisques.gouv.fr . *Service facultatif. Contribution annuelle \"attentats\" non comprise. Voir conditions en agence. Lieu : Ain (01)",
       "annonceur": "Citya Pays De l'Ain",
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296295608A1KILHAP000",
-      "date_annonce": "24/10/2026 à 12:45",
-      "date_update": "2026-11-24 21:22:17"
+      "date_annonce": "25/11/2026 à 12:41",
+      "date_update": "2026-11-25 14:42:15"
     },
     {
       "site": "paruvendu",
@@ -2655,9 +2820,9 @@
       "type": "Appartement",
       "surface": "56",
       "pieces": "2",
+      "loyer_total": "825",
       "loyer": "725",
       "charges": "100",
-      "loyer_total": "825",
       "depot": "625",
       "frais_agence": "477",
       "étage": "2",
@@ -2671,13 +2836,13 @@
       "classe": "C",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Nombre de pièces 2 pièces', 'Surface 56m2 environ', 'Nombre de chambres 1 chambre', 'Parking / Garage Balcon / Terrasse', \"Agencement 1 salle d'eau\", \"Général Etage : 2 Nombre d'étage(s) dans l'immeuble : 3\", 'Accès Ascenseur Digicode Interphone', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t12312449_1T2Polliat', 'Mise à jour 13/11/2026 à 07:02']",
-      "description": "Découvrez ce T2 lumineux au 2ème étage, avec une cuisine aménagée ouverte sur le séjour. Profitez d'une terrasse, d'un garage et des commodités à proximité, le tout dans un environnement calme. A louer à Polliat, beau T2 fonctionnel au 2ème étage d'une résidence récente, disposant d'une entrée avec placard, une cuisine meublée et équipée (évier, plaque à induction, four), ouverte sur le séjour avec accès à la terrasse, une chambre, une salle d'eau, WC séparés et un garage fermé en sous-sol. Chauffage collectif au gaz performant compris dans les charges (comptage individuel). Calme et toutes commodités à pied : école, commerces, supermarché, mairie, médecin... Loyer : 725 euros par mois charges comprises dont 100 euros de provisions de charges (chauffage et eau compris) - régularisation annuelle - Dépôt de garantie : 625 euros - Honoraires charge locataire : 477.36 euros TTC dont 168.48 euros TTC pour l'état des lieux d'entrée. Année de construction : 2015 Chauffage : CollectifComptageIndividuel Chauffage (mécanisme) : Radiateur Chauffage (mode) : Gaz Cuisine : AmenageeEquipee Ascenceur : oui Interphone : oui Charges : 100 Numéro de mandat : 299 Précision localisation : -15 KM BOURG EN BRESSE Provision sur Charges : 100 euros Modalité de règlement des charges : Previsionnelles_mensuelles_annuelle euros Bareme ALUR : https://media.immo-facile.com/segments/immo/catalog/images/manufacturers_bareme/167311.pdf Honoraires Etat des lieux Locataires : 168.48 Lieu : Ain (01)",
+      "caracteristiques": "['Nombre de pièces 2 pièces', 'Surface 56m2 environ', 'Nombre de chambres 1 chambre', 'Parking / Garage Balcon / Terrasse', \"Agencement 1 salle d'eau\", \"Général Etage : 2 Nombre d'étage(s) dans l'immeuble : 3\", 'Accès Ascenseur Digicode Interphone', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t12312449_1T2Polliat', 'Mise à jour 25/11/2026 à 08:38']",
+      "description": "Découvrez ce T2 lumineux au 2ème étage, avec une cuisine aménagée ouverte sur le séjour. Profitez d'une terrasse, d'un garage et des commodités à proximité, le tout dans un environnement calme. A louer à Polliat, beau T2 fonctionnel au 2ème étage d'une résidence récente, disposant d'une entrée avec placard, une cuisine meublée et équipée (évier, plaque à induction, four), ouverte sur le séjour avec accès à la terrasse, une chambre, une salle d'eau, WC séparés et un garage fermé en sous-sol. Chauffage collectif au gaz performant compris dans les charges (comptage individuel). Calme et toutes commodités à pied : école, commerces, supermarché, mairie, médecin... Loyer : 725 € par mois charges comprises dont 100 € de provisions de charges (chauffage et eau compris) - régularisation annuelle - Dépôt de garantie : 625 € - Honoraires charge locataire : 477.36 € TTC dont 168.48 € TTC pour l'état des lieux d'entrée. Année de construction : 2015 Chauffage : CollectifComptageIndividuel Chauffage (mécanisme) : Radiateur Chauffage (mode) : Gaz Cuisine : AmenageeEquipee Ascenceur : oui Interphone : oui Charges : 100 Numéro de mandat : 299 Précision localisation : -15 KM BOURG EN BRESSE Provision sur Charges : 100 € Modalité de règlement des charges : Previsionnelles_mensuelles_annuelle € Bareme ALUR : https://media.immo-facile.com/segments/immo/catalog/images/manufacturers_bareme/167311.pdf Honoraires Etat des lieux Locataires : 168.48 Lieu : Ain (01)",
       "annonceur": "L'ADRESSE ML JOUVENT IMMOBILIER",
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296969077A1KILHAP000",
-      "date_annonce": "13/11/2026 à 07:02",
-      "date_update": "2026-11-24 21:22:59"
+      "date_annonce": "25/11/2026 à 08:38",
+      "date_update": "2026-11-25 14:42:36"
     },
     {
       "site": "paruvendu",
@@ -2688,9 +2853,9 @@
       "type": "Maison",
       "surface": "104",
       "pieces": "5",
+      "loyer_total": "870",
       "loyer": "",
       "charges": "",
-      "loyer_total": "870",
       "depot": "870",
       "frais_agence": "696",
       "étage": "",
@@ -2704,13 +2869,13 @@
       "classe": "E",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Nombre de pièces 5 pièces', 'Surface 104m2 environ', 'Nombre de chambres 4 chambres', 'Parking / Garage Jardin / Terrain', \"Agencement 1 salle de bain 1 salle d'eau\", 'Général Chauffage : gaz', 'Extérieur Surface  terrain : 216\\nm 2', 'Annexes Cave', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t347', 'Mise à jour 03/11/2026 à 13:23']",
-      "description": "Découvrez cette maison de ville rare à Polliat, offrant 104 m² habitables avec chambre et salle d'eau au rez-de-chaussée, 3 chambres à l'étage, et un terrain de 216 m² sans entretien. Idéal pour un cadre de vie confortable. Rare au centre de POLLIAT, tout en étant située hors rue principale, cette maison de ville mitoyenne d?un côté développe une surface habitable de 104 m². Elle comprend de plain-pied une chambre avec salle d?eau privative, un garage ainsi qu?une cave. À l?étage, vous trouverez une cuisine ouverte sur le séjour, trois chambres supplémentaires et une salle de bains. Le tout est édifié sur un terrain de 216 m² ne nécessitant aucun entretien. Chauffage individuel au gaz de ville. DPE : E ? 306 kWh/m²/an (oûts annuels d?énergie estimés entre 2 860 ? et 3 930 ? abonnement compris, prix des énergies indexés sur les années 2021, 2022 et 2023). GES : E ? 58 kg CO?/m²/an Libre de suite Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisque : www.géorisques.gouv.fr Pour plus d'information, téléphonez , retrouvez également toutes les annonces d'ImmoBresse sur www.immo-bresse.fr Lieu : Ain (01)",
+      "caracteristiques": "['Nombre de pièces 5 pièces', 'Surface 104m2 environ', 'Nombre de chambres 4 chambres', 'Parking / Garage Jardin / Terrain', \"Agencement 1 salle de bain 1 salle d'eau\", 'Général Chauffage : gaz', 'Extérieur Surface  terrain : 216\\nm 2', 'Annexes Cave', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t347', 'Mise à jour 25/11/2026 à 09:51']",
+      "description": "Rare à Polliat, cette maison de ville de 104 m² propose 4 chambres et un garage, le tout sans entretien sur un terrain de 216 m². Profitez de ses espaces bien agencés dès maintenant. Rare au centre de POLLIAT, tout en étant située hors rue principale, cette maison de ville mitoyenne d?un côté développe une surface habitable de 104 m². Elle comprend de plain-pied une chambre avec salle d?eau privative, un garage ainsi qu?une cave. À l?étage, vous trouverez une cuisine ouverte sur le séjour, trois chambres supplémentaires et une salle de bains. Le tout est édifié sur un terrain de 216 m² ne nécessitant aucun entretien. Chauffage individuel au gaz de ville. DPE : E ? 306 kWh/m²/an (oûts annuels d?énergie estimés entre 2 860 ? et 3 930 ? abonnement compris, prix des énergies indexés sur les années 2021, 2022 et 2023). GES : E ? 58 kg CO?/m²/an Libre de suite Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisque : www.géorisques.gouv.fr Pour plus d'information, téléphonez , retrouvez également toutes les annonces d'ImmoBresse sur www.immo-bresse.fr Lieu : Ain (01)",
       "annonceur": "IMMOBRESSE",
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1296618279A1KILHMN000",
-      "date_annonce": "03/11/2026 à 13:23",
-      "date_update": "2026-11-24 21:23:08"
+      "date_annonce": "25/11/2026 à 09:51",
+      "date_update": "2026-11-25 14:42:49"
     },
     {
       "site": "pap",
@@ -2721,9 +2886,9 @@
       "type": "Maison",
       "surface": "140",
       "pieces": "4",
+      "loyer_total": "51",
       "loyer": "1",
       "charges": "50",
-      "loyer_total": "51",
       "depot": "1000",
       "frais_agence": "0",
       "étage": "",
@@ -2743,7 +2908,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.pap.fr/annonces/maison-lent-01240-r465900258",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:20:38"
+      "date_update": "2026-11-25 14:40:46"
     },
     {
       "site": "paruvendu",
@@ -2754,9 +2919,9 @@
       "type": "Appartement",
       "surface": "50",
       "pieces": "2",
+      "loyer_total": "552",
       "loyer": "545",
       "charges": "7",
-      "loyer_total": "552",
       "depot": "545",
       "frais_agence": "552",
       "étage": "",
@@ -2776,7 +2941,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1297143242A1KILHAP000",
       "date_annonce": "07/11/2026 à 20:16",
-      "date_update": "2026-11-24 21:21:55"
+      "date_update": "2026-11-25 14:41:59"
     },
     {
       "site": "dynacite",
@@ -2787,9 +2952,9 @@
       "type": "Appartement",
       "surface": "79",
       "pieces": "4",
+      "loyer_total": "600",
       "loyer": "600",
       "charges": "0",
-      "loyer_total": "600",
       "depot": "",
       "frais_agence": "",
       "étage": "1",
@@ -2809,53 +2974,53 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.dynacite.fr/les-offres/appartement-t4-lent/",
       "date_annonce": "",
-      "date_update": "2026-11-24 21:23:50"
+      "date_update": "2026-11-25 14:43:37"
     },
     {
       "site": "paruvendu",
-      "titre": "Location Appartement 1 pièce 28 m² Peronnas (01960)",
-      "ville": "Peronnas 01960",
-      "distance": "18.6",
+      "titre": "Location Appartement 4 pièces 79 m² Lent (01240)",
+      "ville": "Lent 01240",
+      "distance": "18.5",
       "meuble": "",
       "type": "Appartement",
-      "surface": "28",
-      "pieces": "1",
-      "loyer": "490",
-      "charges": "50",
-      "loyer_total": "540",
-      "depot": "490",
-      "frais_agence": "301",
-      "étage": "3",
-      "ascenseur": "True",
+      "surface": "79",
+      "pieces": "4",
+      "loyer_total": "601",
+      "loyer": "600",
+      "charges": "",
+      "depot": "",
+      "frais_agence": "",
+      "étage": "1",
+      "ascenseur": "",
       "chambres": "",
-      "salles_de_bain": "1",
+      "salles_de_bain": "",
       "balcon": "",
-      "chauffage_type": "Électrique",
-      "chauffage_mode": "Individuel",
+      "chauffage_type": "",
+      "chauffage_mode": "",
       "parking": "",
       "classe": "D",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Nombre de pièces 1 pièce', 'Surface 28m2 environ', 'Agencement 1 salle de bain', 'Général Etage : 3', 'Accès Ascenseur', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\tGES10110230-206', 'Mise à jour 15/11/2026 à 12:40']",
-      "description": "Appartement agréable à Péronnas, idéal pour une personne seule. Profitez d'une cuisine aménagée, d'une grande pièce à vivre et d'un accès rapide aux transports. Un bien fonctionnel à découvrir lors d'une visite. A LOUER : Découvrez cet agréable appartement 1 pièce de 27,53 m², situé à Péronnas, au sein d'un immeuble avec ascenseur. Le logement se compose d'une cuisine aménagée et équipée ouverte sur une grande pièce à vivre, ainsi que d'une salle de bains avec WC. Le chauffage est individuel électrique. L'emplacement bénéficie d'un accès pratique aux transports, avec quatre gares accessibles en moins de 10 minutes en voiture. Un logement fonctionnel et agréable, idéal pour une personne seule à la recherche d'un appartement pratique au quotidien. Venez découvrir ce bien lors d'une visite !. Le bien est soumis au statut de la copropriété. Loyer de 540,00 euros par mois charges comprises dont 50,00 euros par mois de provision pour charges (soumis à la régularisation annuelle). Soit avec Assurance Habitation et Assistance* ( 19.23 euros ) : 559,23 euros. Les honoraires charge locataire sont de 301,29 euros ( soit 10,94 euros/m² ) dont 83,42 euros pour état des lieux ( soit 3,03 euros/m² ). Vous pouvez consulter les barèmes d'honoraires à l'adresse suivante : #bareme-location Montant estimé des dépenses annuelles d'énergie pour un usage standard : entre 450 et 670 euros. Prix moyens des énergies indexés en 2021. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : https://www.georisques.gouv.fr . *Service facultatif. Contribution annuelle \"attentats\" non comprise. Voir conditions en agence. Lieu : Ain (01)",
-      "annonceur": "Citya Lamartine",
+      "caracteristiques": "['Nombre de pièces 4 pièces', 'Surface 79m2 environ', 'Général Etage : 1', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t20_NG_384-1-1-14-357', 'Mise à jour 24/11/2026 à 22:36']",
+      "description": "Découvrez cet appartement T4 à Lent, bien agencé et lumineux, avec 3 chambres spacieuses idéal pour une famille. Profitez de son cellier pratique et de la proximité des commodités. A louer prochainement, sur la commune de LENT, appartement T4 de 79 m2 dans notre immeuble 'Les Tamaris', au premier étage. Il se compose d'une cuisine, d'un séjour et 3 chambres. Cellier intérieur et cellier extérieur. Loyer : 600.84 € comprenant chauffage et charges diverses. DPE C Pas de frais d'agence ni de dossier. Contact : Nathalie GOUJON : O67 2.16.1.2 Détails : Nombre de pièces : 4 Part Honoraires Etat des lieux : 0 € Type de charge : prévisionnelles mensuelles Nom du négociateur : AGENCE BOURG EN BRESSE Lieu : Ain (01)",
+      "annonceur": "DYNACITE",
       "type_annonceur": "Professionnel",
-      "url": "https://www.paruvendu.fr/immobilier/location/appartement/1291367846A1KILHAP000",
-      "date_annonce": "15/11/2026 à 12:40",
-      "date_update": "2026-11-24 21:22:27"
+      "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296867476A1KILHAP000",
+      "date_annonce": "24/11/2026 à 22:36",
+      "date_update": "2026-11-25 14:42:41"
     },
     {
       "site": "paruvendu",
       "titre": "Location Appartement 1 pièce 28 m² Peronnas (01960)",
-      "ville": "Peronnas 01960",
+      "ville": "Péronnas 01960",
       "distance": "18.6",
       "meuble": "",
       "type": "Appartement",
       "surface": "28",
       "pieces": "1",
+      "loyer_total": "540",
       "loyer": "490",
       "charges": "50",
-      "loyer_total": "540",
       "depot": "490",
       "frais_agence": "195",
       "étage": "3",
@@ -2875,7 +3040,40 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1291106871A1KILHAP000",
       "date_annonce": "20/11/2026 à 05:15",
-      "date_update": "2026-11-24 21:22:02"
+      "date_update": "2026-11-25 14:42:05"
+    },
+    {
+      "site": "paruvendu",
+      "titre": "Location Appartement 1 pièce 28 m² Peronnas (01960)",
+      "ville": "Péronnas 01960",
+      "distance": "18.6",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "28",
+      "pieces": "1",
+      "loyer_total": "540",
+      "loyer": "490",
+      "charges": "50",
+      "depot": "490",
+      "frais_agence": "301",
+      "étage": "3",
+      "ascenseur": "True",
+      "chambres": "",
+      "salles_de_bain": "1",
+      "balcon": "",
+      "chauffage_type": "Électrique",
+      "chauffage_mode": "Individuel",
+      "parking": "",
+      "classe": "D",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Nombre de pièces 1 pièce', 'Surface 28m2 environ', 'Agencement 1 salle de bain', 'Général Etage : 3', 'Accès Ascenseur', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\tGES10110230-206', 'Mise à jour 25/11/2026 à 05:15']",
+      "description": "Appartement agréable à Péronnas, idéal pour une personne seule. Profitez d'une cuisine aménagée, d'une grande pièce à vivre et d'un accès rapide aux transports. Un bien fonctionnel à découvrir lors d'une visite. A LOUER : Découvrez cet agréable appartement 1 pièce de 27,53 m², situé à Péronnas, au sein d'un immeuble avec ascenseur. Le logement se compose d'une cuisine aménagée et équipée ouverte sur une grande pièce à vivre, ainsi que d'une salle de bains avec WC. Le chauffage est individuel électrique. L'emplacement bénéficie d'un accès pratique aux transports, avec quatre gares accessibles en moins de 10 minutes en voiture. Un logement fonctionnel et agréable, idéal pour une personne seule à la recherche d'un appartement pratique au quotidien. Venez découvrir ce bien lors d'une visite !. Le bien est soumis au statut de la copropriété. Loyer de 540,00 euros par mois charges comprises dont 50,00 euros par mois de provision pour charges (soumis à la régularisation annuelle). Soit avec Assurance Habitation et Assistance* ( 19.23 euros ) : 559,23 euros. Les honoraires charge locataire sont de 301,29 euros ( soit 10,94 euros/m² ) dont 83,42 euros pour état des lieux ( soit 3,03 euros/m² ). Vous pouvez consulter les barèmes d'honoraires à l'adresse suivante : #bareme-location Montant estimé des dépenses annuelles d'énergie pour un usage standard : entre 450 et 670 euros. Prix moyens des énergies indexés en 2021. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : https://www.georisques.gouv.fr . *Service facultatif. Contribution annuelle \"attentats\" non comprise. Voir conditions en agence. Lieu : Ain (01)",
+      "annonceur": "Citya Lamartine",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.paruvendu.fr/immobilier/location/appartement/1291367846A1KILHAP000",
+      "date_annonce": "25/11/2026 à 05:15",
+      "date_update": "2026-11-25 14:41:55"
     },
     {
       "site": "paruvendu",
@@ -2886,9 +3084,9 @@
       "type": "Maison",
       "surface": "90",
       "pieces": "4",
+      "loyer_total": "950",
       "loyer": "950",
       "charges": "",
-      "loyer_total": "950",
       "depot": "",
       "frais_agence": "",
       "étage": "",
@@ -2908,7 +3106,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1294829462A1KILHMN000",
       "date_annonce": "31/08/2026 à 20:22",
-      "date_update": "2026-11-24 21:23:33"
+      "date_update": "2026-11-25 14:43:22"
     },
     {
       "site": "paruvendu",
@@ -2919,9 +3117,9 @@
       "type": "Maison",
       "surface": "147",
       "pieces": "5",
+      "loyer_total": "990",
       "loyer": "",
       "charges": "",
-      "loyer_total": "990",
       "depot": "990",
       "frais_agence": "792",
       "étage": "",
@@ -2935,13 +3133,13 @@
       "classe": "E",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Nombre de pièces 5 pièces', 'Surface 147m2 environ', 'Nombre de chambres 4 chambres', 'Parking / Garage Jardin / Terrain', \"Agencement 1 salle d'eau\", 'Extérieur Surface  terrain : 989\\nm 2', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t234', 'Mise à jour 05/11/2026 à 11:16']",
+      "caracteristiques": "['Nombre de pièces 5 pièces', 'Surface 147m2 environ', 'Nombre de chambres 4 chambres', 'Parking / Garage Jardin / Terrain', \"Agencement 1 salle d'eau\", 'Extérieur Surface  terrain : 989\\nm 2', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t234', 'Mise à jour 25/11/2026 à 09:35']",
       "description": "Découvrez cette maison spacieuse à Péronnas, idéale pour une famille, avec quatre chambres, un jardin de 989 m² et un poêle à bois. Profitez du calme tout en étant proche des commodités. Libre dès maintenant. Péronnas, rue des Poches, au calme à louer maison construite en 1972 sur deux niveaux comprenant de plain-pied, un garage, un salon, une cuisine ouverte sur séjour. A l'étage quatre chambres, un salon, une salle d'eau et un WC (aucun en RdC). Terrain de 989 m². Chauffage électrique et poêle à bois. DPE : E ? 263 kWh/m²/an (oûts annuels d?énergie estimés entre 3 320 ? et 4 560 ? abonnement compris, prix des énergies indexés sur les années 2021, 2022 et 2023). GES : B? 10 kg CO?/m²/an Libre de suite Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : www.géorisques.gouv.fr Pour plus d'information, téléphonez , retrouvez également toutes les annonces d'ImmoBresse sur www.immo-bresse.fr Lieu : Ain (01)",
       "annonceur": "IMMOBRESSE",
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1297053530A1KILHMN000",
-      "date_annonce": "05/11/2026 à 11:16",
-      "date_update": "2026-11-24 21:22:54"
+      "date_annonce": "25/11/2026 à 09:35",
+      "date_update": "2026-11-25 14:42:33"
     },
     {
       "site": "paruvendu",
@@ -2952,9 +3150,9 @@
       "type": "Maison",
       "surface": "85",
       "pieces": "4",
+      "loyer_total": "995",
       "loyer": "935",
       "charges": "60",
-      "loyer_total": "995",
       "depot": "935",
       "frais_agence": "",
       "étage": "",
@@ -2974,20 +3172,20 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1294910043A1KILHMN000",
       "date_annonce": "24/11/2026 à 10:40",
-      "date_update": "2026-11-24 21:23:04"
+      "date_update": "2026-11-25 14:42:43"
     },
     {
       "site": "paruvendu",
       "titre": "Location Appartement 3 pièces 64 m² Peronnas (01960)",
-      "ville": "Peronnas 01960",
+      "ville": "Péronnas 01960",
       "distance": "18.6",
       "meuble": "",
       "type": "Appartement",
       "surface": "64",
       "pieces": "3",
+      "loyer_total": "1029",
       "loyer": "967",
       "charges": "62",
-      "loyer_total": "1029",
       "depot": "905",
       "frais_agence": "553",
       "étage": "3",
@@ -3001,13 +3199,13 @@
       "classe": "C",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Nombre de pièces 3 pièces', 'Surface 64m2 environ', 'Nombre de chambres 2 chambres', 'Parking / Garage Balcon / Terrasse', \"Agencement 1 salle d'eau\", \"Général Etage : 3 (dernier étage) Nombre d'étage(s) dans l'immeuble : 3\", 'Accès Ascenseur', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t14657256_ALIZARINET3302', 'Mise à jour 13/11/2026 à 07:02']",
-      "description": "Profitez d'un T3 moderne en dernier étage avec terrasse spacieuse de 24 m². Ce bien entièrement neuf inclut un garage double sécurisé et des équipements performants, idéalement situé en c?ur de village. PERONNAS, résidence neuve Alizarine en coeur de village, T3 de 64.31 m² situé en dernier étage avec une superbe terrasse et un garage double sécurisé. Entièrement neuf et bien équipé, ce type 3 comprend un hall d'entrée avec placard, une cuisine semi-équipée ouverte sur séjour-salon avec accès terrasse, deux chambres, buanderie, belle salle d'eau, et WC séparés. Un vaste garage sécurisé en sous-sol complète cette offre. Loyer: 967 euros par mois charges comprises dont 62 euros de provisions pour charges - régularisation annuelle - Dépôt de garantie: 905 euros- Honoraires charge locataire : 552.50 euros TTC dont 195.00 euros TTC pour état des lieux d'entrée. Etat général : Excellent Surface séjour : 23.05 Surface terrasse : 24 Année de construction : 2026 Chauffage : Individuel Chauffage (mécanisme) : Radiateur Chauffage (mode) : Gaz Fenêtre : PVC Double Vitrage Cuisine : AmenageeEquipee Ascenceur : oui Fibre optique : Oui Charges : 62 Numéro de mandat : 351 Provision sur Charges : 62 euros Bareme ALUR : https://media.immo-facile.com/segments/immo/catalog/images/manufacturers_bareme/167311.pdf Honoraires Etat des lieux Locataires : 195 Lieu : Ain (01)",
+      "caracteristiques": "['Nombre de pièces 3 pièces', 'Surface 64m2 environ', 'Nombre de chambres 2 chambres', 'Parking / Garage Balcon / Terrasse', \"Agencement 1 salle d'eau\", \"Général Etage : 3 (dernier étage) Nombre d'étage(s) dans l'immeuble : 3\", 'Accès Ascenseur', 'Réf. annonce ParuVendu \\t\\t\\t\\t\\t\\t14657256_ALIZARINET3302', 'Mise à jour 25/11/2026 à 09:04']",
+      "description": "Idéal pour profiter d'un cadre de vie agréable, ce T3 neuf dispose d'une terrasse spacieuse et d'un garage double. Avec ses deux chambres et son séjour lumineux, il offre un confort optimal au c?ur du village. PERONNAS, résidence neuve Alizarine en coeur de village, T3 de 64.31 m² situé en dernier étage avec une superbe terrasse et un garage double sécurisé. Entièrement neuf et bien équipé, ce type 3 comprend un hall d'entrée avec placard, une cuisine semi-équipée ouverte sur séjour-salon avec accès terrasse, deux chambres, buanderie, belle salle d'eau, et WC séparés. Un vaste garage sécurisé en sous-sol complète cette offre. Loyer: 967 € par mois charges comprises dont 62 € de provisions pour charges - régularisation annuelle - Dépôt de garantie: 905 €- Honoraires charge locataire : 552.50 € TTC dont 195.00 € TTC pour état des lieux d'entrée. Etat général : Excellent Surface séjour : 23.05 Surface terrasse : 24 Année de construction : 2026 Chauffage : Individuel Chauffage (mécanisme) : Radiateur Chauffage (mode) : Gaz Fenêtre : PVC Double Vitrage Cuisine : AmenageeEquipee Ascenceur : oui Fibre optique : Oui Charges : 62 Numéro de mandat : 351 Provision sur Charges : 62 € Bareme ALUR : https://media.immo-facile.com/segments/immo/catalog/images/manufacturers_bareme/167311.pdf Honoraires Etat des lieux Locataires : 195 Lieu : Ain (01)",
       "annonceur": "L'ADRESSE ML JOUVENT IMMOBILIER",
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296488616A1KILHAP000",
-      "date_annonce": "13/11/2026 à 07:02",
-      "date_update": "2026-11-24 21:23:11"
+      "date_annonce": "25/11/2026 à 09:04",
+      "date_update": "2026-11-25 14:42:51"
     },
     {
       "site": "paruvendu",
@@ -3018,9 +3216,9 @@
       "type": "Appartement",
       "surface": "37",
       "pieces": "2",
+      "loyer_total": "390",
       "loyer": "",
       "charges": "",
-      "loyer_total": "390",
       "depot": "390",
       "frais_agence": "416",
       "étage": "3",
@@ -3040,7 +3238,40 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1297314225A1KILHAP000",
       "date_annonce": "11/11/2026 à 20:17",
-      "date_update": "2026-11-24 21:22:41"
+      "date_update": "2026-11-25 14:42:27"
+    },
+    {
+      "site": "semcoda",
+      "titre": "Pavillon - T4 - CHAMPDOR CORCELLES",
+      "ville": "Champdor-Corcelles 01110",
+      "distance": "",
+      "meuble": "",
+      "type": "Maison",
+      "surface": "85",
+      "pieces": "4",
+      "loyer_total": "673",
+      "loyer": "643",
+      "charges": "30",
+      "depot": "",
+      "frais_agence": "0",
+      "étage": "0",
+      "ascenseur": "",
+      "chambres": "1",
+      "salles_de_bain": "",
+      "balcon": "True",
+      "chauffage_type": "Électrique",
+      "chauffage_mode": "Individuel",
+      "parking": "True",
+      "classe": "E",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Superficie : 85m2', 'Réf. Semcoda : 3121-0001-0001-0001', 'Étage : Rez-de-chaussée Nombre de pièces : 4']",
+      "description": "Jolie pavillon en duplex dans quartier calme. Chauffage électrique. Il est composé, au rez-de-chaussée, d'un garage et d'un cellier. D'une chambre et d'un cabinet de toilettes. Au rez-de-jardin, il y a deux chambres, une salle de bain équipée d'une baignoire et de toilettes, un séjour séparé de la cuisine. Le séjour et la cuisine donnent sur une terrasse non couverte de 15 m². Il est nécessaire 'avoir une demande de logement social en cours dans le département de l'Ain. Vous pouvez nous contacter pour tout renseignement. Chauffage : Individuel. Electrique. Disponible le 20/02/2027. Loyer : 643 €/mois hors charges et 30 € de provision pour charges (régularisation annuelle), soit 673 €/mois de loyer charges comprises. . Logement social soumis à condition d'attribution. Sous réserve de l'augmentation légale applicable au 01/01/2026. Logement ouvrant droit à l'aide au logement sous conditions de ressources. Sans frais d'agence, ni frais de dossier. Plans et photos non contractuels. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site géorisques : www.georisques.gouv.fr SEMCODA - Bâtir le vivre ensemble.",
+      "annonceur": "SEMCODA",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.semcoda.com/etablissement-champdor-corcelles-3121-0001-0001-0001.html",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:44:06"
     }
   ]
 });
@@ -3524,7 +3755,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1288196019A1KILHAP000",
       "date_annonce": "03/11/2026 à 14:08",
-      "date_update": "2026-11-25 07:57:48"
+      "date_update": "2026-11-25 14:48:48"
     },
     {
       "site": "seloger",
@@ -3557,7 +3788,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26JK65CCA3E4",
       "date_annonce": "2026-02-17T00:56:00.000Z",
-      "date_update": "2026-11-25 07:56:53"
+      "date_update": "2026-11-25 14:48:09"
     },
     {
       "site": "bienici",
@@ -3590,7 +3821,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/netty-company54852mtc-appt-18916",
       "date_annonce": "2026-11-12T12:50:21.719Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -3623,7 +3854,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3075014139",
       "date_annonce": "2026-11-21 17:00:54",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "seloger",
@@ -3650,13 +3881,13 @@
       "classe": "E",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Rez-de-chaussée / 3 étages', 'Cuisine intégrée', 'Cave', '1 WC', '1 Salle de douche']",
+      "caracteristiques": "['Rez-de-chaussée / 3 étages', 'Cuisine séparée, Cuisine intégrée', 'Cave', '1 WC', '1 Salle de douche']",
       "description": "Appartement de 32 m² en rez-de-chaussée, rare en centre-ville. Il se compose d'une petite cuisine indépendante, d'une pièce de vie agréable avec parquet, d'une salle d'eau avec wc. Chauffage individuel électrique, cave en annexe. Situation idéale, à deux pas des commerces et services. Stationnement facile à proximité.",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/257KRV8EP9GW",
       "date_annonce": "2025-11-06T16:27:00.000Z",
-      "date_update": "2026-11-25 07:56:59"
+      "date_update": "2026-11-25 14:48:13"
     },
     {
       "site": "paruvendu",
@@ -3689,7 +3920,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1297143281A1KILHAP000",
       "date_annonce": "07/11/2026 à 20:16",
-      "date_update": "2026-11-25 07:57:35"
+      "date_update": "2026-11-25 14:48:40"
     },
     {
       "site": "leboncoin",
@@ -3722,7 +3953,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3303613717",
       "date_annonce": "2026-11-23 10:23:11",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -3755,7 +3986,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3310566397",
       "date_annonce": "2026-11-16 09:36:58",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "paruvendu",
@@ -3788,7 +4019,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1297353933A1KILHAP000",
       "date_annonce": "17/11/2026 à 13:45",
-      "date_update": "2026-11-25 07:58:00"
+      "date_update": "2026-11-25 14:48:56"
     },
     {
       "site": "seloger",
@@ -3821,7 +4052,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26IER19N91X3",
       "date_annonce": "2026-11-12T12:33:00.000Z",
-      "date_update": "2026-11-25 07:56:26"
+      "date_update": "2026-11-25 14:47:50"
     },
     {
       "site": "bienici",
@@ -3854,7 +4085,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/citya-immobilier-78-GES70400008-529",
       "date_annonce": "2026-11-07T06:10:47.904Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -3887,7 +4118,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3306552898",
       "date_annonce": "2026-11-10 20:19:08",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "paruvendu",
@@ -3920,7 +4151,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1297510429A1KILHAP000",
       "date_annonce": "21/11/2026 à 01:57",
-      "date_update": "2026-11-25 07:57:51"
+      "date_update": "2026-11-25 14:48:50"
     },
     {
       "site": "seloger",
@@ -3953,7 +4184,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26HCQHSJA8PX",
       "date_annonce": "2026-11-16T12:33:00.000Z",
-      "date_update": "2026-11-25 07:56:24"
+      "date_update": "2026-11-25 14:47:49"
     },
     {
       "site": "bienici",
@@ -3986,7 +4217,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/immo-facile-61717816",
       "date_annonce": "2026-11-06T18:39:05.187Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -4019,7 +4250,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3317104829",
       "date_annonce": "2026-11-24 18:02:43",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "bienici",
@@ -4051,8 +4282,8 @@
       "annonceur": "IMMOLYS",
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/netty-company54852mtc-appt-18904",
-      "date_annonce": "2026-11-25T00:46:09.064Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_annonce": "2026-11-25T12:40:57.751Z",
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -4085,7 +4316,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3317264310",
       "date_annonce": "2026-11-24 22:38:01",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "bienici",
@@ -4118,7 +4349,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/immo-facile-60963972",
       "date_annonce": "2026-11-24T18:19:19.461Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "paruvendu",
@@ -4151,7 +4382,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1294874955A1KILHAP000",
       "date_annonce": "01/11/2026 à 05:44",
-      "date_update": "2026-11-25 07:57:22"
+      "date_update": "2026-11-25 14:48:32"
     },
     {
       "site": "bienici",
@@ -4183,8 +4414,8 @@
       "annonceur": "Citya Boucicaut Immobilier",
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/citya-immobilier-78-GES70470001-529",
-      "date_annonce": "2026-10-27T20:07:09.012Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_annonce": "2026-11-25T08:10:42.596Z",
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -4217,7 +4448,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3307755094",
       "date_annonce": "2026-11-23 20:13:20",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -4250,7 +4481,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3307776445",
       "date_annonce": "2026-11-23 12:03:00",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "seloger",
@@ -4283,7 +4514,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26DPPJXZ4UQV",
       "date_annonce": "2026-11-12T11:01:00.000Z",
-      "date_update": "2026-11-25 07:56:40"
+      "date_update": "2026-11-25 14:48:01"
     },
     {
       "site": "leboncoin",
@@ -4316,7 +4547,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3291954942",
       "date_annonce": "2026-11-04 14:21:37",
-      "date_update": "2026-11-25 07:55:24"
+      "date_update": "2026-11-25 14:47:18"
     },
     {
       "site": "leboncoin",
@@ -4349,7 +4580,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3314110534",
       "date_annonce": "2026-11-21 10:35:09",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "bienici",
@@ -4382,7 +4613,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/immo-facile-15372959",
       "date_annonce": "2026-11-12T12:29:32.847Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "bienici",
@@ -4415,14 +4646,14 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/immo-facile-11068561",
       "date_annonce": "2026-11-12T12:29:32.592Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "seloger",
       "titre": "Appartement à louer T2/F2 63 m² 494 € Centre Ville Tournus (71700)",
       "ville": "Tournus 71700",
       "distance": "3.9",
-      "meuble": "Meublé",
+      "meuble": "Non meublé",
       "type": "Appartement",
       "surface": "63",
       "pieces": "2",
@@ -4442,13 +4673,13 @@
       "classe": "E",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Disponible à partir du 01/02/2027', '1er Étage', 'Cuisine séparée', \"Pas d'ascenseur\", 'Cave', 'WC dans la salle de bains', 'Balcon', 'Belle vue']",
+      "caracteristiques": "['Disponible à partir du 01/02/2027', '1er Étage', 'Cuisine séparée', \"Pas d'ascenseur\", 'Cave', 'Balcon', 'Belle vue', 'Non meublé']",
       "description": "TOURNUS 19 Quai de Verdun,\nAu 1er étage sans ascenseur, Type 2 comprenant une entrée, salon avec vue dégagée sur la Saône, ouvert sur balcon, 1 chambre, cuisine indépendante meublée, salle de douche, WC séparés, et vous disposez d'une cave.\nChauffage individuel gaz de ville.\nLoyer 473.70 € + charges 20 € (dont entretien chaudière)\nDisponible le 1er février\nDPE Nouvelle version\nPrix moyens annuels des énergies indexés au 1er janvier 2021 : entre 1240 € et 1730 €.\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : (gedeon_91258_34205538)",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/2615HHT96ER8",
       "date_annonce": "2026-11-13T11:23:00.000Z",
-      "date_update": "2026-11-25 07:56:34"
+      "date_update": "2026-11-25 14:47:58"
     },
     {
       "site": "leboncoin",
@@ -4481,7 +4712,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3308416971",
       "date_annonce": "2026-11-24 14:53:34",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -4514,7 +4745,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3306399112",
       "date_annonce": "2026-11-10 16:46:13",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -4547,7 +4778,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3304225768",
       "date_annonce": "2026-11-07 15:38:35",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -4580,7 +4811,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3308583978",
       "date_annonce": "2026-11-13 16:24:21",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "paruvendu",
@@ -4613,7 +4844,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1291259304A1KILHAP000",
       "date_annonce": "23/11/2026 à 05:15",
-      "date_update": "2026-11-25 07:57:29"
+      "date_update": "2026-11-25 14:48:36"
     },
     {
       "site": "leboncoin",
@@ -4646,7 +4877,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3303265123",
       "date_annonce": "2026-11-21 13:01:43",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -4679,7 +4910,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3307717127",
       "date_annonce": "2026-11-12 10:30:59",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -4712,7 +4943,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3298748545",
       "date_annonce": "2026-11-24 13:55:03",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "seloger",
@@ -4739,13 +4970,13 @@
       "classe": "C",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Dernier étage, Étage 2ème / 2', 'Cuisine intégrée', \"Pas d'ascenseur\", 'Cave', '1 WC', 'Calme', 'Non meublé', '1 Chambre']",
+      "caracteristiques": "['Dernier étage, Étage 2ème / 2', 'Cuisine équipée, Cuisine intégrée', \"Pas d'ascenseur\", 'Cave', '1 WC', 'Calme', 'Non meublé', '1 Chambre']",
       "description": "Situé dans le centre de TOURNUS, bel appartement deux pièces rénové situé en 2ème étage.\n\nIl comprend une pièce de vie de 32m² avec cuisine aménagée et cellier, une chambre de 12.78m² ainsi qu'une salle d'eau avec WC.\nChauffage individuel électrique.\n\nLoyer hors charges 540 €\nProvisions mensuelles avec régularisation annuelle 20 € (taxe ordures ménagères, communs, eau froide).\nDépôt de garantie 540 €\nHonoraires d'agence à la charge du locataire 403 € TTC dont 101 € TTC pour l'état des lieux.\n\nDISPONIBLE de suite!",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26I62HCJKIYE",
       "date_annonce": "2026-10-28T16:26:00.000Z",
-      "date_update": "2026-11-25 07:56:32"
+      "date_update": "2026-11-25 14:47:56"
     },
     {
       "site": "bienici",
@@ -4778,7 +5009,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/citya-immobilier-78-GES70670007-529",
       "date_annonce": "2026-11-24T06:08:34.782Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "paruvendu",
@@ -4811,7 +5042,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1287988321A1KILHAP000",
       "date_annonce": "07/11/2026 à 05:15",
-      "date_update": "2026-11-25 07:57:32"
+      "date_update": "2026-11-25 14:48:37"
     },
     {
       "site": "leboncoin",
@@ -4844,7 +5075,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3298898127",
       "date_annonce": "2026-10-31 10:05:31",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -4877,7 +5108,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3311708709",
       "date_annonce": "2026-11-17 20:39:04",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "bienici",
@@ -4910,7 +5141,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/citya-immobilier-78-GES70670001-529",
       "date_annonce": "2026-11-24T06:08:34.790Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -4943,7 +5174,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3310797698",
       "date_annonce": "2026-11-16 15:06:03",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "seloger",
@@ -4976,7 +5207,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26BH6BFCSJNQ",
       "date_annonce": "2026-11-16T14:11:00.000Z",
-      "date_update": "2026-11-25 07:56:29"
+      "date_update": "2026-11-25 14:47:54"
     },
     {
       "site": "leboncoin",
@@ -5009,7 +5240,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3197217978",
       "date_annonce": "2026-11-19 10:10:47",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "paruvendu",
@@ -5042,7 +5273,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296394627A1KILHAP000",
       "date_annonce": "07/11/2026 à 12:42",
-      "date_update": "2026-11-25 07:57:26"
+      "date_update": "2026-11-25 14:48:34"
     },
     {
       "site": "seloger",
@@ -5075,7 +5306,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26B6UZKKXD87",
       "date_annonce": "2026-05-13T16:00:00.000Z",
-      "date_update": "2026-11-25 07:56:48"
+      "date_update": "2026-11-25 14:48:07"
     },
     {
       "site": "leboncoin",
@@ -5108,7 +5339,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3301487007",
       "date_annonce": "2026-11-23 16:33:17",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "paruvendu",
@@ -5141,7 +5372,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296983359A1KILHAP000",
       "date_annonce": "03/11/2026 à 20:18",
-      "date_update": "2026-11-25 07:57:44"
+      "date_update": "2026-11-25 14:48:46"
     },
     {
       "site": "seloger",
@@ -5168,13 +5399,13 @@
       "classe": "E",
       "étages_total": "",
       "année": "2022",
-      "caracteristiques": "['Étage 2ème / 3', 'Cuisine intégrée', \"Pas d'ascenseur\", 'Cave', '1 WC séparées', 'Balcon', 'Non meublé', '2 Chambres']",
+      "caracteristiques": "['Étage 2ème / 3', 'Cuisine équipée, Cuisine intégrée', \"Pas d'ascenseur\", 'Cave', '1 WC séparées', 'Balcon', 'Non meublé', '2 Chambres']",
       "description": "Dans résidence calme avec stationnement, T3 offrant entrée, cuisine équipée, séjour donnant sur balcon avec vue dégagée, 2 chambres avec placards muraux, salle de bains et WC indépendant. Chauffage collectif compris dans les charges. Facilité de stationnement. Disponibilité immédiate.\n\nHonoraires de 520 euros TTC à la charge du locataire comprenant 176 euros TTC pour l'état des lieux. Loyer de base 520 euros/mois. 120 euros/mois de charges forfaitaires. Dépôt de garantie 520 euros. Classe énergie E, Classe climat E Montant moyen estimé des dépenses annuelles d'énergie pour un usage standard, établi à partir des prix de l'énergie de l'année 2022 : entre 803.00 et 1087.00 euros. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : georisques.gouv.fr.",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26CM4W15HLPI",
       "date_annonce": "2026-11-03T13:07:00.000Z",
-      "date_update": "2026-11-25 07:56:51"
+      "date_update": "2026-11-25 14:48:15"
     },
     {
       "site": "bienici",
@@ -5207,7 +5438,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/immo-facile-59495832",
       "date_annonce": "2026-11-16T15:27:41.166Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "bienici",
@@ -5240,7 +5471,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/immo-facile-11065954",
       "date_annonce": "2026-11-20T12:27:47.077Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -5273,7 +5504,40 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3181692561",
       "date_annonce": "2026-11-22 17:15:08",
-      "date_update": "2026-11-25 07:55:24"
+      "date_update": "2026-11-25 14:47:18"
+    },
+    {
+      "site": "seloger",
+      "titre": "Appartement à louer T5/F5 107.99 m² 720 € Centre Ville Tournus (71700)",
+      "ville": "Tournus 71700",
+      "distance": "3.9",
+      "meuble": "Non meublé",
+      "type": "Appartement",
+      "surface": "107",
+      "pieces": "5",
+      "loyer_total": "720",
+      "loyer": "710",
+      "charges": "10",
+      "depot": "710",
+      "frais_agence": "",
+      "étage": "",
+      "ascenseur": "False",
+      "chambres": "3",
+      "salles_de_bain": "",
+      "balcon": "",
+      "chauffage_type": "",
+      "chauffage_mode": "",
+      "parking": "",
+      "classe": "D",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Étage 1er / 2', 'Cuisine séparée, Cuisine intégrée', \"Pas d'ascenseur\", '1 WC', 'Calme', 'Non meublé', '3 Chambres', 'Non accessible aux personnes à mobilité réduite']",
+      "description": "Situé au coeur du quartier de la Madeleine à TOURNUS, ce superbe appartement en duplex de 107 m² séduira les amateurs de volumes et de caractère.\nDès l'entrée, vous découvrirez une cuisine indépendante aménagée ainsi qu'un vaste séjour salon, offrant un cadre de vie convivial et chaleureux.\nL'étage en duplex révèle tout le potentiel de ce bien : 3 chambres, complétées par une mezzanine qui ouvre le champ des possibilités (espace bureau, coin lecture, salle de jeux ou chambre d'appoint). Chaque volume peut être repensé selon vos envies et mode de vie.\nCôté confort, l'appartement est équipé d'une chaudière individuelle au gaz et bénéficie d'un classement énergétique en D, un atout appréciable garantissant un bon équilibre entre performance et maîtrise des consommations.\nA VOIR ABSOLUMENT !",
+      "annonceur": "SeLoger",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/267ZL71FQ7Q5",
+      "date_annonce": "2026-11-25T11:13:00.000Z",
+      "date_update": "2026-11-25 14:47:52"
     },
     {
       "site": "bienici",
@@ -5305,8 +5569,8 @@
       "annonceur": "IMOGROUP - AGENCE IMMOBILIÈRE DE TOURNUS",
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/immo-facile-60385391",
-      "date_annonce": "2026-11-23T09:18:32.515Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_annonce": "2026-11-25T12:31:57.725Z",
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "paruvendu",
@@ -5339,7 +5603,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1296254424A1KILHAP000",
       "date_annonce": "14/10/2026 à 10:32",
-      "date_update": "2026-11-25 07:58:06"
+      "date_update": "2026-11-25 14:49:00"
     },
     {
       "site": "leboncoin",
@@ -5372,7 +5636,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3278329645",
       "date_annonce": "2026-09-28 14:00:44",
-      "date_update": "2026-11-25 07:55:24"
+      "date_update": "2026-11-25 14:47:18"
     },
     {
       "site": "leboncoin",
@@ -5405,7 +5669,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3293812709",
       "date_annonce": "2026-10-23 17:22:17",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "bienici",
@@ -5437,8 +5701,8 @@
       "annonceur": "IMMOLYS",
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/netty-company54852mtc-appt-18966",
-      "date_annonce": "2026-11-25T00:46:03.426Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_annonce": "2026-11-25T12:40:53.311Z",
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -5471,7 +5735,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3262944472",
       "date_annonce": "2026-11-21 12:04:35",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "paruvendu",
@@ -5504,7 +5768,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1295017596A1KILHAP000",
       "date_annonce": "04/11/2026 à 05:15",
-      "date_update": "2026-11-25 07:57:41"
+      "date_update": "2026-11-25 14:48:44"
     },
     {
       "site": "seloger",
@@ -5537,7 +5801,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/266GFVPSKEYK",
       "date_annonce": "2026-09-04T17:09:00.000Z",
-      "date_update": "2026-11-25 07:56:56"
+      "date_update": "2026-11-25 14:48:11"
     },
     {
       "site": "bienici",
@@ -5570,7 +5834,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/citya-immobilier-78-GES10230052-529",
       "date_annonce": "2026-11-20T12:07:55.673Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "bienici",
@@ -5602,8 +5866,8 @@
       "annonceur": "IMMOLYS",
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/netty-company54852mtc-appt-18974",
-      "date_annonce": "2026-11-25T00:46:03.604Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_annonce": "2026-11-25T12:40:53.252Z",
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "bienici",
@@ -5636,7 +5900,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/immo-facile-61527621",
       "date_annonce": "2026-11-20T12:27:48.038Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -5669,7 +5933,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3271997033",
       "date_annonce": "2026-11-24 14:33:50",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -5702,7 +5966,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.leboncoin.fr/ad/locations/3228672376",
       "date_annonce": "2026-11-22 16:12:50",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "paruvendu",
@@ -5735,7 +5999,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/appartement/1292941469A1KILHAP000",
       "date_annonce": "17/11/2026 à 13:45",
-      "date_update": "2026-11-25 07:57:57"
+      "date_update": "2026-11-25 14:48:54"
     },
     {
       "site": "seloger",
@@ -5768,7 +6032,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26EIC56JASHE",
       "date_annonce": "2026-07-07T00:01:00.000Z",
-      "date_update": "2026-11-25 07:56:37"
+      "date_update": "2026-11-25 14:48:00"
     },
     {
       "site": "leboncoin",
@@ -5801,7 +6065,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3283551489",
       "date_annonce": "2026-10-06 19:54:46",
-      "date_update": "2026-11-25 07:55:24"
+      "date_update": "2026-11-25 14:47:18"
     },
     {
       "site": "leboncoin",
@@ -5834,7 +6098,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3311115942",
       "date_annonce": "2026-11-19 08:09:38",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "bienici",
@@ -5867,7 +6131,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/netty-company54852mtc-appt-18928",
       "date_annonce": "2026-11-17T12:39:28.014Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -5900,7 +6164,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3242021607",
       "date_annonce": "2026-10-02 19:38:23",
-      "date_update": "2026-11-25 07:55:24"
+      "date_update": "2026-11-25 14:47:18"
     },
     {
       "site": "seloger",
@@ -5917,7 +6181,7 @@
       "depot": "1000",
       "frais_agence": "",
       "étage": "2",
-      "ascenseur": "",
+      "ascenseur": "True",
       "chambres": "2",
       "salles_de_bain": "",
       "balcon": "",
@@ -5927,13 +6191,13 @@
       "classe": "D",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['Disponible immédiatement', '2 Étages', '55 m² de terrain', 'Cuisine intégrée', 'Meublé', '2 Chambres', '1 Salle de douche', 'Colocation non autorisée']",
+      "caracteristiques": "['Disponible immédiatement', '2 Étages', '55 m² de terrain', 'Cuisine intégrée', 'Ascenseur', 'Meublé', '2 Chambres', '1 Salle de douche']",
       "description": "Une maison historique au charme exceptionnel\n\nDécouvrez cette magnifique maison datant du XVIIᵉ siècle, autrefois propriété d’un antiquaire néerlandais.\n\nDes travaux de restauration ont été réalisés dans le respect de la législation relative à la protection du patrimoine, tout en intégrant les équipements et le confort modernes.\n\nLa maison est proposée entièrement meublée, vous permettant de vous y installer immédiatement et de profiter pleinement de son caractère unique.\n\nUn lieu rare, alliant charme historique, authenticité et confort contemporain.",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26DEXKCJM5HG",
       "date_annonce": "2026-09-06T15:34:12.953Z",
-      "date_update": "2026-11-25 07:56:43"
+      "date_update": "2026-11-25 14:48:03"
     },
     {
       "site": "leboncoin",
@@ -5966,7 +6230,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3312193236",
       "date_annonce": "2026-11-18 16:01:32",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "seloger",
@@ -5999,14 +6263,14 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26Z9BUZVZJFL",
       "date_annonce": "2026-05-29T11:24:00.000Z",
-      "date_update": "2026-11-25 07:56:45"
+      "date_update": "2026-11-25 14:48:06"
     },
     {
       "site": "seloger",
       "titre": "Maison à louer T9/F9 320 m² 1900 € Peripherie Tournus (71700)",
       "ville": "Tournus 71700",
       "distance": "3.9",
-      "meuble": "Non meublé",
+      "meuble": "",
       "type": "Maison",
       "surface": "320",
       "pieces": "9",
@@ -6016,7 +6280,7 @@
       "depot": "1800",
       "frais_agence": "",
       "étage": "2",
-      "ascenseur": "",
+      "ascenseur": "True",
       "chambres": "",
       "salles_de_bain": "",
       "balcon": "True",
@@ -6026,13 +6290,13 @@
       "classe": "C",
       "étages_total": "",
       "année": "",
-      "caracteristiques": "['2 Étages', '1\\u202f600 m² de terrain', 'Cuisine intégrée', 'Garage, 9 Parkings', 'Balcon (Total 1 m²)', 'Jardin', 'Terrasse (Total 1\\u202f000 m²)', 'Non meublé']",
+      "caracteristiques": "['2 Étages', '1600 m² de terrain', 'Cuisine intégrée', 'Ascenseur', 'Garage, 9 Parkings', 'Balcon (Total 1 m²)', 'Jardin', 'Terrasse Total 1000 m²']",
       "description": "Restaurant entièrement équipé, actuellement inoccupé, prêt à redémarrer immédiatement.\n• Capacité : 2 salles, environ 80 couverts\n• Extérieur : grande terrasse et parking spacieux\n• Logement : appartement complet rénové inclus\n• État : cuisine et salle entièrement équipées\n• Conditions : reprise sans droit d’entrée, possibilité vente ou location\nCe lieu représente une formidable opportunité pour un jeune diplômé en restauration ou un chef souhaitant lancer son propre établissement.",
       "annonceur": "SeLoger",
       "type_annonceur": "Professionnel",
       "url": "https://www.seloger.com/annonce/location/bourgogne-franche-comte/saone-et-loire-71/tournus-71700/26ICITZYLAYA",
       "date_annonce": "2026-02-15T11:05:30.289Z",
-      "date_update": "2026-11-25 07:57:02"
+      "date_update": "2026-11-25 14:48:17"
     },
     {
       "site": "leboncoin",
@@ -6065,7 +6329,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3137515772",
       "date_annonce": "2026-09-29 14:02:48",
-      "date_update": "2026-11-25 07:55:24"
+      "date_update": "2026-11-25 14:47:18"
     },
     {
       "site": "leboncoin",
@@ -6098,7 +6362,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3293703048",
       "date_annonce": "2026-10-23 15:03:46",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "paruvendu",
@@ -6131,7 +6395,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1291218320A1KILHMN000",
       "date_annonce": "21/11/2026 à 05:15",
-      "date_update": "2026-11-25 07:57:38"
+      "date_update": "2026-11-25 14:48:42"
     },
     {
       "site": "bienici",
@@ -6164,7 +6428,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.bienici.com/annonce/citya-immobilier-78-GES70070001-529",
       "date_annonce": "2026-11-04T18:10:42.926Z",
-      "date_update": "2026-11-25 07:55:51"
+      "date_update": "2026-11-25 14:47:35"
     },
     {
       "site": "leboncoin",
@@ -6197,7 +6461,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3308163354",
       "date_annonce": "2026-11-12 21:03:57",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "leboncoin",
@@ -6230,7 +6494,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.leboncoin.fr/ad/locations/3296600486",
       "date_annonce": "2026-10-27 18:56:20",
-      "date_update": "2026-11-25 07:55:18"
+      "date_update": "2026-11-25 14:47:13"
     },
     {
       "site": "paruvendu",
@@ -6263,7 +6527,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1289214722A1KILHMN000",
       "date_annonce": "24/09/2026 à 18:04",
-      "date_update": "2026-11-25 07:58:09"
+      "date_update": "2026-11-25 14:49:02"
     },
     {
       "site": "paruvendu",
@@ -6296,7 +6560,7 @@
       "type_annonceur": "Particulier",
       "url": "https://www.paruvendu.fr/immobilier/location/duplex-triplex/1287814029A1KILHDU000",
       "date_annonce": "18/09/2026 à 12:31",
-      "date_update": "2026-11-25 07:58:11"
+      "date_update": "2026-11-25 14:49:04"
     },
     {
       "site": "paruvendu",
@@ -6329,7 +6593,7 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1295845591A1KILHMN000",
       "date_annonce": "10/11/2026 à 12:39",
-      "date_update": "2026-11-25 07:58:03"
+      "date_update": "2026-11-25 14:48:58"
     },
     {
       "site": "paruvendu",
@@ -6362,7 +6626,271 @@
       "type_annonceur": "Professionnel",
       "url": "https://www.paruvendu.fr/immobilier/location/maison/1297412922A1KILHMN000",
       "date_annonce": "21/11/2026 à 01:57",
-      "date_update": "2026-11-25 07:57:54"
+      "date_update": "2026-11-25 14:48:52"
+    },
+    {
+      "site": "semcoda",
+      "titre": "Appartement idéal étudiant - T1BIS - HAUTEVILLE LOMPNES",
+      "ville": "Hauteville-Lompnes 01110",
+      "distance": "",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "44",
+      "pieces": "1",
+      "loyer_total": "280",
+      "loyer": "219",
+      "charges": "61",
+      "depot": "",
+      "frais_agence": "0",
+      "étage": "3",
+      "ascenseur": "",
+      "chambres": "",
+      "salles_de_bain": "",
+      "balcon": "",
+      "chauffage_type": "",
+      "chauffage_mode": "Individuel",
+      "parking": "True",
+      "classe": "D",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Superficie : 44m2', 'Réf. Semcoda : 0319-0001-0002-0031', 'Étage : 3 Nombre de pièces : 1']",
+      "description": "Logement idéal étudiant, proche de l'IFSI Garage possible en supplément Chauffage : Individuel Electrique. Loyer : 219 €/mois hors charges et 61 € de provision pour charges (régularisation annuelle), soit 280 €/mois de loyer charges comprises. . Logement social soumis à condition d'attribution. Sous réserve de l'augmentation légale applicable au 01/01/2026. Logement ouvrant droit à l'aide au logement sous conditions de ressources. Sans frais d'agence, ni frais de dossier. Plans et photos non contractuels. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site géorisques : www.georisques.gouv.fr SEMCODA - Bâtir le vivre ensemble.",
+      "annonceur": "SEMCODA",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.semcoda.com/etablissement-hauteville-lompnes-0319-0001-0002-0031.html",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:50:15"
+    },
+    {
+      "site": "semcoda",
+      "titre": "Appartement en résidence seniors HAISSOR - T2 - PLATEAU D HAUTEVILLE",
+      "ville": "Hauteville-Lompnes 01110",
+      "distance": "",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "53",
+      "pieces": "2",
+      "loyer_total": "590",
+      "loyer": "395",
+      "charges": "195",
+      "depot": "",
+      "frais_agence": "0",
+      "étage": "0",
+      "ascenseur": "",
+      "chambres": "",
+      "salles_de_bain": "",
+      "balcon": "",
+      "chauffage_type": "Bois / Pellets",
+      "chauffage_mode": "Collectif",
+      "parking": "",
+      "classe": "C",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Superficie : 53m2', 'Réf. Semcoda : 4077-0001-0002-0004', 'Étage : Rez-de-chaussée Nombre de pièces : 2']",
+      "description": "Les résidences HAISSOR – Habitat Intermédiaire Service Solidaire Regroupé sont réservées aux personnes retraitées et/ou en situation de handicap. Logement T2 adapté PMR. C'est un lieu de vie de droit commun (logement social), autonome sécurisé, alliant logement et services. Les personnes doivent avoir un niveau d'autonomie suffisant pour y entrer et s'engager à participer aux temps collectifs animés par l'ADAPA. Les locataires vivent en autonomie chez eux, partagent des moments ensemble et participent de manière régulière à une démarche collective animée par un professionnel de l'ADAPA au titre de la prévention de la perte d'autonomie. Il est indispensable d'adhérer au projet notamment à sa dimension de « vie en collectif » pour intégrer ce type de logement. Il est nécessaire d'avoir une demande social en cours dans le département de l'Ain pour postuler. Vous pouvez nous contacter pour connaître la procédure. Chauffage : Urbain. Bois. Loyer : 395 €/mois hors charges et 195 € de provision pour charges (régularisation annuelle), soit 590 €/mois de loyer charges comprises. . Logement social soumis à condition d'attribution. Sous réserve de l'augmentation légale applicable au 01/01/2026. Logement ouvrant droit à l'aide au logement sous conditions de ressources. Sans frais d'agence, ni frais de dossier. Plans et photos non contractuels. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site géorisques : www.georisques.gouv.fr SEMCODA - Bâtir le vivre ensemble.",
+      "annonceur": "SEMCODA",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.semcoda.com/etablissement-hauteville-lompnes-4077-0001-0002-0004.html",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:50:07"
+    },
+    {
+      "site": "semcoda",
+      "titre": "Appartement - T3 - PLATEAU D HAUTEVILLE",
+      "ville": "Hauteville-Lompnes 01110",
+      "distance": "",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "70",
+      "pieces": "3",
+      "loyer_total": "777",
+      "loyer": "584",
+      "charges": "193",
+      "depot": "",
+      "frais_agence": "0",
+      "étage": "0",
+      "ascenseur": "",
+      "chambres": "2",
+      "salles_de_bain": "",
+      "balcon": "True",
+      "chauffage_type": "Gaz",
+      "chauffage_mode": "Collectif",
+      "parking": "True",
+      "classe": "D",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Superficie : 70m2', 'Réf. Semcoda : 0843-0001-0001-0005', 'Étage : Rez-de-chaussée Nombre de pièces : 3']",
+      "description": "Logement situé au RDC à Lompnes. 1 séjour cuisine, 2 chambre, une salle de douche. Chauffage inclus dans les provisions de charge, chaufferie bois Terrasse Pas de cave ni garage mais un grand parking Chauffage : Collectif. Gaz Naturel. Loyer : 584 €/mois hors charges et 193 € de provision pour charges (régularisation annuelle), soit 777 €/mois de loyer charges comprises. . Logement social soumis à condition d'attribution. Sous réserve de l'augmentation légale applicable au 01/01/2026. Logement ouvrant droit à l'aide au logement sous conditions de ressources. Sans frais d'agence, ni frais de dossier. Plans et photos non contractuels. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site géorisques : www.georisques.gouv.fr SEMCODA - Bâtir le vivre ensemble.",
+      "annonceur": "SEMCODA",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.semcoda.com/etablissement-hauteville-lompnes-0843-0001-0001-0005.html",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:50:14"
+    },
+    {
+      "site": "semcoda",
+      "titre": "Appartement - T3 - HAUTEVILLE LOMPNES",
+      "ville": "Hauteville-Lompnes 01110",
+      "distance": "",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "66",
+      "pieces": "3",
+      "loyer_total": "796",
+      "loyer": "535",
+      "charges": "261",
+      "depot": "",
+      "frais_agence": "0",
+      "étage": "1",
+      "ascenseur": "",
+      "chambres": "2",
+      "salles_de_bain": "",
+      "balcon": "True",
+      "chauffage_type": "Gaz",
+      "chauffage_mode": "Collectif",
+      "parking": "True",
+      "classe": "C",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Superficie : 66m2', 'Réf. Semcoda : 4406-0001-0001-0012', 'Étage : 1 Nombre de pièces : 3']",
+      "description": "Situé dans un immeuble récent et sécurisé, logement composé d'une grande pièce de vie avec cuisine ouverte, 2 chambres, salle de bain et toilettes séparées, balcon, cave. Nombreux rangements. Possibilité de garage en supplément Il est nécessaire d'avoir une demande de logement social dans le département de l'Ain, vous pouvez nous contacter pour connaître les démarches. Chauffage : Collectif. Gaz Naturel. Disponible le 08/01/2027. Loyer : 535 €/mois hors charges et 261 € de provision pour charges (régularisation annuelle), soit 796 €/mois de loyer charges comprises. . Logement social soumis à condition d'attribution. Sous réserve de l'augmentation légale applicable au 01/01/2026. Logement ouvrant droit à l'aide au logement sous conditions de ressources. Sans frais d'agence, ni frais de dossier. Plans et photos non contractuels. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site géorisques : www.georisques.gouv.fr SEMCODA - Bâtir le vivre ensemble.",
+      "annonceur": "SEMCODA",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.semcoda.com/etablissement-hauteville-lompnes-4406-0001-0001-0012.html",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:50:11"
+    },
+    {
+      "site": "semcoda",
+      "titre": "Appartement - T3 - HAUTEVILLE LOMPNES",
+      "ville": "Hauteville-Lompnes 01110",
+      "distance": "",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "68",
+      "pieces": "3",
+      "loyer_total": "811",
+      "loyer": "546",
+      "charges": "265",
+      "depot": "",
+      "frais_agence": "0",
+      "étage": "1",
+      "ascenseur": "",
+      "chambres": "2",
+      "salles_de_bain": "",
+      "balcon": "True",
+      "chauffage_type": "Gaz",
+      "chauffage_mode": "",
+      "parking": "True",
+      "classe": "C",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Superficie : 68m2', 'Réf. Semcoda : 4406-0001-0001-0015', 'Étage : 1 Nombre de pièces : 3']",
+      "description": "Appartement lumineux et récent, cuisine ouverte sur séjour donnant accès au balcon, 2 chambres dont une avec un placard mural, salle de bain, WC. Possibilité de louer un garage en supplément. Chauffage : Urbain Gaz Naturel. Disponible le 22/01/2027. Loyer : 546 €/mois hors charges et 265 € de provision pour charges (régularisation annuelle), soit 811 €/mois de loyer charges comprises. . Logement social soumis à condition d'attribution. Sous réserve de l'augmentation légale applicable au 01/01/2026. Logement ouvrant droit à l'aide au logement sous conditions de ressources. Sans frais d'agence, ni frais de dossier. Plans et photos non contractuels. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site géorisques : www.georisques.gouv.fr SEMCODA - Bâtir le vivre ensemble.",
+      "annonceur": "SEMCODA",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.semcoda.com/etablissement-hauteville-lompnes-4406-0001-0001-0015.html",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:50:10"
+    },
+    {
+      "site": "semcoda",
+      "titre": "Appartement - T3 - PLATEAU D HAUTEVILLE",
+      "ville": "Hauteville-Lompnes 01110",
+      "distance": "",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "67",
+      "pieces": "3",
+      "loyer_total": "841",
+      "loyer": "550",
+      "charges": "291",
+      "depot": "",
+      "frais_agence": "0",
+      "étage": "3",
+      "ascenseur": "True",
+      "chambres": "2",
+      "salles_de_bain": "",
+      "balcon": "True",
+      "chauffage_type": "Bois / Pellets",
+      "chauffage_mode": "Collectif",
+      "parking": "True",
+      "classe": "C",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Superficie : 67m2', 'Réf. Semcoda : 4065-0001-0002-0031', 'Étage : 3 Nombre de pièces : 3']",
+      "description": "Appartement de 68 m² dans un résidence récente et sécurisée , au 3ème étage d'un bâtiment avec ascenseur, composé de 2 chambres de 10 et 12 m², d'un séjour de 25 m² et d'une cuisine de 8 m², salle de bain, cave Balcon de 11 m². L'eau et le chauffage sont inclus dans les provisions de charges. Possibilité de garage en supplément. Il est nécessaire d'avoie une demande de logement social en cours. dans le département de l'Ain. Vous pouvez nous contacter pour connaître les démarches à effectuer. Chauffage : Collectif. Bois. Loyer : 550 €/mois hors charges et 291 € de provision pour charges (régularisation annuelle), soit 841 €/mois de loyer charges comprises. . Logement social soumis à condition d'attribution. Sous réserve de l'augmentation légale applicable au 01/01/2026. Logement ouvrant droit à l'aide au logement sous conditions de ressources. Sans frais d'agence, ni frais de dossier. Plans et photos non contractuels. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site géorisques : www.georisques.gouv.fr SEMCODA - Bâtir le vivre ensemble.",
+      "annonceur": "SEMCODA",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.semcoda.com/etablissement-hauteville-lompnes-4065-0001-0002-0031.html",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:50:12"
+    },
+    {
+      "site": "semcoda",
+      "titre": "Appartement - T3 - HAUTEVILLE LOMPNES",
+      "ville": "Hauteville-Lompnes 01110",
+      "distance": "",
+      "meuble": "",
+      "type": "Appartement",
+      "surface": "67",
+      "pieces": "3",
+      "loyer_total": "863",
+      "loyer": "572",
+      "charges": "291",
+      "depot": "",
+      "frais_agence": "0",
+      "étage": "1",
+      "ascenseur": "",
+      "chambres": "2",
+      "salles_de_bain": "",
+      "balcon": "True",
+      "chauffage_type": "Bois / Pellets",
+      "chauffage_mode": "Collectif",
+      "parking": "True",
+      "classe": "C",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Superficie : 67m2', 'Réf. Semcoda : 4065-0001-0002-0011', 'Étage : 1 Nombre de pièces : 3']",
+      "description": "Appartement récent de 68 m². 2 chambres de 10 et 12 m² Séjour de 25 m² , cuisine de 8 m² La salle de bain est équipée d'une baignoire. Terrasse de 60 m². Possibilité de garage en supplément. Il est nécessaire d'avoir une demande de logement social en cours dans le département de l'Ain. Vous pouvez nous contacter pour connaître la procédure et les démarches à effectuer. Chauffage : Collectif. Bois. Loyer : 572 €/mois hors charges et 291 € de provision pour charges (régularisation annuelle), soit 863 €/mois de loyer charges comprises. . Logement social soumis à condition d'attribution. Sous réserve de l'augmentation légale applicable au 01/01/2026. Logement ouvrant droit à l'aide au logement sous conditions de ressources. Sans frais d'agence, ni frais de dossier. Plans et photos non contractuels. Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site géorisques : www.georisques.gouv.fr SEMCODA - Bâtir le vivre ensemble.",
+      "annonceur": "SEMCODA",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.semcoda.com/etablissement-hauteville-lompnes-4065-0001-0002-0011.html",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:50:09"
+    },
+    {
+      "site": "alfa3a",
+      "titre": "Résidence sociale Pierre Chanel",
+      "ville": "Vonnas 01540",
+      "distance": "",
+      "meuble": "Meublé",
+      "type": "Résidence",
+      "surface": "",
+      "pieces": "",
+      "loyer_total": "",
+      "loyer": "",
+      "charges": "",
+      "depot": "",
+      "frais_agence": "",
+      "étage": "",
+      "ascenseur": "",
+      "chambres": "",
+      "salles_de_bain": "",
+      "balcon": "",
+      "chauffage_type": "",
+      "chauffage_mode": "",
+      "parking": "",
+      "classe": "",
+      "étages_total": "",
+      "année": "",
+      "caracteristiques": "['Adresse : 160, rue du 12 Juin 44, 01540 VONNAS']",
+      "description": "Résidence conviviale de 46 logements meublés et équipés accueillant un public mixte, à proximité des commerces et proposant de nombreuses prestations avec charges comprises.",
+      "annonceur": "Alfa3a",
+      "type_annonceur": "Professionnel",
+      "url": "https://www.alfa3a.org/se-loger/#:~:text=R%C3%A9sidence%20sociale%20Pierre%20Chanel",
+      "date_annonce": "",
+      "date_update": "2026-11-25 14:51:36"
     }
   ]
 });
