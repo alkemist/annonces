@@ -453,7 +453,8 @@ def extract_furnished_info(values: list[str | None]) -> str | None:
   # 1. Non meublé / vide
   non_meuble_pattern = (
     r"\b(?:non[\s-]meubl(?:e|es|ee|ees)?|pas\s+meubl(?:e|es|ee|ees)?|"
-    r"(?:bail|location|appartement|logement|maison)\s+vide|lou(?:e|es|ee|ees)?\s+vide)\b"
+    r"(?:bail|location|appartement|logement|maison)\s+vide|lou(?:e|es|ee|ees)?\s+vide|"
+    r"logement\s+nu)\b"
   )
   if re.search(non_meuble_pattern, norm_text):
     return "Non meublé"

@@ -1,8 +1,10 @@
 import streamlit as st
 import math
 import os
+import re
 import subprocess
 import sys
+import unicodedata
 from pathlib import Path
 
 import pandas as pd
@@ -17,7 +19,7 @@ from scrapper_dynacite import ScrapperDynacite
 from scrapper_semcoda import ScrapperSemcoda
 from scrapper_alfa3a import ScrapperAlfa3a
 from scrapper_cdchabitat import ScrapperCdcHabitat
-from utils import bool_or_none, clean_city, validate_base_location
+from utils import bool_or_none, clean_city, normalize_municipality, validate_base_location
 
 OUTPUT_DIR = Path(__file__).resolve().parent
 SEARCHES = [
@@ -54,6 +56,24 @@ TARGET_COLUMNS = [
 INTEGER_COLUMNS = ("pieces", "étage", "chambres", "salles_de_bain", "étages_total", "année", "surface", "loyer", "charges", "loyer_total", "depot", "frais_agence")
 BOOLEAN_COLUMNS = ("ascenseur", "balcon", "parking")
 
+def unify_city_names(values: pd.Series) -> pd.Series:
+    """Unifie les variantes d'une même ville et d'un même code postal."""
+    names = values.map(clean_city)
+    preferred = {}
+
+    def preference(name: str) -> tuple:
+        words = re.findall(r"[^\W\d_]+", name.casefold())
+        expanded_saints = sum(word in {"saint", "sainte"} for word in words)
+        accents = sum(unicodedata.combining(char) != 0 for char in unicodedata.normalize("NFD", name))
+        return expanded_saints, accents, name.count("-"), name
+
+    for name in names.dropna():
+        key = normalize_municipality(name)
+        if key not in preferred or preference(name) > preference(preferred[key]):
+            preferred[key] = name
+
+    return names.map(lambda name: preferred[normalize_municipality(name)], na_action="ignore")
+
 def run_search(
         file_key: str, code_postal: str, max_distance: float | None = None, *,
         base_location: tuple[float, float],
@@ -77,7 +97,7 @@ def run_search(
         finally:
             scrapper.close()
     df_existant = pd.DataFrame(annonces, columns=TARGET_COLUMNS)
-    df_existant["ville"] = df_existant["ville"].map(clean_city)
+    df_existant["ville"] = unify_city_names(df_existant["ville"])
     df_existant["distance"] = pd.to_numeric(df_existant["distance"], errors="raise")
     if max_distance is not None:
         distances = pd.to_numeric(df_existant["distance"], errors="raise")
@@ -99,7 +119,7 @@ def run_search(
         ).astype("Int64")
 
     df_existant = df_existant.sort_values(
-        "distance", ascending=True, na_position="last", kind="stable",
+        ["distance", "loyer_total"], ascending=True, na_position="last", kind="stable",
     ).reset_index(drop=True)
     df_existant = df_existant.reindex(columns=TARGET_COLUMNS)
     df_existant.to_csv(output_file, index=False)
