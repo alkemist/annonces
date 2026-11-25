@@ -333,6 +333,12 @@ class ScrapperLeboncoin(Scrapper):
             [attribute("monthly_charges")] + numeric_values,
             price_values + numeric_values,
         )
+        if (self.annonce_type == "location"
+                and rental_amounts["loyer"] is None
+                and rental_amounts["charges"] is None
+                and rental_amounts["loyer_total"] is not None):
+            rental_amounts["loyer"] = rental_amounts["loyer_total"]
+            rental_amounts["charges"] = 0
 
         data = {
             **self.scrap_common(annonce),

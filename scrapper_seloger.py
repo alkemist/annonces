@@ -43,7 +43,7 @@ class ScrapperSeloger(Scrapper):
         }
 
     def detect_captcha(self) -> bool:
-        print(f"[{self.type}] Vérification de la présence d'un CAPTCHA...")
+        # print(f"[{self.type}] Vérification de la présence d'un CAPTCHA...")
         return self.page.title() == "seloger.com"
 
     def scrap(self, el):
@@ -82,7 +82,7 @@ class ScrapperSeloger(Scrapper):
                 "site": self.type,
                 "meuble": None,
                 "classe": extract_energy_class_info([classe_dpe]),
-                "url": url,
+                "url": url.split("?", 1)[0],
                 "date_update": now_str,
             }
 

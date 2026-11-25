@@ -637,7 +637,11 @@ if __name__ == "__main__":
         "columns_number": ["distance", "surface", "pieces", "loyer", "charges", "loyer_total", "depot", "frais_agence", "etage", "chambres", "salles_de_bain", "étages_total", "année"],
         "columns_select": ["ville", "ascenseur", "balcon", "chauffage_type", "chauffage_mod", "parking", "classe", "site", "meuble", "type", "type_annonceur"],
         "columns_nowrap": ["url", "titre", "annonceur"],
-        "initial_sort": [{"column": "distance", "dir": "asc"}],
+        # Tabulator donne la priorité au dernier critère de tri.
+        "initial_sort": [
+            {"column": "loyer_total", "dir": "asc"},
+            {"column": "distance", "dir": "asc"},
+        ],
     }
 
     config_data = {
@@ -646,7 +650,7 @@ if __name__ == "__main__":
                 "path": "annonces_neuville.csv",
                 "groups": ["ville"],
                 "default_filters": {
-                    "pieces": "> 1",
+                    "pieces": "> 2",
                 },
                 **config_shared,
             },
