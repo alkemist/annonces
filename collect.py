@@ -9,7 +9,6 @@ from pathlib import Path
 
 import pandas as pd
 
-from scrapper import PageBlockedError
 from scrapper_leboncoin import ScrapperLeboncoin
 from scrapper_pap import ScrapperPap
 from scrapper_bienici import ScrapperBienici
@@ -23,7 +22,7 @@ from utils import bool_or_none, clean_city, normalize_municipality, validate_bas
 
 OUTPUT_DIR = Path(__file__).resolve().parent
 SEARCHES = [
-    {"file_key": "neuville", "code_postal": "01400", "max_distance": 20, "base_location": (46.1546351,5.0019543)},
+    # {"file_key": "neuville", "code_postal": "01400", "max_distance": 20, "base_location": (46.1546351,5.0019543)},
     {"file_key": "tournus", "code_postal": "71700", "max_distance": 20, "base_location": (46.5679604,4.8612031)},
 ]
 
@@ -45,8 +44,8 @@ def build_configs(code_postal: str) -> list[dict]:
     ]
 
 TARGET_COLUMNS = [
-    "site", "titre", "ville", "distance", "meuble", "type", "surface", "pieces", "loyer",
-    "charges", "loyer_total", "depot", "frais_agence", "étage", "ascenseur",
+    "site", "titre", "ville", "distance", "meuble", "type", "surface", "pieces", "loyer_total", "loyer",
+    "charges", "depot", "frais_agence", "étage", "ascenseur",
     "chambres", "salles_de_bain", "balcon", "chauffage_type", "chauffage_mode",
     "parking", "classe", "étages_total", "année", "caracteristiques", "description",
     "annonceur", "type_annonceur", "url",
